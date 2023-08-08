@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Knapp Work</title>
+  <title>My Website</title>
   <!-- Add Bootstrap CSS link -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Custom CSS for your buttons and footer -->
+  <style>
+    .btn-orange {
+      background-color: orange;
+      border-color: black;
+      color: black; /* You can change the text color if needed */
+    }
+
+    .footer {
+      background-color: orange;
+      border: 2px solid black;
+      padding: 20px;
+      text-align: right;
+      color: black; /* You can change the text color if needed */
+    }
+
+    body {
+      background-image: url("path/to/your/background-image.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
 </head>
 <body>
   <!-- Your website content goes here -->
-  <h1>Hello, World!</h1>
+  <div class="buttons-section">
+    <button class="btn btn-outline-dark btn-lg btn-orange">Talk</button>
+    <button class="btn btn-outline-dark btn-lg btn-orange">Work</button>
+    <button class="btn btn-outline-dark btn-lg btn-orange">About</button>
+  </div>
+
+  <div class="footer">
+    <h3>Your Last Name</h3>
+    <p>Contact: your.email@example.com</p>
+  </div>
 
   <!-- Add Bootstrap JS and jQuery (if needed) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
