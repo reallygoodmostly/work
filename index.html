@@ -56,6 +56,17 @@
       background-color: darkorange;
       color: white;
     }*/
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 150, 0, 0.4);
+      z-index: -1;
+    }
     
     body {
       background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
