@@ -5,7 +5,7 @@
   <!-- Add Bootstrap CSS link -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-  <!-- Custom CSS for your buttons and footer -->
+  <!-- Custom CSS for your buttons, footer, and cube effect -->
   <style>
     .page-container {
       display: flex;
@@ -16,7 +16,7 @@
     .btn-orange {
       background-color: orange;
       border-color: black;
-      color: black; /* You can change the text color if needed */
+      color: black;
     }
 
     .footer {
@@ -27,7 +27,7 @@
       position: absolute;
       bottom: 0;
       width: 100%;
-      color: black; /* You can change the text color if needed */
+      color: black;
     }
 
     .footer-content {
@@ -36,6 +36,26 @@
       align-items: center;
     }
 
+    .cube-button {
+      background-color: orange;
+      border: 2px solid black;
+      color: black;
+      padding: 10px 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .cube-button:hover {
+      transform: scale(1.1);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .cube-button.clicked {
+      transform: scale(1.2) translate(5px, -5px);
+      box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4);
+      background-color: darkorange;
+      color: white;
+    }
+    
     body {
       background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
       background-size: cover;
@@ -47,18 +67,20 @@
   <!--<div class="page-container">-->
 
   <!-- Your website content goes here -->
-<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-  <div class="buttons-section text-center">
-    <button class="btn btn-outline-dark btn-lg btn-orange mb-2">Talk</button>
-    <button class="btn btn-outline-dark btn-lg btn-orange mb-2">Work</button>
-    <button class="btn btn-outline-dark btn-lg btn-orange mb-2">About</button>
+
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="buttons-section text-center">
+      <button class="btn btn-outline-dark btn-lg btn-orange mb-2 cube-button" id="talk-button">Talk</button>
+      <button class="btn btn-outline-dark btn-lg btn-orange mb-2 cube-button" id="work-button">Work</button>
+      <button class="btn btn-outline-dark btn-lg btn-orange mb-2 cube-button" id="about-button">About</button>
+    </div>
   </div>
-</div>
 
   <div class="footer">
     <div class="footer-content">
-    <h3>KNAPPP</h3>
-    <p>knapp@fiasco.com</p>
+      <h3>KNAPPP</h3>
+      <p>knapp@fiasco.com</p>
+    </div>
   </div>
 <!--</div>-->
 
@@ -66,5 +88,18 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const buttons = document.querySelectorAll('.cube-button');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(otherButton => otherButton.classList.remove('clicked'));
+        button.classList.add('clicked');
+      });
+    });
+  </script>
 </body>
 </html>
+
+  
