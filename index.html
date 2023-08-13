@@ -46,10 +46,13 @@
     }
 
     @media (max-width: 767px) {
-    /* Styles for screens up to 767px wide (typical mobile devices) */
+    .buttons-section {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center; /* Center buttons horizontally */
+    }
+
     .cube-button {
-      font-size: 18px; /* Increase font size for better visibility */
-      padding: 12px 24px; /* Increase padding for larger touch area */
+      margin: 10px 0; /* Add some spacing between buttons */
     }
   }
 
