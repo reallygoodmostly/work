@@ -66,13 +66,21 @@
     }
 
       @keyframes backgroundAnimation {
-      250% {
+      0% {
         background-position: 0 0;
       }
       100% {
         background-position: -20px 40px; /* Adjust the values as needed */
       }
     }
+
+    @media (max-width: 767px) {
+    /* Styles for screens up to 767px wide (typical mobile devices) */
+    .cube-button {
+      font-size: 18px; /* Increase font size for better visibility */
+      padding: 12px 24px; /* Increase padding for larger touch area */
+    }
+  }
   </style>
 </head>
 <body>
