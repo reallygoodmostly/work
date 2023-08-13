@@ -45,6 +45,14 @@
       border-radius: 0;
     }
 
+    @media (max-width: 767px) {
+    /* Styles for screens up to 767px wide (typical mobile devices) */
+    .cube-button {
+      font-size: 18px; /* Increase font size for better visibility */
+      padding: 12px 24px; /* Increase padding for larger touch area */
+    }
+  }
+
     .cube-button:hover {
       transform: scale(1.1);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
@@ -74,13 +82,7 @@
       }
     }
 
-    @media (max-width: 767px) {
-    /* Styles for screens up to 767px wide (typical mobile devices) */
-    .cube-button {
-      font-size: 18px; /* Increase font size for better visibility */
-      padding: 12px 24px; /* Increase padding for larger touch area */
-    }
-  }
+    
   </style>
 </head>
 <body>
