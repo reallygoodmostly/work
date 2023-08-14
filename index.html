@@ -166,18 +166,19 @@
 
     // JavaScript interaction
 const talkButton = document.getElementById('talk-button');
-const expandedSection = document.querySelector('.expanded-talk-section');
-const backArrowButton = document.querySelector('.back-arrow');
+  const expandedSection = document.querySelector('.expanded-talk-section');
+  const backArrowButton = document.querySelector('.back-arrow');
+  const otherButtons = document.querySelectorAll('.cube-button:not(#talk-button)');
 
-talkButton.addEventListener('click', () => {
-  talkButton.style.display = 'none';
-  expandedSection.style.display = 'block';
-});
+  talkButton.addEventListener('click', () => {
+    otherButtons.forEach(button => button.style.display = 'none'); // Hide other buttons
+    expandedSection.style.display = 'flex'; // Show expanded section
+  });
 
-backArrowButton.addEventListener('click', () => {
-  talkButton.style.display = 'block';
-  expandedSection.style.display = 'none';
-});
+  backArrowButton.addEventListener('click', () => {
+    otherButtons.forEach(button => button.style.display = 'block'); // Show other buttons
+    expandedSection.style.display = 'none'; // Hide expanded section
+  });
   </script>
 </body>
 </html>
