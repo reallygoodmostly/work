@@ -7,11 +7,23 @@
 
   <!-- Custom CSS for your buttons, footer, and cube effect -->
   <style>
+
     .page-container {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    .content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-container.expanded {
+  flex-direction: row;
+  align-items: flex-start;
+}
 
     .btn-orange {
       background-color: orange;
@@ -62,15 +74,7 @@
       transform: scale(1.1);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
     }
-
-    /*.cube-button.clicked {
-      transform: scale(1.2) translate(5px, -5px);
-      box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4);
-      background-color: darkorange;
-      color: white;
-    }*/  
-
-/* Styles for expanded talk section */
+ 
 .expanded-talk-section {
   display: none; /* Initially hidden */
   /* Add positioning, background color, and other styles */
@@ -86,6 +90,10 @@
 }
 
 .back-arrow {
+  background-color: orange;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 10px;
   /* Style the back arrow button */
 }
 
@@ -115,6 +123,7 @@
 
   <!-- Your website content goes here -->
 
+<div class="content-container">
   <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="buttons-section text-center">
       <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</button>
@@ -123,11 +132,13 @@
     </div>
   </div>
 
+
   <!-- Expanded Talk Section -->
 <div class="expanded-talk-section">
   <div class="orange-box">Contact Info 1</div>
   <div class="orange-box">Contact Info 2</div>
   <button class="back-arrow">&larr; Back</button>
+</div>
 </div>
 
   <div class="footer">
