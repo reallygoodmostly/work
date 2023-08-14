@@ -15,15 +15,16 @@
     }
 
     .content-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
 
-.content-container.expanded {
-  flex-direction: row;
-  align-items: flex-start;
-}
+    .content-container.expanded {
+      flex-direction: row;
+      align-items: flex-start;
+    }
 
     .btn-orange {
       background-color: orange;
@@ -58,27 +59,31 @@
     }
 
     @media (max-width: 767px) {
-    .buttons-section {
-      display: flex;        /* Lay out each item using flex layout */
-      flex-flow: column;    /* Lay out item’s contents vertically  */
-      align-items: center; /* Center buttons horizontally */
-    }
+      .buttons-section {
+        display: flex;        /* Lay out each item using flex layout */
+        flex-flow: column;    /* Lay out item’s contents vertically  */
+        align-items: center; /* Center buttons horizontally */
+      }
 
-    .cube-button {
-      margin: 0 10px; /* Add some spacing between buttons */
+      .cube-button {
+        margin: 0 10px; /* Add some spacing between buttons */
 
+      }
     }
-  }
 
     .cube-button:hover {
       transform: scale(1.1);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
     }
- 
-.expanded-talk-section {
-  display: none; /* Initially hidden */
-  /* Add positioning, background color, and other styles */
-}
+
+    .expanded-talk-section {
+      display: none; /* Initially hidden */
+      flex-direction: row; /* Lay out items side by side */
+      justify-content: space-between; /* Distribute items evenly */
+      align-items: center; /* Center items vertically */
+      width: 100%; /* Occupy full width */
+      /* Add positioning, background color, and other styles */
+    }
 
 /* Styles for the orange boxes and back arrow */
 .orange-box {
@@ -97,14 +102,12 @@
   /* Style the back arrow button */
 }
 
-    body {
-      background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
-      background-size: cover;
-      background-repeat: repeat;
-      animation: backgroundAnimation 90s infinite alternate linear;
-
-
-    }
+body {
+  background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
+  background-size: cover;
+  background-repeat: repeat;
+  animation: backgroundAnimation 90s infinite alternate linear;
+}
 
       /* @keyframes backgroundAnimation {
       0% {
@@ -121,66 +124,68 @@
 <body>
   <!--<div class="page-container">-->
 
-  <!-- Your website content goes here -->
+    <!-- Your website content goes here -->
 
-<div class="content-container">
-  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="buttons-section text-center">
-      <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</button>
-      <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
-      <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
+    <div class="content-container">
+      <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="buttons-section text-center">
+          <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</button>
+          <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
+          <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
+        </div>
+      </div>
+
+
+      <!-- Expanded Talk Section -->
+      <div class="expanded-talk-section">
+        <div class="orange-box">Contact Info 1</div>
+        <div class="orange-box">Contact Info 2</div>
+        <button class="back-arrow">&larr; Back</button>
+      </div>
     </div>
-  </div>
 
-
-  <!-- Expanded Talk Section -->
-<div class="expanded-talk-section">
-  <div class="orange-box">Contact Info 1</div>
-  <div class="orange-box">Contact Info 2</div>
-  <button class="back-arrow">&larr; Back</button>
-</div>
-</div>
-
-  <div class="footer">
-    <div class="footer-content">
-      <h3>KNAPPP</h3>
-      <p>knapp@fiasco.com</p>
+    <div class="footer">
+      <div class="footer-content">
+        <h3>KNAPPP</h3>
+        <p>knapp@fiasco.com</p>
+      </div>
     </div>
-  </div>
-<!--</div>-->
+    <!--</div>-->
 
-  <!-- Add Bootstrap JS and jQuery (if needed) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add Bootstrap JS and jQuery (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script>
-    const buttons = document.querySelectorAll('.cube-button');
+    <script>
+      const buttons = document.querySelectorAll('.cube-button');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        buttons.forEach(otherButton => otherButton.classList.remove('clicked'));
-        button.classList.add('clicked');
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          buttons.forEach(otherButton => otherButton.classList.remove('clicked'));
+          button.classList.add('clicked');
+        });
       });
-    });
 
     // JavaScript interaction
-const talkButton = document.getElementById('talk-button');
-  const expandedSection = document.querySelector('.expanded-talk-section');
-  const backArrowButton = document.querySelector('.back-arrow');
-  const otherButtons = document.querySelectorAll('.cube-button:not(#talk-button)');
+      const talkButton = document.getElementById('talk-button');
+      const expandedSection = document.querySelector('.expanded-talk-section');
+      const backArrowButton = document.querySelector('.back-arrow');
+      const otherButtons = document.querySelectorAll('.cube-button:not(#talk-button)');
 
-  talkButton.addEventListener('click', () => {
-    otherButtons.forEach(button => button.style.display = 'none'); // Hide other buttons
-    expandedSection.style.display = 'flex'; // Show expanded section
-  });
+      talkButton.addEventListener('click', () => {
+       talkButton.style.display = 'none';
+  expandedSection.style.display = 'flex'; // Display expanded talk section
+  buttonsSection.style.display = 'none'; // Hide original buttons
+});
 
-  backArrowButton.addEventListener('click', () => {
+
+      backArrowButton.addEventListener('click', () => {
     otherButtons.forEach(button => button.style.display = 'block'); // Show other buttons
     expandedSection.style.display = 'none'; // Hide expanded section
   });
-  </script>
+</script>
 </body>
 </html>
 
-  
+
