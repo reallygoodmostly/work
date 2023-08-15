@@ -15,14 +15,53 @@
       animation: backgroundAnimation 90s infinite alternate linear;
     }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .box {
+      background-color: orange;
+      padding: 20px;
+      margin: 10px;
+      border: 2px solid black;
+      width: 70%;
+      text-align: center;
+      transform: translateZ(20px);
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .box p {
+      margin: 10px 0;
+    }
+
+    .box a {
+      color: black;
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <div class="container">
+  <div class="box">
+    <p>This is the first box with some text and <a href="#">link</a>.</p>
+    <p>More content goes here...</p>
+  </div>
+  <div class="box">
+    <p>This is the second box with some more text and <a href="#">another link</a>.</p>
+    <p>Additional content goes here...</p>
+  </div>
+</div>
 
-  
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>
