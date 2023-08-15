@@ -124,7 +124,7 @@ body {
   </style>
 </head>
 <body>
-  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.3</p>
+  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.4</p>
   <!--<div class="page-container">-->
 
     <!-- Your website content goes here -->
@@ -139,14 +139,6 @@ body {
       </div>
 
 
-      <!-- Expanded Talk Section -->
-      <div class="expanded-talk-section">
-        <div class="orange-box">Contact Info 1</div>
-        <div class="orange-box">Contact Info 2</div>
-        <button class="back-arrow">&larr; Back</button>
-      </div>
-    </div>
-
     <div class="footer">
       <div class="footer-content">
         <h3>KNAPPP</h3>
@@ -160,34 +152,7 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-      const buttons = document.querySelectorAll('.cube-button');
-
-      buttons.forEach(button => {
-        button.addEventListener('click', () => {
-          buttons.forEach(otherButton => otherButton.classList.remove('clicked'));
-          button.classList.add('clicked');
-        });
-      });
-
-    // JavaScript interaction
-      const talkButton = document.getElementById('talk-button');
-      const expandedSection = document.querySelector('.expanded-talk-section');
-      const backArrowButton = document.querySelector('.back-arrow');
-      const otherButtons = document.querySelectorAll('.cube-button:not(#talk-button)');
-
-      talkButton.addEventListener('click', () => {
-       talkButton.style.display = 'none';
-  expandedSection.style.display = 'flex'; // Display expanded talk section
-  buttons-section.style.display = 'none'; // Hide original buttons
-});
-
-
-      backArrowButton.addEventListener('click', () => {
-    otherButtons.forEach(button => button.style.display = 'block'); // Show other buttons
-    expandedSection.style.display = 'none'; // Hide expanded section
-  });
-</script>
+   
 </body>
 </html>
 
