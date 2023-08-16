@@ -15,7 +15,7 @@
       animation: backgroundAnimation 90s infinite alternate linear;
     }
 
-   @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@1,500&display=swap');
 
 
     .container {
@@ -48,15 +48,20 @@
     }
 
     .circle {
-      display: inline-block;
-      background-color: transparent;
-      border: 1px solid black;
-      border-radius: 50%;
-      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px; /* Adjust the width and height to create a circle */
+      height: 120px;
+      border: 2px solid orange;
+      border-radius: 50%; /* Set the border-radius to 50% for a circle */
+      margin-right: 20px; /* Add some spacing between the circle and the text */
+    }
+
+    .circle-text {
       font-family: 'Alumni Sans', sans-serif;
-      width: 80%; /* Adjust the width as needed */
-      height: 80%; /* Adjust the height as needed */
-      font-size: 3rem; /* Adjust the font size as needed */
+      font-size: 16px; /* Adjust the font size */
+      text-align: center;
     }
 
     .social-links {
@@ -82,7 +87,9 @@
   <div class="box">
     <div class="row">
       <div class="col-md-6">
-        <p><span class="circle">Say<br>Hello</span></p>
+        <div class="circle">
+          <span class="circle-text">Say<br>Hello</span>
+        </div>
       </div>
       <div class="col-md-6">
         <ul class="social-links">
