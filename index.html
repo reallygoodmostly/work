@@ -76,6 +76,30 @@
       width: 100%;
       position: absolute;
       bottom: 500px;
+      /* Add these styles to align circles horizontally or vertically */
+      flex-direction: row; /* Horizontal layout */
+      justify-content: space-between; /* Evenly space circles */
+      align-items: center; /* Center vertically */
+    }
+
+    .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: orange;
+      border: 2px solid black;
+      border-radius: 50%;
+      padding: 10px;
+      font-family: 'Alumni Sans', sans-serif;
+      font-size: 1rem;
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .orange-circle {
+      background-color: orange;
+      color: black;
     }
 
     .orange-box {
@@ -88,8 +112,23 @@
     .back-arrow {
       background-color: orange;
       border: 2px solid black;
-      padding: 20px;
+      padding: 10px 20px;
       margin: 10px;
+      font-family: 'Alumni Sans', sans-serif;
+    }
+
+    .footer-content h3.ticker {
+      animation: tickerAnimation 10s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes tickerAnimation {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     body {
@@ -109,6 +148,15 @@
         <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
         <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
       </div>
+      <div class="expanded-talk-section">
+        <div class="circle orange-circle">Social Link 1</div>
+        <div class="circle orange-circle">Social Link 2</div>
+        <div class="circle orange-circle">Social Link 3</div>
+        <div class="circle orange-circle">Social Link 4</div>
+        <div class="circle orange-circle">Social Link 5</div>
+        <button class="back-arrow">&larr; Back</button>
+      </div>
+
     </div>
     <div class="footer">
       <div class="footer-content">
@@ -120,5 +168,26 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    const talkButton = document.getElementById('talk-button');
+    const expandedSection = document.querySelector('.expanded-talk-section');
+    const backArrowButton = document.querySelector('.back-arrow');
+    const footer = document.querySelector('.footer-content h3');
+    const tickerText = "knapp@hi.com";
+
+    talkButton.addEventListener('click', () => {
+      talkButton.style.display = 'none';
+      expandedSection.style.display = 'flex';
+      footer.textContent = tickerText;
+      footer.classList.add('ticker');
+    });
+
+    backArrowButton.addEventListener('click', () => {
+      talkButton.style.display = 'block';
+      expandedSection.style.display = 'none';
+      footer.textContent = 'KNAPPP';
+      footer.classList.remove('ticker');
+    });
+  </script>
 </body>
 </html>
