@@ -117,18 +117,44 @@
       font-family: 'Alumni Sans', sans-serif;
     }
 
-    .footer-content h3.ticker {
-      animation: tickerAnimation 10s linear infinite;
-      white-space: nowrap;
+    .social-link {
+      display: inline-block;
+      background-color: orange;
+      border: 2px solid black;
+      border-radius: 50%;
+      width: 60px; /* Adjust the width as needed */
+      height: 60px; /* Adjust the height as needed */
+      margin: 10px;
+      text-align: center;
+      line-height: 60px; /* Center the text vertically */
+      font-size: 18px; /* Adjust the font size as needed */
+      color: black;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    @keyframes tickerAnimation {
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative; /* Make the ticker container relative */
+      overflow: hidden; /* Hide overflowing text */
+      white-space: nowrap; /* Prevent text from wrapping */
+    }
+
+    @keyframes textTicker {
       0% {
-        transform: translateX(100%);
+        transform: translateX(100%); /* Start off-screen to the right */
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-100%); /* Scroll to the left */
       }
+    }
+
+    .text-ticker {
+      position: absolute; /* Position the ticker absolutely */
+      white-space: nowrap; /* Prevent text from wrapping */
+      animation: textTicker 10s linear infinite; /* Apply the animation */
     }
 
     body {
@@ -140,7 +166,7 @@
   </style>
 </head>
 <body>
-  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.2</p>
+  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.3</p>
   <div class="content-container">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="buttons-section text-center">
@@ -149,13 +175,16 @@
         <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
       </div>
       <div class="expanded-talk-section">
-        <div class="circle orange-circle">Social Link 1</div>
-        <div class="circle orange-circle">Social Link 2</div>
-        <div class="circle orange-circle">Social Link 3</div>
-        <div class="circle orange-circle">Social Link 4</div>
-        <div class="circle orange-circle">Social Link 5</div>
-        <button class="back-arrow">&larr; Back</button>
+        <div class="social-links">
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Medium</a>
+          <a href="#" class="social-link">Arena</a>
+          <a href="#" class="social-link">IG</a>
+          <a href="#" class="social-link">LinkedIn</a>
+        </div>
+        <div class="back-arrow">&larr; Back</div>
       </div>
+
 
     </div>
     <div class="footer">
@@ -169,29 +198,48 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-   const talkButton = document.getElementById('talk-button');
-   const expandedSection = document.querySelector('.expanded-talk-section');
-   const backArrowButton = document.querySelector('.back-arrow');
-   const workButton = document.getElementById('work-button');
-   const aboutButton = document.getElementById('about-button');
+  // JavaScript interaction
+    const talkButton = document.getElementById('talk-button');
+    const expandedSection = document.querySelector('.expanded-talk-section');
+    const backArrowButton = document.querySelector('.back-arrow');
 
-   talkButton.addEventListener('click', () => {
-    talkButton.style.display = 'none';
-    expandedSection.style.display = 'block';
-    workButton.style.display = 'none'; // Hide Work button
-    aboutButton.style.display = 'none'; // Hide About button
-    footerContent.innerHTML = "knapp@hi.com"; // Change footer text
-    startTextTicker(); // Start the text ticker animation
-  });
+    talkButton.addEventListener('click', () => {
+  // Hide the buttons
+      const buttonsSection = document.querySelector('.buttons-section');
+      buttonsSection.style.display = 'none';
 
-   backArrowButton.addEventListener('click', () => {
-    talkButton.style.display = 'block';
-    expandedSection.style.display = 'none';
-    workButton.style.display = 'block'; // Show Work button
-    aboutButton.style.display = 'block'; // Show About button
-    footerContent.innerHTML = "KNAPPP"; // Change footer text back to default
-    stopTextTicker(); // Stop the text ticker animation
-  });
+  // Show the expanded section
+      expandedSection.style.display = 'flex';
+
+  // Start the text ticker
+      startTextTicker();
+    });
+
+    backArrowButton.addEventListener('click', () => {
+  // Show the buttons
+      const buttonsSection = document.querySelector('.buttons-section');
+      buttonsSection.style.display = 'flex';
+
+  // Hide the expanded section
+      expandedSection.style.display = 'none';
+    });
+
+// Function to start the text ticker
+    function startTextTicker() {
+      const footerContent = document.querySelector('.footer-content');
+  const emailText = 'knapp@hi.com'; // Your email text
+
+  const textTicker = document.createElement('div');
+  textTicker.classList.add('text-ticker');
+  textTicker.textContent = emailText;
+  footerContent.appendChild(textTicker);
+
+  const tickerWidth = textTicker.offsetWidth;
+  const animationDuration = tickerWidth / 100; // Adjust the duration as needed
+
+  textTicker.style.animation = `scrollText ${animationDuration}s linear infinite`;
+}
+
 </script>
 </body>
 </html>
