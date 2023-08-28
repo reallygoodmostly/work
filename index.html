@@ -7,13 +7,6 @@
 
   <!-- Custom CSS for your buttons, footer, and cube effect -->
   <style>
-
-    .page-container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
     .content-container {
       display: flex;
       flex-direction: column;
@@ -60,14 +53,13 @@
 
     @media (max-width: 767px) {
       .buttons-section {
-        display: flex;        /* Lay out each item using flex layout */
-        flex-flow: column;    /* Lay out item’s contents vertically  */
-        align-items: center; /* Center buttons horizontally */
+        display: flex;
+        flex-flow: column;
+        align-items: center;
       }
 
       .cube-button {
-        margin: 0 10px; /* Add some spacing between buttons */
-
+        margin: 0 10px;
       }
     }
 
@@ -77,84 +69,56 @@
     }
 
     .expanded-talk-section {
-      display: none; /* Initially hidden */
-      flex-direction: row; /* Lay out items side by side */
-      justify-content: space-between; /* Distribute items evenly */
-      align-items: center; /* Center items vertically */
-      width: 100%; /* Occupy full width */
+      display: none;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
       position: absolute;
       bottom: 500px;
-      /* Add positioning, background color, and other styles */
     }
 
-/* Styles for the orange boxes and back arrow */
-.orange-box {
-  background-color: orange;
-  border: 2px solid black;
-  padding: 20px;
-  margin: 10px;
-  /* Add other styling properties */
-}
+    .orange-box {
+      background-color: orange;
+      border: 2px solid black;
+      padding: 20px;
+      margin: 10px;
+    }
 
-.back-arrow {
-  background-color: orange;
-  border: 2px solid black;
-  padding: 20px;
-  margin: 10px;
-  /* Style the back arrow button */
-}
+    .back-arrow {
+      background-color: orange;
+      border: 2px solid black;
+      padding: 20px;
+      margin: 10px;
+    }
 
-body {
-  background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
-  background-size: cover;
-  background-repeat: repeat;
-  animation: backgroundAnimation 90s infinite alternate linear;
-}
-
-      /* @keyframes backgroundAnimation {
-      0% {
-        background-position: 0 0;
-      }
-      100% {
-        background-position: -20px 40px; /* Adjust the values as needed 
-      } 
-    } */
-
-    
+    body {
+      background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
+      background-size: cover;
+      background-repeat: repeat;
+      animation: backgroundAnimation 90s infinite alternate linear;
+    }
   </style>
 </head>
 <body>
   <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.9</p>
-  <!--<div class="page-container">-->
-
-    <!-- Your website content goes here -->
-
-    <div class="content-container">
-      <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="buttons-section text-center">
-          <a href="talk.html" class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</a>
-
-          <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
-          <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
-        </div>
+  <div class="content-container">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+      <div class="buttons-section text-center">
+        <a href="talk.html" class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</a>
+        <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
+        <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
       </div>
-
-
+    </div>
     <div class="footer">
       <div class="footer-content">
         <h3>KNAPPP</h3>
         <p>knapp@fiasco.com</p>
       </div>
     </div>
-    <!--</div>-->
-
-    <!-- Add Bootstrap JS and jQuery (if needed) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-   
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
