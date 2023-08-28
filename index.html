@@ -47,6 +47,7 @@
       border: 2px solid black;
       color: black;
       padding: 10px 20px;
+      margin: 0 15px; /* Add more spacing between buttons */
       transition: transform 0.3s, box-shadow 0.3s;
       border-radius: 0;
     }
@@ -166,7 +167,7 @@
   </style>
 </head>
 <body>
-  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.4</p>
+  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.5</p>
   <div class="content-container">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="buttons-section text-center">
@@ -225,19 +226,13 @@
     });
 
 // Function to start the text ticker
-    function startTextTicker() {
-      const footerContent = document.querySelector('.footer-content');
-  const emailText = 'knapp@hi.com'; // Your email text
-
-  const textTicker = document.createElement('div');
-  textTicker.classList.add('text-ticker');
-  textTicker.textContent = emailText;
-  footerContent.appendChild(textTicker);
-
-  const tickerWidth = textTicker.offsetWidth;
-  const animationDuration = tickerWidth / 100; // Adjust the duration as needed
-
-  textTicker.style.animation = `scrollText ${animationDuration}s linear infinite`;
+  function startTextTicker() {
+  const footerContent = document.querySelector('.footer-content');
+  const email = 'knapp@hi.com';
+  const ticker = document.createElement('div');
+  ticker.textContent = email;
+  ticker.className = 'text-ticker';
+  footerContent.appendChild(ticker);
 }
 
 </script>
