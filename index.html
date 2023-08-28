@@ -140,7 +140,7 @@
   </style>
 </head>
 <body>
-  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.1</p>
+  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.2</p>
   <div class="content-container">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
       <div class="buttons-section text-center">
@@ -169,25 +169,29 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
-    const talkButton = document.getElementById('talk-button');
-    const expandedSection = document.querySelector('.expanded-talk-section');
-    const backArrowButton = document.querySelector('.back-arrow');
-    const footer = document.querySelector('.footer-content h3');
-    const tickerText = "knapp@hi.com";
+   const talkButton = document.getElementById('talk-button');
+   const expandedSection = document.querySelector('.expanded-talk-section');
+   const backArrowButton = document.querySelector('.back-arrow');
+   const workButton = document.getElementById('work-button');
+   const aboutButton = document.getElementById('about-button');
 
-    talkButton.addEventListener('click', () => {
-      talkButton.style.display = 'none';
-      expandedSection.style.display = 'flex';
-      footer.textContent = tickerText;
-      footer.classList.add('ticker');
-    });
+   talkButton.addEventListener('click', () => {
+    talkButton.style.display = 'none';
+    expandedSection.style.display = 'block';
+    workButton.style.display = 'none'; // Hide Work button
+    aboutButton.style.display = 'none'; // Hide About button
+    footerContent.innerHTML = "knapp@hi.com"; // Change footer text
+    startTextTicker(); // Start the text ticker animation
+  });
 
-    backArrowButton.addEventListener('click', () => {
-      talkButton.style.display = 'block';
-      expandedSection.style.display = 'none';
-      footer.textContent = 'KNAPPP';
-      footer.classList.remove('ticker');
-    });
-  </script>
+   backArrowButton.addEventListener('click', () => {
+    talkButton.style.display = 'block';
+    expandedSection.style.display = 'none';
+    workButton.style.display = 'block'; // Show Work button
+    aboutButton.style.display = 'block'; // Show About button
+    footerContent.innerHTML = "KNAPPP"; // Change footer text back to default
+    stopTextTicker(); // Stop the text ticker animation
+  });
+</script>
 </body>
 </html>
