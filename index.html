@@ -78,32 +78,35 @@
 }
 
 #back-arrow {
+  position: relative;
+}
+
+.arrow-shaft {
+  width: 60px;
+  height: 10px;
+  background-color: #E17918;
+  position: absolute;
+  left: 0;
+  top: 15px;
+}
+
+.arrow-head {
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-bottom: 40px solid #E17918;
-  border-top: 0;
-  position: relative;
-  cursor: pointer;
-}
-
-#back-arrow:after {
-  content: "";
   position: absolute;
-  top: -1px;
-  left: -21px;
-  right: -21px;
-  bottom: 0;
-  border-left: 21px solid transparent;
-  border-right: 21px solid transparent;
-  border-bottom: 41px solid black;
-  z-index: -1;
+  left: 60px;
+  top: 0;
 }
 
-#back-arrow:hover {
-  border-bottom: 40px solid #D76A00; /* Slightly darkened shade of orange */
+#back-arrow:hover .arrow-shaft,
+#back-arrow:hover .arrow-head {
+  background-color: #f09d33;
+  border-bottom-color: #f09d33;
 }
+
 
 
 
@@ -125,7 +128,10 @@
       <div class="social-icon linkedin">L</div>
       <div class="social-icon instagram">I</div>
     </div>
-    <div id="back-arrow" class="hidden"></div>
+    <div id="back-arrow">
+      <div class="arrow-shaft"></div>
+      <div class="arrow-head"></div>
+    </div>
   </div>
 
 
