@@ -1,240 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Work</title>
-  <!-- Add Bootstrap CSS link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-  <!-- Custom CSS for your buttons, footer, and cube effect -->
+  <meta charset="UTF-8">
+  <title>Your Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .content-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .content-container.expanded {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-
-    .btn-orange {
-      background-color: orange;
-      border-color: black;
-      color: black;
-    }
-
-    .footer {
-      background-color: orange;
-      border: 2px solid black;
-      padding: 20px;
-      text-align: right;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      color: black;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .cube-button {
-      background-color: orange;
-      border: 2px solid black;
-      color: black;
-      padding: 10px 20px;
-      margin: 0 15px; /* Add more spacing between buttons */
-      transition: transform 0.3s, box-shadow 0.3s;
-      border-radius: 0;
-    }
-
-    @media (max-width: 767px) {
-      .buttons-section {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-      }
-
-      .cube-button {
-        margin: 0 10px;
-      }
-    }
-
-    .cube-button:hover {
-      transform: scale(1.1);
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
-    }
-
-    .expanded-talk-section {
-      display: none;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      position: absolute;
-      bottom: 500px;
-      /* Add these styles to align circles horizontally or vertically */
-      flex-direction: row; /* Horizontal layout */
-      justify-content: space-between; /* Evenly space circles */
-      align-items: center; /* Center vertically */
-    }
-
-    .circle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: orange;
-      border: 2px solid black;
-      border-radius: 50%;
-      padding: 10px;
-      font-family: 'Alumni Sans', sans-serif;
-      font-size: 1rem;
-      width: 60px;
-      height: 60px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .orange-circle {
-      background-color: orange;
-      color: black;
-    }
-
-    .orange-box {
-      background-color: orange;
-      border: 2px solid black;
-      padding: 20px;
-      margin: 10px;
-    }
-
-    .back-arrow {
-      background-color: orange;
-      border: 2px solid black;
-      padding: 10px 20px;
-      margin: 10px;
-      font-family: 'Alumni Sans', sans-serif;
-    }
-
-    .social-link {
-      display: inline-block;
-      background-color: orange;
-      border: 2px solid black;
-      border-radius: 50%;
-      width: 60px; /* Adjust the width as needed */
-      height: 60px; /* Adjust the height as needed */
-      margin: 10px;
-      text-align: center;
-      line-height: 60px; /* Center the text vertically */
-      font-size: 18px; /* Adjust the font size as needed */
-      color: black;
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative; /* Make the ticker container relative */
-      overflow: hidden; /* Hide overflowing text */
-      white-space: nowrap; /* Prevent text from wrapping */
-    }
-
-    @keyframes textTicker {
-      0% {
-        transform: translateX(100%); /* Start off-screen to the right */
-      }
-      100% {
-        transform: translateX(-100%); /* Scroll to the left */
-      }
-    }
-
-    .text-ticker {
-      position: absolute; /* Position the ticker absolutely */
-      white-space: nowrap; /* Prevent text from wrapping */
-      animation: textTicker 10s linear infinite; /* Apply the animation */
-    }
-
-    body {
+    /* Custom CSS */
+   body {
       background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
       background-size: cover;
       background-repeat: repeat;
-      animation: backgroundAnimation 90s infinite alternate linear;
+    }
+    .custom-button {
+      border: 1px solid black;
+      background-color: #E17918;
+      transition: all 0.3s ease;
+    }
+    .custom-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .custom-footer {
+      border-top: 2px solid black;
+      background-color: #E17918;
     }
   </style>
 </head>
 <body>
-  <p style="text-align: center; background-color: yellow; padding: 5px;">Testing version: 0.8</p>
-  <div class="content-container">
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-      <div class="buttons-section text-center">
-        <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="talk-button">Talk</button>
-        <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="work-button">Work</button>
-        <button class="btn btn-outline-dark btn-lg btn-orange mb-3 cube-button" id="about-button">About</button>
-      </div>
-      <div class="expanded-talk-section">
-        <div class="social-links">
-          <a href="#" class="social-link">Twitter</a>
-          <a href="#" class="social-link">Medium</a>
-          <a href="#" class="social-link">Arena</a>
-          <a href="#" class="social-link">IG</a>
-          <a href="#" class="social-link">LinkedIn</a>
-        </div>
-        <div class="back-arrow">&larr; Back</div>
-      </div>
-
-
-    </div>
-    <div class="footer">
-      <div class="footer-content">
-        <h3 class="text-ticker">KNAPPP</h3>
-        <p>knapp@hi.com</p>
-      </div>
+  <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+    <!-- Buttons -->
+    <div class="d-flex flex-column flex-md-row justify-content-between mb-3">
+      <button class="btn custom-button mb-2 mb-md-0 me-md-2">Talk</button>
+      <button class="btn custom-button mb-2 mb-md-0 me-md-2">Work</button>
+      <button class="btn custom-button mb-2 mb-md-0">About</button>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script>
-  // JavaScript interaction
-    const talkButton = document.getElementById('talk-button');
-    const expandedSection = document.querySelector('.expanded-talk-section');
-    const backArrowButton = document.querySelector('.back-arrow');
 
-    talkButton.addEventListener('click', () => {
-  // Hide the buttons
-      const buttonsSection = document.querySelector('.buttons-section');
-      buttonsSection.style.display = 'none';
+  <!-- Footer -->
+  <footer class="custom-footer text-center py-2">
+    <p class="mb-0 text-uppercase">Knapp</p>
+  </footer>
 
-  // Show the expanded section
-      expandedSection.style.display = 'flex';
-
-  // Start the text ticker
-      startTextTicker();
-    });
-
-    backArrowButton.addEventListener('click', () => {
-  // Show the buttons
-      const buttonsSection = document.querySelector('.buttons-section');
-      buttonsSection.style.display = 'flex';
-
-  // Hide the expanded section
-      expandedSection.style.display = 'none';
-    });
-
-// Function to start the text ticker
-  function startTextTicker() {
-  const footerContent = document.querySelector('.footer-content');
-  const email = 'knapp@hi.com';
-  const ticker = document.createElement('div');
-  ticker.textContent = email;
-  ticker.className = 'text-ticker';
-  footerContent.appendChild(ticker);
-}
-
-</script>
+  <!-- Bootstrap Scripts (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
