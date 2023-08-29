@@ -54,12 +54,17 @@
     background-color: #E17918;
     text-align: center;
     line-height: 50px;
-    font-size: 24px;
+    font-size: 3rem;
     margin: 5px;
     transition: all 0.5s ease;
     /* 3D flair */
     box-shadow: 0px 0px 5px #000;
     transform: perspective(600px) rotateX(0deg) rotateY(0deg);
+  }
+
+  .social-icon:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   }
 
 
@@ -114,9 +119,10 @@
 
 @media (max-width: 767px) {
   .social-icon {
-    width: 30px;
-    height: 30px;
-  }
+   font-size: 1.5rem;  /* Slightly larger icons */
+   width: 3rem;  /* Update to keep proportionate to text */
+   height: 3rem;
+ }
 }
 
 @media (min-width: 768px) {
@@ -139,9 +145,9 @@
       <button class="btn custom-button mb-4 mb-md-0 me-md-4">About</button> <!-- Bootstrap margin classes -->
     </div>
     <div id="social-media-popup" class="hidden d-flex flex-column flex-md-row justify-content-between mb-3">
-      <div class="social-icon twitter">Twitter</div>
-      <div class="social-icon linkedin">Medium</div>
-      <div class="social-icon instagram">Instagram</div>
+      <div class="social-icon twitter">T</div>
+      <div class="social-icon linkedin">L</div>
+      <div class="social-icon instagram">I</div>
     </div>
     <div id="back-arrow" class="hidden"></div>
   </div>
