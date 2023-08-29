@@ -97,12 +97,8 @@
     <p class="mb-0 text-uppercase">Knapp</p>
   </footer>
 
-  <!-- Bootstrap Scripts (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
-
-  <script>
-    document.querySelector('.btn.custom-button').addEventListener('click', function() {
+<script>
+    document.querySelector('.d-flex > .btn.custom-button:nth-child(1)').addEventListener('click', function() {
       const popup = document.getElementById('social-media-popup');
       popup.classList.remove('hidden');
       
@@ -115,6 +111,11 @@
   // playSound();
     });
   </script>
+
+  <!-- Bootstrap Scripts (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
