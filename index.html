@@ -92,7 +92,7 @@
     </div>
   </div>
 
-  <div id="social-media-popup" class="d-flex flex-column flex-md-row justify-content-between mb-3 hidden">
+  <div id="social-media-popup" class="hidden d-flex flex-column flex-md-row justify-content-between mb-3">
     <div class="social-icon twitter">T</div>
     <div class="social-icon linkedin">L</div>
     <div class="social-icon instagram">I</div>
@@ -105,23 +105,18 @@
   </footer>
 
   <script>
-   document.querySelector('.d-flex > .btn.custom-button:nth-child(1)').addEventListener('click', function() {
-  // Hide the original buttons
-    const originalButtons = document.getElementById('original-buttons');
-    originalButtons.classList.add('hidden');
-
-  // Show the social media icons
+   document.querySelector('.btn.custom-button').addEventListener('click', function() {
     const popup = document.getElementById('social-media-popup');
     popup.classList.remove('hidden');
-    
+
+  // Hide the original buttons
+    document.getElementById('original-buttons').classList.add('hidden');  
     const icons = document.querySelectorAll('.social-icon');
     icons.forEach(icon => {
       icon.classList.add('show');
     });
-
-  // Optional: Add some extra flair, like a sound effect
-  // playSound();
   });
+
 
 </script>
 
