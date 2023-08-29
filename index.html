@@ -70,10 +70,11 @@
 }
 
 #social-media-popup {
-  position: absolute;
+  position: fixed;  /* Change from absolute to fixed */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10;  /* Add a z-index to make it overlay */
 }
 
 
