@@ -107,7 +107,7 @@
       <div class="social-icon linkedin">L</div>
       <div class="social-icon instagram">I</div>
     </div>
-    <div id="back-arrow"></div>
+    <div id="back-arrow" class="hidden"></div>
   </div>
 
 
@@ -125,7 +125,8 @@
      popup.classList.toggle('hidden');  
 
   // Toggle hiding the original buttons as well
-     document.getElementById('original-buttons').classList.toggle('hidden');  
+     document.getElementById('original-buttons').classList.toggle('hidden'); 
+     document.getElementById('back-arrow').classList.toggle('hidden');   
 
      const icons = document.querySelectorAll('.social-icon');
      icons.forEach(icon => {
