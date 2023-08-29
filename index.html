@@ -54,10 +54,11 @@
     border: 1px solid black;
     border-radius: 50%;
     background-color: #E17918;
-    text-align: center;
-    line-height: 10vw; 
-    font-size: calc(10vw / 2); /* Adjusts the font size in relation to the circle size */
-    margin: 1vw;  /* You might want to adjust this as well */
+    display: flex;  /* New */
+    align-items: center;  /* New */
+    justify-content: center;  /* New */
+    font-size: calc(10vw / 2.5);  /* Reduced size */
+    margin: 1vw;
     transition: all 0.1s ease, width 0.05s ease 0.3s;
     overflow: hidden;
     white-space: nowrap;
