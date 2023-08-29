@@ -77,28 +77,15 @@
 /*  z-index: 10;  /* Add a z-index to make it overlay */*/
 }
 
-.back-arrow:before,
-.back-arrow:after {
-  content: "";
-  position: absolute;
-  background-color: #000; /* Change color as needed */
-}
-
-/* Horizontal Line */
-.back-arrow:before {
-  width: 20px;
-  height: 2px;
-  top: 50%;
-  left: 5px;
-}
-
-/* Vertical Line */
-.back-arrow:after {
-  width: 2px;
-  height: 10px;
-  top: 50%;
-  left: 5px;
-  transform: rotate(45deg);
+#back-arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #000;  /* Change this to whatever color you want */
+  position: relative; /* or absolute, depending on your layout */
+  left: 0; /* Adjust as needed */
+  top: 0;  /* Adjust as needed */
 }
 
 
@@ -120,7 +107,7 @@
       <div class="social-icon linkedin">L</div>
       <div class="social-icon instagram">I</div>
     </div>
-    <div id="back-arrow" class="back-arrow"></div>
+    <div id="back-arrow"></div>
   </div>
 
 
