@@ -86,7 +86,7 @@
   <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
     <!-- Buttons -->
     <div id="original-buttons" class="d-flex flex-column flex-md-row justify-content-between mb-3">
-      <button class="btn custom-button mb-4 mb-md-0 me-md-4">Talk</button>  <!-- Bootstrap margin classes -->
+      <button id="talk-button" class="btn custom-button mb-4 mb-md-0 me-md-4">Talk</button>
       <button class="btn custom-button mb-4 mb-md-0 me-md-4">Work</button>  <!-- Bootstrap margin classes -->
       <button class="btn custom-button mb-4 mb-md-0 me-md-4">About</button> <!-- Bootstrap margin classes -->
     </div>
@@ -105,24 +105,27 @@
   </footer>
 
   <script>
-   document.querySelector('.btn.custom-button').addEventListener('click', function() {
-    const popup = document.getElementById('social-media-popup');
-    popup.classList.remove('hidden');
 
-  // Hide the original buttons
-    document.getElementById('original-buttons').classList.add('hidden');  
-    const icons = document.querySelectorAll('.social-icon');
-    icons.forEach(icon => {
-      icon.classList.add('show');
+    document.getElementById('talk-button').addEventListener('click', function() {
+      const popup = document.getElementById('social-media-popup');
+      popup.classList.toggle('hidden');  
+
+  // Toggle hiding the original buttons as well
+      document.getElementById('original-buttons').classList.toggle('hidden');  
+
+      const icons = document.querySelectorAll('.social-icon');
+      icons.forEach(icon => {
+        icon.classList.toggle('show');
+      });
     });
-  });
 
 
-</script>
 
-<!-- Bootstrap Scripts (optional) -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+  </script>
+
+  <!-- Bootstrap Scripts (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
 
 
 </body>
