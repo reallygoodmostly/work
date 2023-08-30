@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <meta charset="UTF-8">
   <title>Casey Knapp</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -63,6 +63,29 @@
     transform: perspective(600px) rotateX(20deg) rotateY(20deg);
   }
 
+  .social-icon:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 150px;  /* expanded width */
+  }
+
+  .initial {
+    display: inline;
+  }
+
+  .full-name {
+    display: none;
+  }
+
+  .social-icon:hover .initial {
+    display: none;
+  }
+
+  .social-icon:hover .full-name {
+    display: inline;
+  }
+
+
   @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -78,11 +101,19 @@
       <button class="btn custom-button mb-4 mb-md-0 me-md-4">Work</button>
       <button class="btn custom-button mb-4 mb-md-0 me-md-4">About</button>
     </div>
-
     <div id="social-media-popup" class="hidden d-flex flex-column flex-md-row justify-content-between mb-3">
-      <div class="social-icon twitter">T</div>
-      <div class="social-icon linkedin">L</div>
-      <div class="social-icon instagram">I</div>
+      <div class="social-icon twitter">
+        <span class="initial">T</span>
+        <span class="full-name">Twitter</span>
+      </div>
+      <div class="social-icon linkedin">
+        <span class="initial">L</span>
+        <span class="full-name">LinkedIn</span>
+      </div>
+      <div class="social-icon instagram">
+        <span class="initial">I</span>
+        <span class="full-name">Instagram</span>
+      </div>
     </div>
   </div>
 
