@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
   <title>Casey Knapp</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Alumni+Sans:wght@900&display=swap" rel="stylesheet">
 
-
   <style>
-
-
     body {
       background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
       background-size: cover;
@@ -30,8 +23,8 @@
     }
 
     .custom-button:hover {
-      transform: scale(1.1) translateY(-5px); /* Scale up and shift upward */
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Increased shadow for depth */
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .custom-footer {
@@ -48,174 +41,56 @@
   }
 
   .social-icon {
-    width: 80vw;
-    height: 80vh;
-    font-family: 'IBM Plex Mono', monospace; 
+    width: 3rem;
+    height: 3rem;
+    font-family: 'IBM Plex Mono', monospace;
     border: 1px solid black;
     border-radius: 50%;
     background-color: #E17918;
-    display: flex;  /* New */
-    align-items: center;  /* New */
-    justify-content: center;  /* New */
-    font-size: 2rem;  /* Reduced size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
     margin: 1vw;
-    transition: all 0.1s ease, width 0.05s ease 0.3s;
-    overflow: hidden;
-    white-space: nowrap;
+    transition: all 0.1s ease;
     box-shadow: 0px 0px 5px #000;
   }
 
-  .social-icon:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    width: 150px;  /* expanded width */
-  }
-
-  .initial {
-    display: inline;
-  }
-
-  .full-name {
-    display: none;
-  }
-
-  .social-icon:hover .initial {
-    display: none;
-  }
-
-  .social-icon:hover .full-name {
-    display: inline;
-  }
-
-
-/* Extra flair when visible */
-.social-icon.show {
-  animation: fadeIn 0.5s ease;
-  box-shadow: 0px 0px 15px #000;
-  transform: perspective(600px) rotateX(20deg) rotateY(20deg);
-}
-
-#social-media-popup {
-  position: fixed;  
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-/*  z-index: 10;  /* Add a z-index to make it overlay */*/
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-
-#back-arrow {
-  transform: rotate(-90deg);
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 39px solid #E17918;
-  border-top: 0;
-  position: relative;
-  cursor: pointer;
-}
-
-#back-arrow:after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: -21px;
-  right: -21px;
-  bottom: 0;
-  border-left: 21px solid transparent;
-  border-right: 21px solid transparent;
-  border-bottom: 41px solid black;
-  z-index: -1;
-}
-
-#back-arrow:hover {
-  border-bottom: 40px solid #D76A00; /* Slightly darkened shade of orange */
-}
-
-@media (max-width: 767px) {
-  .social-icon {
-   font-size: 1.5rem;  /* Slightly larger icons */
-   width: 3rem;  /* Update to keep proportionate to text */
-   height: 3rem;
- }
-}
-
-@media (min-width: 768px) {
-  .social-icon {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-</style>
+  </style>
 </head>
-
 <body>
-
   <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
-    <!-- Buttons -->
     <div id="original-buttons" class="d-flex flex-column flex-md-row justify-content-between mb-3">
       <button id="talk-button" class="btn custom-button mb-4 mb-md-0 me-md-4">Talk</button>
-      <button class="btn custom-button mb-4 mb-md-0 me-md-4">Work</button>  <!-- Bootstrap margin classes -->
-      <button class="btn custom-button mb-4 mb-md-0 me-md-4">About</button> <!-- Bootstrap margin classes -->
+      <button class="btn custom-button mb-4 mb-md-0 me-md-4">Work</button>
+      <button class="btn custom-button mb-4 mb-md-0 me-md-4">About</button>
     </div>
+
     <div id="social-media-popup" class="hidden d-flex flex-column flex-md-row justify-content-between mb-3">
-      <div class="social-icon twitter">
-        <span class="initial">T</span>
-        <span class="full-name">Twitter</span>
-      </div>
+      <div class="social-icon twitter">T</div>
       <div class="social-icon linkedin">L</div>
       <div class="social-icon instagram">I</div>
     </div>
-    <div id="back-arrow" class="hidden"></div>
   </div>
 
-
-
-  <!-- Footer -->
   <footer class="fixed-bottom custom-footer">
     <p class="mb-0 text-uppercase">Knapp</p>
   </footer>
 
   <script>
+    function toggleClasses(ids, className) {
+      ids.forEach(id => {
+        document.getElementById(id).classList.toggle(className);
+      });
+    }
 
     document.getElementById('talk-button').addEventListener('click', function() {
-     console.log('Talk button clicked!');
-     const popup = document.getElementById('social-media-popup');
-     popup.classList.toggle('hidden');  
-
-  // Toggle hiding the original buttons as well
-     document.getElementById('original-buttons').classList.toggle('hidden'); 
-     document.getElementById('back-arrow').classList.toggle('hidden');   
-
-     const icons = document.querySelectorAll('.social-icon');
-     icons.forEach(icon => {
-      icon.classList.toggle('show');
+      toggleClasses(['social-media-popup', 'original-buttons'], 'hidden');
     });
-   });
-
-    document.getElementById('back-arrow').addEventListener('click', function() {
-  // Toggle back to original buttons
-      document.getElementById('social-media-popup').classList.toggle('hidden');  
-      document.getElementById('original-buttons').classList.toggle('hidden');
-      document.getElementById('back-arrow').classList.toggle('hidden');   
-
-    });
-
-
-
   </script>
 
   <!-- Bootstrap Scripts (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
