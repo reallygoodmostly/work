@@ -68,21 +68,22 @@
     width: 150px;  /* expanded width */
   }
 
-  .initial {
-    display: inline;
-  }
+  .initial, .full-name {
+  transition: opacity 0.2s ease;
+}
 
-  .full-name {
-    display: none;
-  }
+.full-name {
+  opacity: 0;
+}
 
-  .social-icon:hover .initial {
-    display: none;
-  }
+.social-icon:hover .initial {
+  opacity: 0;
+}
 
-  .social-icon:hover .full-name {
-    display: inline;
-  }
+.social-icon:hover .full-name {
+  opacity: 1;
+}
+
 
 
   @keyframes fadeIn {
