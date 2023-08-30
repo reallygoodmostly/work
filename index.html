@@ -41,33 +41,36 @@
     display: none !important;
   }
 
-  .social-icon {
-    overflow: hidden;
-    width: 3rem;
-    height: 3rem;
-    font-family: 'IBM Plex Mono', monospace;
+    .social-icon {
+    width: 80vw;
+    height: 80vh;
+    font-family: 'IBM Plex Mono', monospace; 
     border: 1px solid black;
     border-radius: 50%;
     background-color: #E17918;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
+    display: flex;  /* New */
+    align-items: center;  /* New */
+    justify-content: center;  /* New */
+    font-size: 2rem;  /* Reduced size */
     margin: 1vw;
-    transition: all 0.5s ease, width 0.3s ease 0.5s;
+    transition: all 0.1s ease, width 0.05s ease 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
     box-shadow: 0px 0px 5px #000;
   }
+
 
   .social-icon.show {
     animation: fadeIn 1s ease;
     box-shadow: 0px 0px 15px #000;
   }
 
-  .social-icon:hover {
-    transform: perspective(600px) rotateX(20deg) rotateY(20deg) scale(1.1) translateY(-5px);
+   .social-icon:hover {
+    transform: scale(1.1) translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     width: 150px;  /* expanded width */
   }
+
 
   .initial, .full-name {
   transition: opacity 0.2s ease;
