@@ -65,6 +65,7 @@
     width: 100%;
     height: 100%;
     transition: width 0.3s ease 0.5s; 
+    flex-wrap: nowrap;  /* ensure items do not wrap */
   }
 
   .social-icon.show {
@@ -83,6 +84,9 @@
   }
 
   .initial, .full-name {
+    margin: 0;   /* remove default margin */
+    padding: 0;  /* remove default padding */
+    text-align: center;  /* center text */
     transition: opacity 0.2s ease;
   }
 
