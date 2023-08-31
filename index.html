@@ -152,7 +152,7 @@
         </div>
       </div>
     </div>
-    <svg id="arrow-icon" width="50" height="50" viewBox="0 0 50 50">
+    <svg id="arrow-icon" class="hidden" width="75" height="50" viewBox="0 0 50 50">
       <polygon points="20,10 40,25 20,40 20,30 10,30 10,20 20,20" fill="#E17918" stroke="black" stroke-width="1"/>
     </svg>
   </div>
@@ -170,7 +170,7 @@
     }
 
     document.getElementById('talk-button').addEventListener('click', function() {
-      toggleClasses(['social-media-popup', 'original-buttons'], 'hidden');
+      toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon'], 'hidden');
       const icons = document.querySelectorAll('.social-icon');
       icons.forEach(icon => {
         icon.classList.toggle('show');
