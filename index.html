@@ -197,11 +197,11 @@
 
   <script>
 
-    // function toggleClasses(ids, className) {
-    //   ids.forEach(id => {
-    //     document.getElementById(id).classList.toggle(className);
-    //   });
-    // }
+    function toggleClasses(ids, className) {
+      ids.forEach(id => {
+        document.getElementById(id).classList.toggle(className);
+      });
+    }
 
     document.getElementById('talk-button').addEventListener('click', function() {
       toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon', 'email-ticker', 'email-text'], 'hidden');
