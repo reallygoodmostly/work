@@ -171,15 +171,15 @@
 
     document.getElementById('talk-button').addEventListener('click', function() {
       toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon'], 'hidden');
+
       const icons = document.querySelectorAll('.social-icon');
-
-      document.getElementById('arrow-icon').addEventListener('click', function() {
-        toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon'], 'hidden');
-      });
-
       icons.forEach(icon => {
         icon.classList.toggle('show');
       });
+    });
+
+    document.getElementById('arrow-icon').addEventListener('click', function() {
+      toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon'], 'hidden');
     });
 
   </script>
