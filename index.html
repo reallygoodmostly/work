@@ -137,13 +137,23 @@
     font-weight: 300;
     line-height: 22px;
     text-transform: uppercase;
+    left: 0;
+    position: absolute;
 
   }
 
   .scrolling-text {
-    position: absolute; /* Absolutely position within .box */
-    bottom: 0; /* Start from the bottom */
-    animation: scroll-up 10s linear infinite; /* Scroll up over 10 seconds infinitely */
+    width: 90%; /* 90% of the box width, adjust as you like */
+    margin: 0 auto; /* centers the text block horizontally */
+    text-align: center; /* centers the text within the block */
+    overflow: hidden; /* hides overflow content */
+    position: relative; /* sets up for the inner text to move */
+  }
+
+  .scrolling-text span {
+    position: absolute;
+    white-space: nowrap; /* keeps text from wrapping to next line */
+    animation: scrolling 10s linear infinite;
   }
 
   @keyframes scroll-up {
@@ -198,7 +208,7 @@
     </div>
     <div class="aboutme-box hidden" id="aboutme-box">
       <div class="scrolling-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
       </div>
     </div>
   </div>
