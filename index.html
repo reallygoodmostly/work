@@ -124,39 +124,39 @@
   }
 
 
- .aboutme-box {
-  position: fixed;
-  width: 40vw;
-  height: 0; /* starts as a line */
-  left: 5vw;
-  top: 50%;
-  transform: translateY(-50%);
-  overflow-y: auto;
-  border: 1px solid black;
-  background-color: #E17918;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 22px;
-  text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
-}
+  .aboutme-box {
+    position: fixed;
+    width: 40vw;
+    height: 0; /* starts as a line */
+    left: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow-y: auto;
+    border: 1px solid black;
+    background-color: #E17918;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 22px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
 
-.aboutme-box.hidden {
-  height: 0;
-  overflow: hidden;
-}
+  .aboutme-box.hidden {
+    height: 0;
+    overflow: hidden;
+  }
 
-.aboutme-box.animate {
-  height: 40vh; /* end size */
-  width: 40vw;
-}
+  .aboutme-box.animate {
+    height: 40vh; /* end size */
+    width: 40vw;
+  }
 
-.scrolling-text {
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-}
+  .scrolling-text {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
 
 
 
@@ -201,10 +201,11 @@
       </div>
     </div>
     <div class="aboutme-box hidden" id="aboutme-box">
-      <div class="scrolling-text hidden">
+      <div class="scrolling-text">
         <span>HELLO,<br>I’M CASEY! NICE TO MEET YOU.<br>I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form.<br>I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
       </div>
     </div>
+
   </div>
 
   
@@ -235,15 +236,16 @@
     });
 
     document.getElementById('about-button').addEventListener('click', function() {
-      toggleClasses(['aboutme-box','scrolling-text'], 'hidden');
-
       const aboutMeBox = document.getElementById('aboutme-box');
       if (aboutMeBox.classList.contains('hidden')) {
-        aboutMeBox.classList.remove('animate');
-      } else {
+        aboutMeBox.classList.remove('hidden');
         aboutMeBox.classList.add('animate');
+      } else {
+        aboutMeBox.classList.add('hidden');
+        aboutMeBox.classList.remove('animate');
       }
     });
+
 
   </script>
 
