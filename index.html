@@ -152,11 +152,12 @@
 
   .scrolling-text span {
     position: absolute;
+    bottom: 0;
     white-space: nowrap; /* keeps text from wrapping to next line */
     animation: scrolling 10s linear infinite;
   }
 
-  @keyframes scroll-up {
+  @keyframes scrolling {
     from {
       bottom: 0;
     }
@@ -241,7 +242,7 @@
     });
 
     document.getElementById('about-button').addEventListener('click', function() {
-      toggleClasses(['aboutme-box'], 'hidden');
+      toggleClasses(['aboutme-box','scrolling-text'], 'hidden');
     });
 
   </script>
