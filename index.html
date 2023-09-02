@@ -125,8 +125,13 @@
 
 
   .aboutme-box {
-    width: 422px;
-    height: 412px;
+    position: fixed;
+    width: 40vw;  /* 40% of the viewport width */
+    height: 40vh; /* 40% of the viewport height */
+    left: 5vw;    /* 5% of the viewport width */
+    top: 50%;
+    transform: translateY(-50%);
+    overflow-y: auto;
     font-size: 1.5rem;  
     border: 1px solid black;
     background-color: #E17918;
@@ -137,9 +142,6 @@
     font-weight: 300;
     line-height: 22px;
     text-transform: uppercase;
-    left: 0;
-    position: absolute;
-
   }
 
   .scrolling-text {
@@ -208,7 +210,7 @@
     </div>
     <div class="aboutme-box hidden" id="aboutme-box">
       <div class="scrolling-text">
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        <span>HELLO,<br>I’M CASEY! NICE TO MEET YOU.<br>I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form.<br>I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
       </div>
     </div>
   </div>
