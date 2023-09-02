@@ -124,46 +124,40 @@
   }
 
 
-  .aboutme-box {
-    position: fixed;
-    width: 40vw;  /* 40% of the viewport width */
-    height: 40vh; /* 40% of the viewport height */
-    left: 5vw;    /* 5% of the viewport width */
-    top: 50%;
-    transform: translateY(-50%);
-    overflow-y: auto;
-    font-size: 1.5rem;  
-    border: 1px solid black;
-    background-color: #E17918;
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
-    line-height: 22px;
-    text-transform: uppercase;
-  }
+ .aboutme-box {
+  position: fixed;
+  width: 40vw;
+  height: 0; /* starts as a line */
+  left: 5vw;
+  top: 50%;
+  transform: translateY(-50%);
+  overflow-y: auto;
+  border: 1px solid black;
+  background-color: #E17918;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 22px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
 
-  .scrolling-text {
-    width: 90%; /* 90% of the box width, adjust as you like */
-    margin: 0 auto; /* centers the text block horizontally */
-    text-align: center; /* centers the text within the block */
-    overflow: hidden; /* hides overflow content */
-    position: relative; /* sets up for the inner text to move */
-  }
+.aboutme-box.hidden {
+  height: 0;
+  overflow: hidden;
+}
 
-  .scrolling-text span {
-    position: absolute;
-    bottom: 0;
-    white-space: nowrap; /* keeps text from wrapping to next line */
-    animation: scrolling 10s linear infinite;
-  }
+.aboutme-box.animate {
+  height: 40vh; /* end size */
+  width: 40vw;
+}
 
-  @keyframes scrolling {
-    from {
-      bottom: 0;
-    }
-    to {
-      bottom: 100%; /* The text will scroll the height of the .box */
-    }
-  }
+.scrolling-text {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
 
 </style>
@@ -242,6 +236,13 @@
 
     document.getElementById('about-button').addEventListener('click', function() {
       toggleClasses(['aboutme-box','scrolling-text'], 'hidden');
+
+      const aboutMeBox = document.getElementById('aboutme-box');
+      if (aboutMeBox.classList.contains('hidden')) {
+        aboutMeBox.classList.remove('animate');
+      } else {
+        aboutMeBox.classList.add('animate');
+      }
     });
 
   </script>
