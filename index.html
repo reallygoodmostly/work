@@ -236,22 +236,27 @@
     });
 
     document.getElementById('about-button').addEventListener('click', function() {
-      const aboutMeBox = document.getElementById('aboutme-box');
+      var aboutMeBox = document.getElementById('aboutme-box');
       if (aboutMeBox.classList.contains('hidden')) {
-        aboutMeBox.classList.remove('hidden');
-        aboutMeBox.classList.add('animate');
-      } else {
-        aboutMeBox.classList.add('hidden');
-        aboutMeBox.classList.remove('animate');
-      }
-    });
+    aboutMeBox.classList.remove('hidden'); // Remove hidden first
+    setTimeout(function() {
+      aboutMeBox.classList.add('animate');  // Then add animate
+    }, 10); // Set a small timeout before adding .animate
+  } else {
+    aboutMeBox.classList.remove('animate');  // Remove animate first
+    setTimeout(function() {
+      aboutMeBox.classList.add('hidden');  // Then add hidden
+    }, 300); // This should match the duration of your transition
+  }
+});
 
 
-  </script>
 
-  <!-- Bootstrap Scripts (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
+</script>
+
+<!-- Bootstrap Scripts (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>
