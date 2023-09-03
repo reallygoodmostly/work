@@ -253,25 +253,31 @@
 });
 
     document.getElementById('about-button').addEventListener('click', function() {
-      var aboutMeBox = document.getElementById('aboutme-box');
-      if (aboutMeBox.classList.contains('hidden')) {
-    aboutMeBox.classList.remove('hidden'); // Remove hidden first
+  var aboutMeBox = document.getElementById('aboutme-box');
+  var arrowIcon = document.getElementById('arrow-icon');
+  
+  if (aboutMeBox.classList.contains('hidden')) {
+    aboutMeBox.classList.remove('hidden');
+    
     setTimeout(function() {
-      aboutMeBox.classList.add('animate');  // Then add animate
-    }, 10); // Set a small timeout before adding .animate
+      aboutMeBox.classList.add('animate');
+      
+      // Calculate the new position for the arrow based on the 'About Me' box.
+      var boxBottom = aboutMeBox.getBoundingClientRect().bottom;
+      arrowIcon.style.top = `${boxBottom + 20}px`; // Set a 20px gap between the arrow and the box.
+      
+    }, 10);
   } else {
-    aboutMeBox.classList.remove('animate');  // Remove animate first
+    aboutMeBox.classList.remove('animate');
+    
     setTimeout(function() {
-      aboutMeBox.classList.add('hidden');  // Then add hidden
-    }, 300); // This should match the duration of your transition
-    setTimeout(function() {
-      toggleClasses(['original-buttons'], 'hidden');
-}, 300);  // This should match the duration of your transition to close 'About Me' box
-
+      aboutMeBox.classList.add('hidden');
+    }, 300);
   }
 
-  toggleClasses([ 'original-buttons', 'arrow-icon'], 'hidden');
+  toggleClasses(['original-buttons', 'arrow-icon'], 'hidden');
 });
+
 
 
 
