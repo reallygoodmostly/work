@@ -163,13 +163,13 @@
   }
 
   #selfie-image {
-  position: fixed;
-  top: 50%;
-  right: 5vw; /* or whatever distance you want from the right */
-  transform: translateY(-50%);
-  mix-blend-mode: darken;
-  transition: all 0.3s ease-in-out;
-}
+    position: fixed;
+    top: 50%;
+    right: 5vw; /* or whatever distance you want from the right */
+    transform: translateY(-50%);
+    mix-blend-mode: darken;
+    transition: all 0.3s ease-in-out;
+  }
 
 
 
@@ -220,7 +220,7 @@
         <span>HELLO, I’M CASEY! NICE TO MEET YOU. I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form. I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
       </div>
     </div>
-    <img src="https://github.com/reallygoodmostly/work/blob/main/Screenshot%202023-08-13%20at%203.34.44%20PM%20Background%20Removed.png?raw=true" alt="a photo of me" id="selfie-image" class="hidden">
+    <img src="https://github.com/reallygoodmostly/work/blob/main/Screenshot%202023-08-13%20at%203.34.44%20PM%20Background%20Removed.png?raw=true" alt="me" id="selfie-image" class="hidden">
   </div>
 
   
@@ -271,24 +271,22 @@
 
       if (aboutMeBox.classList.contains('hidden')) {
     aboutMeBox.classList.remove('hidden'); // Remove hidden first
-    selfieImage.classList.remove('hidden');
+    selfieImage.classList.remove('hidden'); // Show the selfie
     setTimeout(function() {
       aboutMeBox.classList.add('animate');  // Then add animate
     }, 10); // Set a small timeout before adding .animate
   } else {
     aboutMeBox.classList.remove('animate');  // Remove animate first
-    selfieImage.classList.add('hidden');
+    selfieImage.classList.add('hidden'); // Hide the selfie
     setTimeout(function() {
       aboutMeBox.classList.add('hidden');  // Then add hidden
     }, 300); // This should match the duration of your transition
     setTimeout(function() {
-      toggleClasses(['original-buttons'], 'hidden');
-}, 300);  // This should match the duration of your transition to close 'About Me' box
-
+      toggleClasses(['original-buttons', 'arrow-icon'], 'hidden');
+    }, 300);  // This should match the duration of your transition to close 'About Me' box
   }
-
-  toggleClasses([ 'original-buttons', 'arrow-icon', 'selfie-image'], 'hidden');
 });
+
 
 
 
