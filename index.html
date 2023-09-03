@@ -245,10 +245,10 @@ transition: all 0.3s ease-in-out;
       aboutMeBox.classList.add('hidden');  // Then add hidden
     }, 300); // This should match the duration of your transition
 
-    toggleClasses(['original-buttons'], 'hidden');
+    // Toggle back to show the original buttons and hide the back arrow
+    toggleClasses(['original-buttons', 'arrow-icon'], 'hidden');
   }
 });
-
 
     document.getElementById('about-button').addEventListener('click', function() {
       var aboutMeBox = document.getElementById('aboutme-box');
