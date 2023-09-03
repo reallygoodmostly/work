@@ -138,25 +138,25 @@
     font-size: 1.5rem;
 /*    font-weight: 300;*/
 /*    line-height: 22px;*/
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-  }
+text-transform: uppercase;
+transition: all 0.3s ease-in-out;
+}
 
-  .aboutme-box.hidden {
-    height: 0;
-    overflow: hidden;
-  }
+.aboutme-box.hidden {
+  height: 0;
+  overflow: hidden;
+}
 
-  .aboutme-box.animate {
-    height: 40vh; /* end size */
-    width: 40vw;
-  }
+.aboutme-box.animate {
+  height: 40vh; /* end size */
+  width: 40vw;
+}
 
-  .scrolling-text {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-  }
+.scrolling-text {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
 
 
 
@@ -164,6 +164,7 @@
 </head>
 
 <body>
+  
   <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
     <div id="original-buttons" class="d-flex flex-column flex-md-row justify-content-between mb-3">
       <button id="talk-button" class="btn custom-button mb-4 mb-md-0 me-md-4">Talk</button>
@@ -205,7 +206,6 @@
         <span>HELLO, I’M CASEY! NICE TO MEET YOU. I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form. I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
       </div>
     </div>
-
   </div>
 
   
@@ -232,8 +232,23 @@
     });
 
     document.getElementById('arrow-icon').addEventListener('click', function() {
-      toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon', 'email-ticker', 'email-text'], 'hidden');
-    });
+      var socialMediaPopup = document.getElementById('social-media-popup');
+      var aboutMeBox = document.getElementById('aboutme-box');
+
+      if (!socialMediaPopup.classList.contains('hidden')) {
+    // Social media popup is visible; hide it
+        toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon', 'email-ticker', 'email-text'], 'hidden');
+      } else if (!aboutMeBox.classList.contains('hidden')) {
+    // About Me box is visible; hide it
+    aboutMeBox.classList.remove('animate');  // Remove animate first
+    setTimeout(function() {
+      aboutMeBox.classList.add('hidden');  // Then add hidden
+    }, 300); // This should match the duration of your transition
+
+    toggleClasses(['original-buttons'], 'hidden');
+  }
+});
+
 
     document.getElementById('about-button').addEventListener('click', function() {
       var aboutMeBox = document.getElementById('aboutme-box');
