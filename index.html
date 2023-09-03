@@ -73,20 +73,6 @@
     display: none !important;
   }
 
-  #cv-download-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    cursor: pointer;
-  }
-
-  #flower-svg {
-    width: 50px;
-    height: 50px;
-  }
-
-
   .social-icon {
     min-width: 150px;
     width: 3rem;
@@ -229,17 +215,6 @@
 
   <footer class="fixed-bottom custom-footer">
     <p class="mb-0 text-uppercase">Knapp</p>
-    <div id="cv-download-button" class="hidden">
-      <a href="path/to/your/cv-file.pdf" download>
-      <svg id="flower-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <text x="40" y="55" font-family="Verdana" font-size="24" fill="black">CV</text>
-        <circle cx="50" cy="50" r="10" fill="yellow"/>
-        <circle cx="50" cy="20" r="5" fill="pink"/>
-        <circle cx="50" cy="80" r="5" fill="pink"/>
-        <circle cx="20" cy="50" r="5" fill="pink"/>
-        <circle cx="80" cy="50" r="5" fill="pink"/>
-      </svg>
-    </div>
   </footer>
 
   <script>
@@ -296,7 +271,7 @@
 
   }
 
-  toggleClasses([ 'original-buttons', 'arrow-icon', 'cv-download-button'], 'hidden');
+  toggleClasses([ 'original-buttons', 'arrow-icon'], 'hidden');
 });
 
 
