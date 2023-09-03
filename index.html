@@ -113,6 +113,9 @@
   }
 
   #arrow-icon {
+    position: fixed;
+    left: 5vw;  /* Aligned with the aboutme-box */
+    top: calc(50% + 20vh); /* Aligns it beneath the aboutme-box */
     transition: all 0.3s ease;
     box-shadow: none;
     outline: none;
@@ -154,7 +157,7 @@
   .scrolling-text {
     width: 90%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
   }
 
 
@@ -261,6 +264,10 @@
     setTimeout(function() {
       aboutMeBox.classList.add('hidden');  // Then add hidden
     }, 300); // This should match the duration of your transition
+    setTimeout(function() {
+      toggleClasses(['original-buttons'], 'hidden');
+}, 300);  // This should match the duration of your transition to close 'About Me' box
+
   }
 
   toggleClasses([ 'original-buttons', 'arrow-icon'], 'hidden');
