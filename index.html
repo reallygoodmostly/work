@@ -136,8 +136,8 @@
     background-color: #E17918;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 1.5rem;
-    font-weight: 300;
-    line-height: 22px;
+/*    font-weight: 300;*/
+/*    line-height: 22px;*/
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
   }
@@ -202,7 +202,7 @@
     </div>
     <div class="aboutme-box hidden" id="aboutme-box">
       <div class="scrolling-text">
-        <span>HELLO,<br>I’M CASEY! NICE TO MEET YOU.<br>I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form.<br>I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
+        <span>HELLO, I’M CASEY! NICE TO MEET YOU. I’M BETWEEN MONTANA AND LA. My background is in visual design and I enjoy the exchange between culture, technology and form. I like to work with people that are curious, compassionate, funny and entertain bold ideas about what they’d want to put out into the world. </span>
       </div>
     </div>
 
@@ -248,6 +248,8 @@
       aboutMeBox.classList.add('hidden');  // Then add hidden
     }, 300); // This should match the duration of your transition
   }
+
+  toggleClasses([ 'original-buttons'], 'hidden');
 });
 
 
