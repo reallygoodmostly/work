@@ -1,2 +1,2 @@
 # work
-Some work I've done
+Just some work I've done

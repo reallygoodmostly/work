@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 1em;
+}
+
+.back-arrow {
+  font-size: 1.5em;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+.project-subtitle {
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.project-details {
+  margin-bottom: 1em;
+}
+
+.media-container {
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  position: relative;
+}
+
+.media-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+.prev-arrow,
+.next-arrow {
+  font-size: 1.5em;
+  margin: 0 1em;
+}
