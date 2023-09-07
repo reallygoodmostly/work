@@ -4,7 +4,20 @@ body {
   font-family: 'IBM Plex Mono', monospace; /* Default text font */
 }
 
-/* Back arrow styling here */
+#arrow-icon {
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    outline: none;
+    z-index: 2;
+
+  }
+
+  #arrow-icon:hover {
+    outline: none;
+    transform: scale(1.2);
+  }
+
 
 /* Header styling */
 h1 {
@@ -48,6 +61,8 @@ p {
 }
 
 .footer-text {
+  padding: 15px; 
+  font-size: 4rem; 
   font-family: 'Alumni Sans', sans-serif;
   font-weight: 700; /* Black weight */
   text-align: center; /* Centered text */
