@@ -2,22 +2,22 @@
 body {
   background-color: #D6D6D6; /* Solid background color */
   font-family: 'IBM Plex Mono', monospace; /* Default text font */
-}
+  }
 
 #arrow-icon {
     position: relative;
+    text-align: center;
     transition: all 0.3s ease;
     box-shadow: none;
     outline: none;
+    transform: rotate(180deg);
     z-index: 2;
-
   }
 
   #arrow-icon:hover {
     outline: none;
     transform: scale(1.2);
   }
-
 
 /* Header styling */
 h1 {
@@ -27,6 +27,7 @@ h1 {
 }
 
 h2 {
+  font-size: 1.5em;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500; /* Medium weight */
   text-align: center; /* Horizontally centered */
@@ -61,7 +62,7 @@ p {
 }
 
 .footer-text {
-  padding: 15px; 
+  padding: 8px; 
   font-size: 4rem; 
   font-family: 'Alumni Sans', sans-serif;
   font-weight: 700; /* Black weight */
