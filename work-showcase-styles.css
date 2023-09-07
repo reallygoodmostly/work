@@ -1,46 +1,54 @@
+/* General styling */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: #D6D6D6; /* Solid background color */
+  font-family: 'IBM Plex Mono', monospace; /* Default text font */
 }
 
-header {
-  padding: 1em;
-}
+/* Back arrow styling here */
 
-.back-arrow {
-  font-size: 1.5em;
-}
-
+/* Header styling */
 h1 {
-  font-size: 2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.2em;
+  font-family: 'Alumni Sans', sans-serif;
+  font-size: 2.5em; /* Making it the biggest */
+  text-align: center; /* Horizontally centered */
 }
 
-.project-subtitle {
-  font-weight: bold;
-  margin-bottom: 0.2em;
+h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500; /* Medium weight */
+  text-align: center; /* Horizontally centered */
+  margin-top: 40px; /* 40px between each type box */
 }
 
-.project-details {
-  margin-bottom: 1em;
+/* Paragraph styling for project details */
+p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 300; /* Light weight */
+  font-style: italic; /* Light Italic */
+  text-align: center; /* Horizontally centered */
+  margin-top: 40px; /* 40px between each type box */
 }
 
-.media-container {
-  width: 100%;
-  padding-top: 100%; /* 1:1 aspect ratio */
-  position: relative;
+/* Orange media box */
+.media-box {
+  background-color: #E17918; /* Orange background color */
+  border: 1px solid black; /* Black border */
+  width: 100%; /* Take full width */
+  height: auto; /* Auto height to maintain aspect ratio */
+  margin-top: 40px; /* 40px between each type box */
 }
 
-.media-controls {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
+/* Footer styling */
+.footer {
+  background-color: #E17918; /* Orange background color */
+  border-top: 1px solid black; /* Black border */
+  position: fixed; /* Fixed position */
+  bottom: 0; /* Bottom of the viewport */
+  width: 100%; /* Full width */
 }
 
-.prev-arrow,
-.next-arrow {
-  font-size: 1.5em;
-  margin: 0 1em;
+.footer-text {
+  font-family: 'Alumni Sans', sans-serif;
+  font-weight: 700; /* Black weight */
+  text-align: center; /* Centered text */
 }
