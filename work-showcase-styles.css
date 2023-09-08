@@ -60,13 +60,13 @@ p {
   border-top: 1px solid black; /* Black border */
   position: fixed; /* Fixed position */
   bottom: 0; /* Bottom of the viewport */
-  height: 10vh;
+  height: 5vh;
   width: 100%; /* Full width */
 }
 
 .footer-text {
-  padding: 8px; 
-  font-size: 4rem; 
+  padding: 5px; 
+  font-size: 3rem; 
   font-family: 'Alumni Sans', sans-serif;
   font-weight: 700; /* Black weight */
   text-align: center; /* Centered text */
