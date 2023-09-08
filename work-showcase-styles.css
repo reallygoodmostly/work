@@ -34,7 +34,7 @@ h2 {
  
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500; /* Medium weight */
-  text-align: center; 
+  text-align: left; 
   margin-top: 40px; /* 40px between each type box */
 }
 
@@ -44,7 +44,7 @@ p {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 200; /* Light weight */
   font-style: italic; 
-  text-align: center; 
+  text-align: left; 
   margin-top: 40px; 
 }
 
@@ -63,7 +63,7 @@ p {
   border-top: 1px solid black; /* Black border */
   position: fixed; /* Fixed position */
   bottom: 0; /* Bottom of the viewport */
-  height: 5vh;
+  height: 10vh;
   width: 100%; /* Full width */
 }
 
