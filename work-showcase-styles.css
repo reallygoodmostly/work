@@ -50,10 +50,10 @@ p {
 }
 
 .caption-text {
-  font-size: 0.7rem; /* You can adjust this as you see fit */
+  font-size: 0.5rem; /* You can adjust this as you see fit */
   font-style: italic; /* If you prefer italicized captions */
   text-align: left;
-  margin-top: 5px; /* Adding some top margin for spacing */
+  margin-top: 2px; /* Adding some top margin for spacing */
   font-family: 'IBM Plex Mono', monospace; /* Or whatever font you'd like */
 }
 
