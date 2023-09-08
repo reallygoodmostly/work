@@ -4,21 +4,23 @@ body {
   font-family: 'IBM Plex Mono', monospace; /* Default text font */
   }
 
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #arrow-icon {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: none;
-    outline: none;
-    transform: rotate(180deg);
-    z-index: 2;
-  }
+  transition: all 0.3s ease;
+  box-shadow: none;
+  outline: none;
+  transform: rotate(180deg);
+  z-index: 2;
+}
 
   #arrow-icon:hover {
     outline: none;
-    transform: scale(1.2);
+    transform: scale(1.2) rotate(180deg);;
   }
 
 /* Header styling */
