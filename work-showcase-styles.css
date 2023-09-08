@@ -57,24 +57,25 @@ p {
   margin-top: 40px; /* 40px between each type box */
 }
 
-/* Footer styling */
 .footer {
   background-color: #E17918; /* Orange background color */
-  border-top: 1px solid black; /* Black border */
+  border-top: 2px solid black; /* Black border */
   position: fixed; /* Fixed position */
   bottom: 0; /* Bottom of the viewport */
-  height: 8vh; /* You can change this to adjust the height */
+  height: 10vh; /* You can change this to adjust the height */
   width: 100%; /* Full width */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px;
 }
 
 .footer-text {
-  padding: 0; 
-  font-size: calc(1rem + 0.5vw);  /* Responsive font size */
+  padding: 0;
+  font-size: 4rem;
   font-family: 'Alumni Sans', sans-serif;
   font-weight: 700; /* Black weight */
   text-align: center; /* Centered text */
 }
+
 
