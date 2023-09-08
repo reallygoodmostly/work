@@ -65,6 +65,9 @@ p {
   bottom: 0; /* Bottom of the viewport */
   height: 10vh;
   width: 100%; /* Full width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-text {
@@ -74,3 +77,4 @@ p {
   font-weight: 700; /* Black weight */
   text-align: center; /* Centered text */
 }
+
