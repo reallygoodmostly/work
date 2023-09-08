@@ -27,12 +27,12 @@ body {
 /* Header styling */
 h1 {
   font-family: 'Alumni Sans', sans-serif;
-  font-size: 3em; /* Making it the biggest */
+/*  font-size: 3em; /* Making it the biggest */*/
   text-align: center; /* Horizontally centered */
 }
 
 h2 {
-  font-size: 1.2em;
+/*  font-size: 1.2em;*/
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500; /* Medium weight */
   text-align: center; /* Horizontally centered */
@@ -41,7 +41,7 @@ h2 {
 
 /* Paragraph styling for project details */
 p {
-  font-size: 1.1em;
+/*  font-size: 1.1em;*/
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 300; /* Light weight */
   font-style: italic; /* Light Italic */
