@@ -27,7 +27,8 @@ body {
 
 h1 {
   font-family: 'Alumni Sans', sans-serif; 
-  text-align: center;  
+  text-align: center; 
+  font-weight: 900; 
 }
 
 h2 {
@@ -46,6 +47,14 @@ p {
   font-style: italic; 
   text-align: left; 
   margin-top: 40px; 
+}
+
+.caption-text {
+  font-size: 0.7rem; /* You can adjust this as you see fit */
+  font-style: italic; /* If you prefer italicized captions */
+  text-align: left;
+  margin-top: 5px; /* Adding some top margin for spacing */
+  font-family: 'IBM Plex Mono', monospace; /* Or whatever font you'd like */
 }
 
 
