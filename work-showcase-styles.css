@@ -6,7 +6,9 @@ body {
 
 #arrow-icon {
     position: relative;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all 0.3s ease;
     box-shadow: none;
     outline: none;
@@ -58,6 +60,7 @@ p {
   border-top: 1px solid black; /* Black border */
   position: fixed; /* Fixed position */
   bottom: 0; /* Bottom of the viewport */
+  height: 10vh;
   width: 100%; /* Full width */
 }
 
