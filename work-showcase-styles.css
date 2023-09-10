@@ -84,7 +84,7 @@ p {
 }
 
 
-.media-item.placeholder {
+ .orangebox {
   background-color: #E17918; /* Orange */
   border: 1px solid black; /* Black Stroke */
   padding-bottom: 100%; /* 1:1 Aspect Ratio */
