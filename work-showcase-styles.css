@@ -57,15 +57,6 @@ p {
   font-family: 'IBM Plex Mono', monospace; /* Or whatever font you'd like */
 }
 
-
-.media-box {
-  background-color: #E17918; /* Orange background color */
-  border: 1px solid black; /* Black border */
-  width: 100%; /* Take full width */
-  height: auto; /* Auto height to maintain aspect ratio */
-  margin-top: 40px; /* 40px between each type box */
-}
-
 .footer {
  padding: 15px; 
  font-size: 4rem;  
@@ -76,15 +67,14 @@ p {
  font-weight: 900;
 }
 
-/* Media Grid Container */
+
 .media-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
 }
 
-
- .media-item {
+.media-item {
   background-color: #E17918; /* Orange */
   border: 1px solid black; /* Black Stroke */
   padding-bottom: 100%; /* 1:1 Aspect Ratio */
