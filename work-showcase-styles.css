@@ -69,12 +69,17 @@ p {
 
 
 .media-box {
-  background-color: #E17918;  /* Orange */
-  border: 1px solid black;  /* Black border */
-  width: 200px;  /* Set the width */
-  height: 200px;  /* Set the height */
-  margin: 10px;  /* Margin for some spacing between the items */
+  background-color: #E17918;
+  border: 2px solid black;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
+
+.media-grid {
+  display: grid;
+  gap: 16px;
+}
+
 
 
 @media only screen and (max-width: 768px) {

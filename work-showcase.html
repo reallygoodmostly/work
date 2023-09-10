@@ -17,18 +17,18 @@
 <body>
 
     <!-- Navigation back Arrow -->
-                <div class="arrow-container" onclick="goBack()">
-                    <svg id="arrow-icon" width="70" height="70" viewBox="0 0 100 100">
-                      <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
-                  </svg>
-              </div>
-    <!-- Project Description -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                .
-          </div>
-          <div class="col-12">
+    <div class="arrow-container" onclick="goBack()">
+        <svg id="arrow-icon" width="70" height="70" viewBox="0 0 100 100">
+          <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
+      </svg>
+  </div>
+  <!-- Project Description -->
+  <div class="container">
+    <div class="row">
+        <div class="col-12">
+            .
+        </div>
+        <div class="col-12">
             <h1 class="display-1">no story</h1>  
             <h2 class="fs-5">Lookbook design for LA clothing brand</h2> 
             <p class="caption-text">15-page booklet<br> 21 X 52<br>Xerox printed</p> 
@@ -37,29 +37,36 @@
 </div>
 
 <!-- New Container for Media Grid -->
-<div class="container media-container">
-  <div class="row">
-    <div class="col-12">
-      <!-- CSS Grid Layout -->
-      <div class="media-grid">
-        <div class="media-item media-box">
-          <!-- Custom Content -->
-        </div>
-        <div class="media-item media-box">
-          <!-- Custom Content -->
-        </div>
-        <!-- Add more media-box items as you need -->
-      </div>
-    </div>
-  </div>
+<div class="media-grid" id="mediaGrid">
+  <!-- Initially empty; we'll populate it with JavaScript -->
 </div>
-
 
 <footer class="fixed-bottom footer">
     <div class="text-uppercase">Work</div>
 </footer>
 
 <script>
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const mediaGrid = document.getElementById("mediaGrid");
+  const numberOfBoxes = 10;  // You can change this to the number of boxes you want
+
+  for (let i = 0; i < numberOfBoxes; i++) {
+    const box = document.createElement("div");
+    box.classList.add("media-box");
+
+    // Generate random width and height between 150px and 300px
+    const randomWidth = Math.floor(Math.random() * 150) + 150;
+    const randomHeight = Math.floor(Math.random() * 150) + 150;
+
+    // Apply these dimensions to the box
+    box.style.width = `${randomWidth}px`;
+    box.style.height = `${randomHeight}px`;
+
+    mediaGrid.appendChild(box);
+}
+});
+
 
     function goBack() {
       window.history.back();
