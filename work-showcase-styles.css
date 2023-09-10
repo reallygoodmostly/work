@@ -67,7 +67,6 @@ p {
  font-weight: 900;
 }
 
-
 .media-box {
   background-color: #E17918;
   border: 2px solid black;
@@ -77,10 +76,10 @@ p {
 
 .media-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 16px;
+  padding: 16px;  /* Add padding around the entire grid */
 }
-
-
 
 @media only screen and (max-width: 768px) {
   .footer {
