@@ -68,17 +68,12 @@ p {
 }
 
 
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.media-item {
-  background-color: #E17918; /* Orange */
-  border: 1px solid black; /* Black Stroke */
-  padding-bottom: 100%; /* 1:1 Aspect Ratio */
-  position: relative; /* If you want text inside of it */
+.media-box {
+  background-color: #E17918;  /* Orange */
+  border: 1px solid black;  /* Black border */
+  width: 200px;  /* Set the width */
+  height: 200px;  /* Set the height */
+  margin: 10px;  /* Margin for some spacing between the items */
 }
 
 
