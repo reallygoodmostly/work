@@ -49,24 +49,21 @@
 
     window.addEventListener("DOMContentLoaded", () => {
       const mediaGrid = document.getElementById("mediaGrid");
-  const numberOfBoxes = 10;  // You can change this to the number of boxes you want
+      const numberOfBoxes = 10;
 
-  for (let i = 0; i < numberOfBoxes; i++) {
-    const box = document.createElement("div");
-    box.classList.add("media-box");
+      for (let i = 0; i < numberOfBoxes; i++) {
+        const box = document.createElement("div");
+        box.classList.add("media-box");
 
-    // Generate random width and height between 150px and 300px
-    const randomWidth = Math.floor(Math.random() * 150) + 150;
-    const randomHeight = Math.floor(Math.random() * 150) + 150;
+    const randomWidth = Math.floor(Math.random() * 300) + 200;  // Changed to a larger range
+    const randomHeight = Math.floor(Math.random() * 300) + 200;  // Changed to a larger range
 
-    // Apply these dimensions to the box
     box.style.width = `${randomWidth}px`;
     box.style.height = `${randomHeight}px`;
 
     mediaGrid.appendChild(box);
 }
 });
-
 
     function goBack() {
       window.history.back();

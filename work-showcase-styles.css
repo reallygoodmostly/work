@@ -2,6 +2,7 @@
 body {
   background-color: #D6D6D6; /* Solid background color */
   font-family: 'IBM Plex Mono', monospace; /* Default text font */
+  margin-bottom: 100px;  // Adjust this value based on your footer height
 }
 
 .arrow-container {
@@ -76,9 +77,15 @@ p {
 
 .media-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
-  padding: 16px;  /* Add padding around the entire grid */
+  grid-auto-rows: minmax(200px, auto);
+}
+
+@media (min-width: 768px) {
+  .media-grid {
+    grid-template-columns: repeat(4, 1fr);  // Max 4 squares to a row
+  }
 }
 
 @media only screen and (max-width: 768px) {
