@@ -69,19 +69,20 @@ p {
  font-weight: 900;
 }
 
+.media-grid {
+  column-count: 3;
+  column-gap: 16px;
+  width: 100%;
+}
+
 .media-box {
   background-color: #E17918;
   border: 2px solid black;
   border-radius: 12px;
-  transition: all 0.3s ease;
+  margin-bottom: 16px;
+  break-inside: avoid;
 }
 
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  grid-auto-rows: minmax(200px, auto);
-}
 
 @media (min-width: 768px) {
   .media-grid {
