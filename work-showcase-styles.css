@@ -84,13 +84,18 @@ p {
 }
 
 
+/* For desktop and larger tablets */
 @media (min-width: 768px) {
   .media-grid {
-    grid-template-columns: repeat(3, 1fr);  // Changed to 3 squares to a row
+    grid-template-columns: repeat(3, 1fr);  /* 3 squares to a row */
   }
 }
 
-@media only screen and (max-width: 768px) {
+/* For mobile and smaller tablets */
+@media only screen and (max-width: 767px) {  /* One pixel less than your desktop breakpoint */
+  .media-grid {
+    grid-template-columns: 1fr;  /* This will stack them vertically */
+  }
   .footer {
     height: 7vh; 
     font-size: 2rem;
@@ -99,4 +104,5 @@ p {
     justify-content: center;
   }
 }
+
 
