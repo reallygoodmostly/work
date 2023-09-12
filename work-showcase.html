@@ -61,59 +61,76 @@
 
 <script>
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const mediaGrid = document.getElementById("mediaGrid");
-      const numberOfBoxes = 10;
-      const modal = document.getElementById("mediaModal1");
-      const closeModal = document.querySelector(".close-btn");
+   window.addEventListener("DOMContentLoaded", () => {
+  const mediaGrid = document.getElementById("mediaGrid");
+  const numberOfBoxes = 10;
 
+  for (let i = 0; i < numberOfBoxes; i++) {
+    const box = document.createElement("div");
+    const modal = document.createElement("div");
+    const modalContent = document.createElement("div");
+    const closeModal = document.createElement("span");
+    
+    // Setting up the box
+    box.classList.add("media-box");
+    
+    // Setting up the modal
+    modal.id = `mediaModal${i + 1}`;
+    modal.classList.add("media-modal");
+    modalContent.classList.add("modal-content");
+    closeModal.classList.add("close-btn");
+    closeModal.innerHTML = "&times;";
+    
+    // Append the close button and content to the modal
+    modalContent.appendChild(closeModal);
+    modal.appendChild(modalContent);
+    
+    // Add the modal to the body
+    document.body.appendChild(modal);
 
-      for (let i = 0; i < numberOfBoxes; i++) {
-        const box = document.createElement("div");
-        box.classList.add("media-box");
-
-        let randomWidth, randomHeight;
-
-    // Check window width to adjust size range
+    // Your existing logic for random dimensions
+    let randomWidth, randomHeight;
     if (window.innerWidth >= 768) {  // Desktop
       randomWidth = Math.floor(Math.random() * 150) + 350;
       randomHeight = Math.floor(Math.random() * 150) + 350;
     } else {  // Mobile
       randomWidth = Math.floor(Math.random() * 150) + 200;
       randomHeight = Math.floor(Math.random() * 150) + 200;
-  }
+    }
 
-    // Apply dimensions to the box
-  box.style.width = `${randomWidth}px`;
-  box.style.height = `${randomHeight}px`;
-
-    // Add a click event to open the modal
-  box.addEventListener("click", () => {
+    box.style.width = `${randomWidth}px`;
+    box.style.height = `${randomHeight}px`;
+    
+    // Add a click event to open the corresponding modal
+    box.addEventListener("click", () => {
       modal.style.display = "block";
-  });
+    });
+    
+    // Close the modal when the close button is clicked
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
 
-  mediaGrid.appendChild(box);
-}
-
-  // Close the modal when the close button is clicked
-closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-});
+    mediaGrid.appendChild(box);
+  }
 
   // Close the modal when clicking outside of the modal content
-window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-  }
-});
+  window.addEventListener("click", (event) => {
+    if (event.target.classList.contains("media-modal")) {
+      event.target.style.display = "none";
+    }
+  });
 
   // Close the modal when pressing the Escape key
-document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      modal.style.display = "none";
-  }
+      document.querySelectorAll(".media-modal").forEach(modal => {
+        modal.style.display = "none";
+      });
+    }
+  });
 });
-});
+
 
 
     function goBack() {
