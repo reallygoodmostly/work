@@ -40,6 +40,21 @@
   <!-- Initially empty; we'll populate it with JavaScript -->
 </div>
 
+<!-- This will be generated dynamically -->
+<div class="media-modal" id="mediaModal1">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('mediaModal1')">&times;</span>
+    <!-- Media content will go here -->
+    <div class="media-container">
+      <!-- Media, like img, video, etc. -->
+  </div>
+  <div class="media-description">
+      <!-- Optional description text -->
+  </div>
+</div>
+</div>
+
+
 <footer class="fixed-bottom footer">
     <div class="text-uppercase">Work</div>
 </footer>
@@ -73,7 +88,15 @@
 }
 });
 
-    function goBack() {
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+  }
+
+  function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+  }
+
+  function goBack() {
       window.history.back();
   }
 
