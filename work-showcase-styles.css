@@ -102,7 +102,7 @@ p {
   height: 75%;
   background-color: rgba(0,0,0,1.7);
   border: 3px solid #000;
-  transform: translate(-50%, -50%); /* Center the modal */
+/*  transform: translate(-50%, -50%);  Center the modal */
 }
 
 .modal-content {
