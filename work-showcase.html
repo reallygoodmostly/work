@@ -25,20 +25,23 @@
   <!-- Project Description -->
   <div class="container">
     <div class="row">
-        <div class="col-12">
-        </div>
+
+       
         <div class="col-12">
             <h1 class="display-1">no story</h1>  
             <h2 class="fs-5">Lookbook design for LA clothing brand</h2> 
             <p class="caption-text">15-page booklet<br> 21 X 52<br>Xerox printed</p> 
         </div>
-    </div>
+        <div class="col-12">
+        <!-- New Container for Media Grid -->
+        <div class="media-grid" id="mediaGrid">
+          <!-- Initially empty; we'll populate it with JavaScript -->
+      </div>
+  </div>
+  </div>
 </div>
 
-<!-- New Container for Media Grid -->
-<div class="media-grid" id="mediaGrid">
-  <!-- Initially empty; we'll populate it with JavaScript -->
-</div>
+
 
 <!-- This will be generated dynamically -->
 <div class="media-modal" id="mediaModal">
@@ -61,59 +64,59 @@
 
 <script>
 
-   
-window.addEventListener("DOMContentLoaded", () => {
-  const mediaGrid = document.getElementById("mediaGrid");
-  const numberOfBoxes = 10;
 
-  for (let i = 1; i <= numberOfBoxes; i++) {
-    const box = document.createElement("div");
-    
+    window.addEventListener("DOMContentLoaded", () => {
+      const mediaGrid = document.getElementById("mediaGrid");
+      const numberOfBoxes = 10;
+
+      for (let i = 1; i <= numberOfBoxes; i++) {
+        const box = document.createElement("div");
+
     // Setting up the box
-    box.classList.add("media-box");
+        box.classList.add("media-box");
     // box.style.width = "350px";
     // box.style.height = "350px";
-    
+
     // Create and set up a modal for each box
-    const modal = document.createElement("div");
-    const footer = document.querySelector('.footer');
-    modal.classList.add("media-modal");
-    modal.id = `mediaModal${i}`;
-    modal.innerHTML = `
-      <div class="modal-content">
+        const modal = document.createElement("div");
+        const footer = document.querySelector('.footer');
+        modal.classList.add("media-modal");
+        modal.id = `mediaModal${i}`;
+        modal.innerHTML = `
+        <div class="modal-content">
         <span class="close-btn" onclick="closeModal('mediaModal${i}')">&times;</span>
         <div class="media-container">
-          <!-- Media, like img, video, etc. -->
+        <!-- Media, like img, video, etc. -->
         </div>
         <div class="media-description">
-          <!-- Optional description text -->
+        <!-- Optional description text -->
         </div>
-      </div>
-    `;
+        </div>
+        `;
 
     // Add the modal to the body
-    document.body.appendChild(modal);
+        document.body.appendChild(modal);
 
     // Add a click event to open the modal
-    box.addEventListener("click", () => {
-      modal.style.display = "block";
-      footer.style.display = "none";
+        box.addEventListener("click", () => {
+          modal.style.display = "block";
+          footer.style.display = "none";
       // document.getElementById("arrow-container").style.display = "none";
-    });
+      });
 
-    mediaGrid.appendChild(box);
-  }
+        mediaGrid.appendChild(box);
+    }
 });
 
 // Function to close the modal
-function closeModal(modalId) {
-     console.log("Closing modal", modalId);
-  const modal = document.getElementById(modalId);
-const footer = document.querySelector('.footer');
-  modal.style.display = "none";
-  footer.style.display = "block";
+    function closeModal(modalId) {
+       console.log("Closing modal", modalId);
+       const modal = document.getElementById(modalId);
+       const footer = document.querySelector('.footer');
+       modal.style.display = "none";
+       footer.style.display = "block";
   // document.getElementById("arrow-container").style.display = "block";
-}
+   }
 
 </script>
 </body>

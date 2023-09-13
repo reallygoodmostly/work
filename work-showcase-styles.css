@@ -72,7 +72,6 @@ p {
 .media-box {
   background-color: #E17918;
   border: 2px solid black;
-  padding-left: 3vh;
   border-radius: 12px;
   transition: all 0.3s ease;
   width: 350px;
@@ -81,7 +80,6 @@ p {
 
 .media-grid {
   padding-top: 3vh;
-  padding-left: 3vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Updated minmax to 350px to match media-box */
   gap: 16px;
