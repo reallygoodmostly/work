@@ -62,7 +62,7 @@
 
 <script>
 
-    fetch('projects.json')
+fetch('projects.json')
   .then(response => response.json())
   .then(data => {
     const project = data.projects[0]; // assuming the first project for now
@@ -70,11 +70,9 @@
     // Replace the static HTML content
     document.querySelector('.display-1').textContent = project.title;
     document.querySelector('.fs-5').textContent = project.description;
-    document.querySelector('.caption-text').innerHTML = project.caption;
+    document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
   })
-  .catch(error => console.error('There was an error!', error));
-
-  const captionText = jsonData.caption.split(';').join('<br>');
+  .catch(error => console.error('There was an error!', error))
 
 
 
