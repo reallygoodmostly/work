@@ -26,6 +26,9 @@ body {
   transform: scale(1.2) rotate(180deg);;
 }
 
+.container {
+  padding-left: 20px;
+}
 
 h1 {
   font-family: 'Alumni Sans', sans-serif; 
