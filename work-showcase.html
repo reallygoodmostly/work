@@ -62,7 +62,7 @@
 <script>
 
    
-   window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
   const mediaGrid = document.getElementById("mediaGrid");
   const numberOfBoxes = 10;
 
@@ -71,8 +71,8 @@
     
     // Setting up the box
     box.classList.add("media-box");
-    box.style.width = "350px";
-    box.style.height = "350px";
+    // box.style.width = "350px";
+    // box.style.height = "350px";
     
     // Create and set up a modal for each box
     const modal = document.createElement("div");
@@ -96,7 +96,7 @@
     // Add a click event to open the modal
     box.addEventListener("click", () => {
       modal.style.display = "block";
-      document.getElementById("arrow-container").style.display = "none";
+      // document.getElementById("arrow-container").style.display = "none";
     });
 
     mediaGrid.appendChild(box);
@@ -107,7 +107,7 @@
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "none";
-  document.getElementById("arrow-container").style.display = "block";
+  // document.getElementById("arrow-container").style.display = "block";
 }
 
 </script>
