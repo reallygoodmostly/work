@@ -17,7 +17,7 @@
 <body>
 
     <!-- Navigation back Arrow -->
-    <div class="arrow-container" onclick="goBack()">
+    <div class="arrow-container" id="arrow-container" onclick="goBack()">
         <svg id="arrow-icon" width="70" height="70" viewBox="0 0 100 100">
           <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
       </svg>
@@ -103,9 +103,11 @@
     
     // Add a click event to open the corresponding modal
     box.addEventListener("click", () => {
-      modal.style.display = "block";
-      document.getElementById("arrow-container").style.display = "none"; 
-    });
+    modal.classList.add("expand-animation", "expand");  // Add this line here
+    modal.style.display = "block";
+    document.getElementById("arrow-container").style.display = "none";
+});
+
     
     // Close the modal when the close button is clicked
     closeModal.addEventListener("click", () => {
@@ -134,13 +136,6 @@
     }
   });
 });
-
-box.addEventListener("click", () => {
-    modal.classList.add("expand-animation", "expand");
-    modal.style.display = "block";
-});
-
-
 
     function goBack() {
       window.history.back();
