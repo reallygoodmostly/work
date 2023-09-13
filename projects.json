@@ -1,0 +1,26 @@
+{
+  "projects": [
+    {
+      "title": "No Story",
+      "description": "Lookbook design for LA clothing brand",
+      "caption": "15-page booklet; 21x52; Xerox printed",
+      "media": [
+        {
+          "path": "/path/to/media1.jpg",
+          "description": "This is an image description."
+        },
+        {
+          "path": "/path/to/media2.jpg"
+        },
+        {
+          "path": "/path/to/video1.mp4",
+          "description": "This is a video description."
+        }
+      ]
+    },
+    {
+      // Another project
+    }
+  ]
+}
+

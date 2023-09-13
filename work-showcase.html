@@ -26,9 +26,9 @@
   <div class="container">
     <div class="row">
             <div class="col-12">
-                <h1 class="display-1">no story</h1>  
-                <h2 class="fs-5">Lookbook design for LA clothing brand</h2> 
-                <p class="caption-text">15-page booklet<br> 21 X 52<br>Xerox printed</p> 
+                <h1 class="display-1"></h1>  
+                <h2 class="fs-5"></h2> 
+                <p class="caption-text"></p> 
             </div>
         <div class="col-12">
             <!-- New Container for Media Grid -->
@@ -61,6 +61,22 @@
 </footer>
 
 <script>
+
+    fetch('project.json')
+  .then(response => response.json())
+  .then(data => {
+    const project = data.projects[0]; // assuming the first project for now
+
+    // Replace the static HTML content
+    document.querySelector('.display-1').textContent = project.title;
+    document.querySelector('.fs-5').textContent = project.description;
+    document.querySelector('.caption-text').innerHTML = project.caption;
+  })
+  .catch(error => console.error('There was an error!', error));
+
+  const captionText = jsonData.caption.split(';').join('<br>');
+
+
 
 
     window.addEventListener("DOMContentLoaded", () => {
