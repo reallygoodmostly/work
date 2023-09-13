@@ -5,6 +5,12 @@ body {
   margin-bottom: 200px;  
 }
 
+
+.textblock {
+  margin-left: 5vh;
+
+}
+
 .arrow-container {
   position: fixed;  
   top: 10px;
