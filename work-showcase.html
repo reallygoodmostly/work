@@ -110,6 +110,13 @@ function closeModal(modalId) {
   document.getElementById("arrow-container").style.display = "block";
 }
 
+function closeModal(modalId) {
+  console.log("Closing modal with ID:", modalId);
+  const modal = document.getElementById(modalId);
+  console.log("Modal element:", modal);
+  modal.style.display = "none";
+  document.getElementById("arrow-container").style.display = "block";
+}
 
     function goBack() {
       window.history.back();
