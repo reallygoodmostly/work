@@ -2,7 +2,7 @@
 body {
   background-color: #D6D6D6; /* Solid background color */
   font-family: 'IBM Plex Mono', monospace; /* Default text font */
-  margin-bottom: 200px;  // Adjust this value based on your footer height
+  margin-bottom: 200px;  
 }
 
 .arrow-container {
