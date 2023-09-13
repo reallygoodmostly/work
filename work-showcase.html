@@ -76,6 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Create and set up a modal for each box
     const modal = document.createElement("div");
+    const footer = document.querySelector('.footer');
     modal.classList.add("media-modal");
     modal.id = `mediaModal${i}`;
     modal.innerHTML = `
@@ -96,6 +97,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Add a click event to open the modal
     box.addEventListener("click", () => {
       modal.style.display = "block";
+      footer.style.display = "none";
       // document.getElementById("arrow-container").style.display = "none";
     });
 
@@ -107,6 +109,7 @@ window.addEventListener("DOMContentLoaded", () => {
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "none";
+  footer.style.display = "block";
   // document.getElementById("arrow-container").style.display = "block";
 }
 
