@@ -6,11 +6,11 @@
       "caption": "15-page booklet; 21x52; Xerox printed",
       "media": [
         {
-          "path": "/path/to/media1.jpg",
+          "path": "https://github.com/reallygoodmostly/work/blob/main/nostory/Scan%2010.png?raw=true",
           "description": "This is an image description."
         },
         {
-          "path": "/path/to/media2.jpg"
+          "path": "https://github.com/reallygoodmostly/work/blob/main/nostory/Scan%2011.png?raw=true"
         },
         {
           "type": "video",
