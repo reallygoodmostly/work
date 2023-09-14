@@ -61,10 +61,11 @@
 </footer>
 
 <script>
-    
+
 fetch('projects.json')
   .then(response => response.json())
   .then(data => {
+     console.log("Fetched data:", data);
     const project = data.projects[0]; // assuming the first project for now
 
     // Replace the static HTML content
