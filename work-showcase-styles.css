@@ -79,6 +79,12 @@ p {
   transition: all 0.3s ease;
   width: 350px;
   height: 350px;
+
+}
+
+.media-box img {
+  max-width: 100%;
+  height: auto;
 }
 
 .media-grid {
