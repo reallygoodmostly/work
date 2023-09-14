@@ -85,7 +85,7 @@ p {
 }
 
 .media-box img {
-  max-width: 90%;
+  width: auto;
   height: auto;
   border-radius: 8px;
 }
