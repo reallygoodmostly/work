@@ -89,7 +89,7 @@ p {
 .media-box img {
   object-fit: contain;
   object-position: center;
-  max-width: 90%;
+  max-width: 95%;
   max-height: 95%;
   border-radius: 8px;
 }
