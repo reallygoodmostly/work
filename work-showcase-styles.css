@@ -131,8 +131,8 @@ p {
 .media-container img {
   object-fit: contain;
   object-position: center;
-  max-width: 98%;
-  max-height: 98%;
+  max-width: 90%;
+  max-height: 90%;
   margin: auto;
 }
 
