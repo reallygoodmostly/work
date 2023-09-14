@@ -61,7 +61,6 @@
 </footer>
 
 <script>
-
 fetch('projects.json')
   .then(response => response.json())
   .then(data => {
@@ -87,13 +86,27 @@ fetch('projects.json')
         <div class="modal-content">
           <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
           <div class="media-container">
-            <img src="${mediaItem.path}" alt="${mediaItem.description || ''}">
+            <!-- Media will go here -->
           </div>
           <div class="media-description">
             ${mediaItem.description || ""}
           </div>
         </div>
       `;
+
+      // Check the media type and populate accordingly
+      if (mediaItem.type === 'video' && mediaItem.source === 'vimeo') {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://player.vimeo.com/video/${mediaItem.videoID}`;
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+        modal.querySelector('.media-container').appendChild(iframe);
+      } else if (mediaItem.type === 'image') {
+        const img = document.createElement('img');
+        img.src = mediaItem.path;
+        img.alt = mediaItem.description || '';
+        modal.querySelector('.media-container').appendChild(img);
+      }
 
       // Add the modal to the body
       document.body.appendChild(modal);
@@ -117,8 +130,7 @@ function closeModal(modalId) {
   modal.style.display = "none";
   footer.style.display = "block";
 }
-
-
 </script>
+
 </body>
 </html>

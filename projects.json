@@ -13,9 +13,12 @@
           "path": "/path/to/media2.jpg"
         },
         {
-          "path": "/path/to/video1.mp4",
-          "description": "This is a video description."
+          "type": "video",
+          "source": "vimeo",
+          "videoID": "864241067",
+          "description": "no story zine in the flesh"
         }
+
       ]
     }
     
