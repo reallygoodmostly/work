@@ -146,15 +146,11 @@ p {
 }
 
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  display: block;  /* Since <span> is inline by default, we change it to block */
+  margin: 10px auto 0;  /* Top margin 10px, horizontally auto (centered), bottom 0 */
   font-size: 24px;
   cursor: pointer;
   color: #E17918;  /* Your Orange */
-  background-color: rgba(0, 0, 0, 0.7);  /* Dark Grey with Opacity */
-  padding: 5px;
-  border-radius: 50%;
 }
 
 .hidden {
