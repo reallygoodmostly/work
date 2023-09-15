@@ -148,7 +148,7 @@ p {
 .close-btn {
   display: block;  /* Since <span> is inline by default, we change it to block */
   margin: 10px auto 0;  /* Top margin 10px, horizontally auto (centered), bottom 0 */
-  font-size: 24px;
+  font-size: 32px;
   cursor: pointer;
   color: #E17918;  /* Your Orange */
 }
