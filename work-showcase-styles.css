@@ -152,19 +152,19 @@ p {
   border-radius: 6px;
 }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 32px;
-  color: orange;
-  border: 2px solid black;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-}
-
 .video-container {
   position: relative;
+}
+
+.video-flag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: orange;
+  color: black;
+  padding: 2px 8px;
+  font-size: 12px;
+  z-index: 1;
 }
 
 

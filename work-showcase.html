@@ -81,14 +81,11 @@ fetch('projects.json')
       let mediaContent = "";
       if (mediaItem.type === 'image') {
         mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-        if (mediaItem.overlay) {
-          box.classList.add("overlay"); // Add an overlay class for special styling
-        }
       } else if (mediaItem.type === 'video') {
         mediaContent = `
           <div class="video-container">
             <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
-            <div class="play-button">&#9658;</div>
+            <div class="video-flag">VIDEO</div>
           </div>
         `;
       }
