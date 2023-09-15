@@ -78,10 +78,6 @@ fetch('projects.json')
       const box = document.createElement("div");
       box.classList.add("media-box");
 
-      if (mediaItem.featured) {
-        box.classList.add("featured-video");
-      }
-
       let mediaContent = "";
       if (mediaItem.type === 'image') {
         mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
@@ -89,10 +85,12 @@ fetch('projects.json')
           box.classList.add("overlay"); // Add an overlay class for special styling
         }
       } else if (mediaItem.type === 'video') {
-        mediaContent = `<img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">`;
-        if (mediaItem.featured) {
-          mediaContent += '<div class="play-button">▶</div>';
-        }
+        mediaContent = `
+          <div class="video-container">
+            <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
+            <div class="play-button">&#9658;</div>
+          </div>
+        `;
       }
 
       box.innerHTML = mediaContent;
@@ -127,6 +125,7 @@ function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "none";
 }
+
 
 
 

@@ -18,9 +18,10 @@
           "type": "video",
           "source": "vimeo",
           "videoID": "864241067",
-          "description": "no story zine in the flesh",
-          "featured": true
+          "thumbnail": "URL_of_the_thumbnail_image",
+          "description": "no story zine in the flesh"
         }
+
 
       ]
 

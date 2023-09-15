@@ -152,19 +152,19 @@ p {
   border-radius: 6px;
 }
 
-.featured-video {
-  grid-column: span 2;
-  position: relative;
-}
-
 .play-button {
   position: absolute;
   top: 50%;
   left: 50%;
+  font-size: 32px;
+  color: orange;
+  border: 2px solid black;
   transform: translate(-50%, -50%);
-  font-size: 3em;
-  color: #E17918;
   cursor: pointer;
+}
+
+.video-container {
+  position: relative;
 }
 
 
