@@ -152,6 +152,22 @@ p {
   border-radius: 6px;
 }
 
+.featured-video {
+  grid-column: span 2;
+  position: relative;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #E17918;
+  cursor: pointer;
+}
+
+
 .close-btn {
   display: block;  /* Since <span> is inline by default, we change it to block */
   margin: 10px auto 0;  /* Top margin 10px, horizontally auto (centered), bottom 0 */
