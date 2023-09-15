@@ -7,7 +7,8 @@
       "media": [
         {
           "type": "image",
-          "path": "https://github.com/reallygoodmostly/work/blob/main/nostory/Scan%2010.png?raw=true"
+          "path": "https://github.com/reallygoodmostly/work/blob/main/nostory/nostory_mockup.gif?raw=true",
+          "overlay": true
         },
         {
           "type": "image",

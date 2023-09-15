@@ -68,15 +68,11 @@
 fetch('projects.json')
   .then(response => response.json())
   .then(data => {
-     console.log("Fetched data:", data);
-    const project = data.projects[0]; // assuming the first project for now
-
-    // Replace the static HTML content
+    const project = data.projects[0];
     document.querySelector('.display-1').textContent = project.title;
     document.querySelector('.fs-5').textContent = project.description;
     document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
 
-    // Populate media boxes dynamically
     const mediaGrid = document.getElementById("mediaGrid");
     project.media.forEach((mediaItem, index) => {
       const box = document.createElement("div");
@@ -85,22 +81,23 @@ fetch('projects.json')
       let mediaContent = "";
       if (mediaItem.type === 'image') {
         mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+        if (mediaItem.overlay) {
+          box.classList.add("overlay"); // Add an overlay class for special styling
+        }
       } else if (mediaItem.type === 'video') {
-        mediaContent = `<img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">`; // Thumbnail for video
+        mediaContent = `<img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">`;
       }
 
       box.innerHTML = mediaContent;
 
-      // Create and set up a modal for each box
       const modal = document.createElement("div");
-      const footer = document.querySelector('.footer');
       modal.classList.add("media-modal");
       modal.id = `mediaModal${index + 1}`;
       modal.innerHTML = `
         <div class="modal-content">
           <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
           <div class="media-container">
-            ${mediaContent}  <!-- Reuse the same media content -->
+            ${mediaContent}
           </div>
           <div class="media-description">
             ${mediaItem.description || ""}
@@ -108,13 +105,10 @@ fetch('projects.json')
         </div>
       `;
 
-      // Add the modal to the body
       document.body.appendChild(modal);
 
-      // Add a click event to open the modal
       box.addEventListener("click", () => {
         modal.style.display = "block";
-        footer.style.display = "none";
       });
 
       mediaGrid.appendChild(box);
@@ -122,14 +116,11 @@ fetch('projects.json')
   })
   .catch(error => console.error('There was an error!', error));
 
-// Function to close the modal
 function closeModal(modalId) {
-  console.log("Closing modal", modalId);
   const modal = document.getElementById(modalId);
-  const footer = document.querySelector('.footer');
   modal.style.display = "none";
-  footer.style.display = "block";
 }
+
 
 </script>
 
