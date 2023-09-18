@@ -154,8 +154,8 @@ p {
 
 .video-container {
   position: relative;
-  width: 90%;  /* Ensure it takes full width of parent */
-  height: 90%; /* Ensure it takes full height of parent */
+  width: 100%;  /* Ensure it takes full width of parent */
+  height: 75%; /* Ensure it takes full height of parent */
 }
 
 
