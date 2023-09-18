@@ -159,14 +159,15 @@ p {
 .video-flag {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   background-color: orange;
   color: black;
   padding: 2px 8px;
   font-size: 12px;
   z-index: 1;
-  transform: rotate(45deg); /* Rotate the flag */
+  transform: rotate(-45deg); /* Rotate the flag */
   border: 1px solid black; /* Add a 1px black stroke */
+  transform-origin: top left;
 }
 
 .close-btn {
