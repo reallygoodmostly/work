@@ -25,11 +25,11 @@
   <!-- Project Description -->
   <div class="container">
     <div class="row">
-            <div class="col-12">
-                <h1 class="display-1"></h1>  
-                <h2 class="fs-5"></h2> 
-                <p class="caption-text"></p> 
-            </div>
+        <div class="col-12">
+            <h1 class="display-1"></h1>  
+            <h2 class="fs-5"></h2> 
+            <p class="caption-text"></p> 
+        </div>
         <div class="col-12">
             <!-- New Container for Media Grid -->
             <div class="media-grid" id="mediaGrid">
@@ -48,13 +48,13 @@
       <!-- Media content will go here -->
       <div class="media-container">
         <!-- Media, like img, video, etc. -->
-      </div>
-      <div class="media-description">
-        <!-- Optional description text -->
-      </div>
-      <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span> <!-- Moved to bottom -->
     </div>
-  </div> <!-- This is new -->
+    <div class="media-description">
+        <!-- Optional description text -->
+    </div>
+    <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span> <!-- Moved to bottom -->
+</div>
+</div> <!-- This is new -->
 </div>
 
 
@@ -65,70 +65,73 @@
 
 <script>
 
-fetch('projects.json')
-  .then(response => response.json())
-  .then(data => {
-    const project = data.projects[0];
-    document.querySelector('.display-1').textContent = project.title;
-    document.querySelector('.fs-5').textContent = project.description;
-    document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+    fetch('projects.json')
+    .then(response => response.json())
+    .then(data => {
+        const project = data.projects[0];
+        document.querySelector('.display-1').textContent = project.title;
+        document.querySelector('.fs-5').textContent = project.description;
+        document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
 
-    const mediaGrid = document.getElementById("mediaGrid");
-    project.media.forEach((mediaItem, index) => {
-      const box = document.createElement("div");
-      box.classList.add("media-box");
+        const mediaGrid = document.getElementById("mediaGrid");
+        project.media.forEach((mediaItem, index) => {
+          const box = document.createElement("div");
+          box.classList.add("media-box");
 
-      let mediaContent = "";
-      let modalMediaContent = "";
+          let mediaContent = "";
+          let modalMediaContent = "";
 
-      if (mediaItem.type === 'image') {
-        mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-        modalMediaContent = mediaContent;
-      } else if (mediaItem.type === 'video') {
-        mediaContent = `
-          <div class="video-container">
+          if (mediaItem.type === 'image') {
+            mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+            modalMediaContent = mediaContent;
+        } else if (mediaItem.type === 'video') {
+            mediaContent = `
+            <div class="video-container">
             <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
             <div class="video-flag">VIDEO</div>
-          </div>
-        `;
+            </div>
+            `;
 
-        modalMediaContent = `
-          <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-        `;
-      }
+            modalMediaContent = `
+            <div class="aspect-ratio-16-9">
+            <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+            </div>
+            `;
 
-      box.innerHTML = mediaContent;
+        }
 
-      const modal = document.createElement("div");
-      modal.classList.add("media-modal");
-      modal.id = `mediaModal${index + 1}`;
-      modal.innerHTML = `
+        box.innerHTML = mediaContent;
+
+        const modal = document.createElement("div");
+        modal.classList.add("media-modal");
+        modal.id = `mediaModal${index + 1}`;
+        modal.innerHTML = `
         <div class="modal-content">
-          <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-          <div class="media-container">
-            ${modalMediaContent}
-          </div>
-          <div class="media-description">
-            ${mediaItem.description || ""}
-          </div>
+        <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+        <div class="media-container">
+        ${modalMediaContent}
         </div>
-      `;
+        <div class="media-description">
+        ${mediaItem.description || ""}
+        </div>
+        </div>
+        `;
 
-      document.body.appendChild(modal);
+        document.body.appendChild(modal);
 
-      box.addEventListener("click", () => {
-        modal.style.display = "block";
-      });
+        box.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
 
-      mediaGrid.appendChild(box);
+        mediaGrid.appendChild(box);
     });
-  })
-  .catch(error => console.error('There was an error!', error));
+    })
+    .catch(error => console.error('There was an error!', error));
 
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.style.display = "none";
-}
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.style.display = "none";
+  }
 
 
 
