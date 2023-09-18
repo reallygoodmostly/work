@@ -79,14 +79,21 @@ fetch('projects.json')
       box.classList.add("media-box");
 
       let mediaContent = "";
+      let modalMediaContent = "";
+
       if (mediaItem.type === 'image') {
         mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+        modalMediaContent = mediaContent;
       } else if (mediaItem.type === 'video') {
         mediaContent = `
           <div class="video-container">
             <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
             <div class="video-flag">VIDEO</div>
           </div>
+        `;
+
+        modalMediaContent = `
+          <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
         `;
       }
 
@@ -99,7 +106,7 @@ fetch('projects.json')
         <div class="modal-content">
           <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
           <div class="media-container">
-            ${mediaContent}
+            ${modalMediaContent}
           </div>
           <div class="media-description">
             ${mediaItem.description || ""}
@@ -122,6 +129,7 @@ function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "none";
 }
+
 
 
 
