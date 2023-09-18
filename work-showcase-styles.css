@@ -165,8 +165,9 @@ p {
   padding: 2px 8px;
   font-size: 12px;
   z-index: 1;
+  transform: rotate(45deg); /* Rotate the flag */
+  border: 1px solid black; /* Add a 1px black stroke */
 }
-
 
 .close-btn {
   display: block;  /* Since <span> is inline by default, we change it to block */
