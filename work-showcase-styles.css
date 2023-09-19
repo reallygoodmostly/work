@@ -145,6 +145,9 @@ p {
 }
 
 .media-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;  /* or set a specific size */
   height: 100%;  /* or set a specific size */
 }
@@ -205,7 +208,7 @@ p {
 
 .video-flag {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   background-color: orange;
   color: black;
