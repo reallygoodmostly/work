@@ -94,6 +94,11 @@ fetch('projects.json')
       let mediaContent = "";
       let modalMediaContent = "";
 
+       const zoomIcon = document.createElement("i");
+            zoomIcon.classList.add("material-icons");
+            zoomIcon.textContent = "zoom_in";
+            box.appendChild(zoomIcon);
+
       if (mediaItem.type === 'image') {
         mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
         modalMediaContent = mediaContent;
@@ -107,12 +112,8 @@ fetch('projects.json')
         <div class="aspect-ratio-16-9">
           <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
         </div>`;
-      }
+        }
 
-       const zoomIcon = document.createElement("i");
-            zoomIcon.classList.add("material-icons");
-            zoomIcon.textContent = "zoom_in";
-            box.appendChild(zoomIcon);
 
     // Setting the box content
       box.innerHTML = mediaContent;
