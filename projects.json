@@ -4,7 +4,11 @@
       "title": "No Story",
       "description": "Lookbook design for LA clothing brand",
       "caption": "15-page booklet; 21x52; Xerox printed",
+      "descriptionCredit": "Place your description and credits here.",
+      "process": "Place your process details here.",
+
       "media": [
+
         {
           "type": "image",
           "path": "https://github.com/reallygoodmostly/work/blob/main/nostory/nostory_mockup.gif?raw=true",

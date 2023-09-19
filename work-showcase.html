@@ -31,6 +31,15 @@
             <p class="caption-text"></p> 
         </div>
         <div class="col-12">
+            <button class="collapsible">Description/Credit</button>
+            <div class="content description-content">
+            </div>
+
+            <button class="collapsible">Process</button>
+            <div class="content process-content">
+            </div>
+        </div>
+        <div class="col-12">
             <!-- New Container for Media Grid -->
             <div class="media-grid" id="mediaGrid">
               <!-- Initially empty; we'll populate it with JavaScript -->
@@ -73,6 +82,10 @@
         document.querySelector('.fs-5').textContent = project.description;
         document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
 
+        document.querySelector('.description-content').innerHTML = `<p>${project.descriptionCredit}</p>`;
+        document.querySelector('.process-content').innerHTML = `<p>${project.process}</p>`;
+
+
         const mediaGrid = document.getElementById("mediaGrid");
         project.media.forEach((mediaItem, index) => {
           const box = document.createElement("div");
@@ -98,8 +111,8 @@
             </div>
             `;
 
-console.log("Logging modalMediaContent:", modalMediaContent);
-        
+            console.log("Logging modalMediaContent:", modalMediaContent);
+
         }
 
 
@@ -124,19 +137,8 @@ console.log("Logging modalMediaContent:", modalMediaContent);
         document.body.appendChild(modal);
 
         box.addEventListener("click", () => {
-               modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-            <div class="media-container">
-            ${modalMediaContent}
-            </div>
-            <div class="media-description">
-            ${mediaItem.description || ""}
-            </div>
-        </div>
-        `;
-        modal.style.display = "block";
-    });
+           modal.style.display = "block";
+       });
 
         mediaGrid.appendChild(box);
     });
