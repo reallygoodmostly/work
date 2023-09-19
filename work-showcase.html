@@ -46,7 +46,6 @@
             <!-- New Container for Media Grid -->
             <div class="media-grid" id="mediaGrid">
               <!-- Initially empty; we'll populate it with JavaScript -->
-              <span class="material-symbols-outlined"> zoom_in </span>
           </div>
       </div>
   </div>
@@ -110,7 +109,12 @@ fetch('projects.json')
         </div>`;
       }
 
-      // Setting the box content
+       const zoomIcon = document.createElement("i");
+            zoomIcon.classList.add("material-icons");
+            zoomIcon.textContent = "zoom_in";
+            box.appendChild(zoomIcon);
+
+    // Setting the box content
       box.innerHTML = mediaContent;
 
       // Creating the modal
