@@ -1,8 +1,15 @@
-/* General styling */
 body {
-  background-color: #D6D6D6; /* Solid background color */
-  font-family: 'IBM Plex Mono', monospace; /* Default text font */
+  background-color: #D6D6D6; 
+  font-family: 'IBM Plex Mono', monospace; 
   margin-bottom: 200px;  
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 .arrow-container {
@@ -55,11 +62,11 @@ p {
 }
 
 .caption-text {
-  font-size: 0.7rem; /* You can adjust this as you see fit */
-  font-style: italic; /* If you prefer italicized captions */
+  font-size: 0.7rem; 
+  font-style: italic; 
   text-align: left;
   margin-top: 4px; /* Adding some top margin for spacing */
-  font-family: 'IBM Plex Mono', monospace; /* Or whatever font you'd like */
+  font-family: 'IBM Plex Mono', monospace; 
 }
 
 .footer {
@@ -83,7 +90,6 @@ p {
   outline: none;
   font-size: 15px;
   transition: 0.4s;
-  
 }
 
 .active, .collapsible:hover {
@@ -97,7 +103,6 @@ p {
   transition: max-height 0.2s ease-out;
   background-color: #f1f1f1;
 }
-
 
 .media-box {
   display: flex;
@@ -178,10 +183,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;  /* or set a specific size */
-  height: 100%;  /* or set a specific size */
+  width: 100%;  
+  height: 100%; 
 }
-
 
 .media-container img {
   max-width: 100%;
@@ -200,14 +204,12 @@ p {
   border: 0;
 }
 
-
 .aspect-ratio-16-9 {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%; /* 9/16 * 100% */
     overflow: hidden;
 }
-
 
 .aspect-ratio-16-9 iframe {
   position: absolute;
@@ -235,7 +237,6 @@ p {
   right: 0;
 }
 
-
 .video-flag {
   position: absolute;
   top: 10px;
@@ -245,8 +246,8 @@ p {
   padding: 6px 10px;
   font-size: 14px;
   z-index: 1;
-  transform: rotate(-45deg); /* Rotate the flag */
-  border: 1px solid black; /* Add a 1px black stroke */
+  transform: rotate(-45deg); 
+  border: 1px solid black; 
   transform-origin: top left;
 }
 
@@ -255,7 +256,7 @@ p {
   margin: 10px auto 0;  /* Top margin 10px, horizontally auto (centered), bottom 0 */
   font-size: 32px;
   cursor: pointer;
-  color: orange;  /* Your Orange */
+  color: orange;  
 }
 
 .hidden {
