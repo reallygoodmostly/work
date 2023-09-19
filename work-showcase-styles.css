@@ -225,7 +225,7 @@ p {
   margin: 10px auto 0;  /* Top margin 10px, horizontally auto (centered), bottom 0 */
   font-size: 32px;
   cursor: pointer;
-  color: #E17918;  /* Your Orange */
+  color: orange;  /* Your Orange */
 }
 
 .hidden {
