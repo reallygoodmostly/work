@@ -212,8 +212,8 @@ p {
   left: 0;
   background-color: orange;
   color: black;
-  padding: 2px 8px;
-  font-size: 12px;
+  padding: 4px 10px;
+  font-size: 14px;
   z-index: 1;
   transform: rotate(-45deg); /* Rotate the flag */
   border: 1px solid black; /* Add a 1px black stroke */
