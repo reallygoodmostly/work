@@ -98,7 +98,7 @@
           if (mediaItem.type === 'image') {
   // Create the Add icon element
               const addIcon = document.createElement("i");
-              addIcon.classList.add("add-icon");
+              addIcon.classList.add("material-icons", "add-icon");
               addIcon.textContent = "add";
 
   // Create the image element
@@ -114,17 +114,28 @@
   // Same for the modal
               modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
           } else if (mediaItem.type === 'video') {
-            mediaContent = `
-            <div class="video-container">
-            <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
-            <div class="video-flag">VIDEO</div>
-            </div>`;
+            const videoContainer = document.createElement("div");
+            videoContainer.classList.add("video-container");
+
+            const videoThumbnail = document.createElement("img");
+            videoThumbnail.src = mediaItem.thumbnail;
+            videoThumbnail.alt = mediaItem.description || '';
+
+            const videoFlag = document.createElement("div");
+            videoFlag.classList.add("video-flag");
+            videoFlag.textContent = "VIDEO";
+
+            videoContainer.appendChild(videoThumbnail);
+            videoContainer.appendChild(videoFlag);
+            box.appendChild(videoContainer);
+
             modalMediaContent = `
             <div class="aspect-ratio-16-9">
             <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
             </div>`;
         }
- 
+
+        
 
 
       // Creating the modal
