@@ -96,13 +96,23 @@
           let modalMediaContent = "";
 
           if (mediaItem.type === 'image') {
-            mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-            modalMediaContent = mediaContent;
-            const addIcon = document.createElement("i");
-            addIcon.classList.add("add-icon");
-            addIcon.textContent = "add";
-            box.appendChild(addIcon);
-        } else if (mediaItem.type === 'video') {
+  // Create the Add icon element
+              const addIcon = document.createElement("i");
+              addIcon.classList.add("material-icons", "add-icon");
+              addIcon.textContent = "add";
+
+  // Create the image element
+              const imageElement = document.createElement("img");
+              imageElement.src = mediaItem.path;
+              imageElement.alt = mediaItem.description || '';
+
+  // Append both to the box
+              box.appendChild(addIcon);
+              box.appendChild(imageElement);
+
+  // Same for the modal
+              modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+          } else if (mediaItem.type === 'video') {
             mediaContent = `
             <div class="video-container">
             <img src="${mediaItem.thumbnail}" alt="${mediaItem.description || ''}">
