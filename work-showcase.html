@@ -96,12 +96,12 @@
           let modalMediaContent = "";
 
           if (mediaItem.type === 'image') {
+            mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+            modalMediaContent = mediaContent;
             const addIcon = document.createElement("i");
             addIcon.classList.add("material-symbols-outlined", "add-icon");
             addIcon.textContent = "add";
             box.appendChild(addIcon);
-            mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-            modalMediaContent = mediaContent;
         } else if (mediaItem.type === 'video') {
             mediaContent = `
             <div class="video-container">
