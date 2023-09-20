@@ -99,7 +99,7 @@
             mediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
             modalMediaContent = mediaContent;
             const addIcon = document.createElement("i");
-            addIcon.classList.add("material-symbols-outlined", "add-icon");
+            addIcon.classList.add("add-icon");
             addIcon.textContent = "add";
             box.appendChild(addIcon);
         } else if (mediaItem.type === 'video') {
