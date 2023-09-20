@@ -107,8 +107,9 @@
               imageElement.alt = mediaItem.description || '';
 
   // Append both to the box
-              box.appendChild(addIcon);
+              
               box.appendChild(imageElement);
+              box.appendChild(addIcon);
 
   // Same for the modal
               modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
