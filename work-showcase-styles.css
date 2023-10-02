@@ -81,6 +81,7 @@ p {
 
 .collapsible {
   background-color: #E17918;
+  border: 2px solid black;
   color: white;
   cursor: pointer;
   padding: 18px;
