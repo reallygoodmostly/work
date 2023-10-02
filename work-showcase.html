@@ -37,7 +37,7 @@
         <div class="col-12">
             <button class="collapsible">
               <span>Description/Credit</span>
-              <i class="material-icons">expand_more</i>
+              <i class="material-icons" id="expand-more-icon">expand_more</i>
           </button>
           <div class="content description-content">
               <!-- yur content here -->
@@ -184,13 +184,13 @@
       }
 
   })
-.catch(error => console.error('There was an error!', error));
+    .catch(error => console.error('There was an error!', error));
 
 // Modal close function
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.style.display = "none";
-}
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.style.display = "none";
+  }
 
 </script>
 </body>
