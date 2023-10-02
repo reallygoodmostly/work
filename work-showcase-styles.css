@@ -85,7 +85,8 @@ p {
   align-items: center;
   background-color: #E17918;
   border: 1px solid black;
-  color: white;
+  color: black;
+  font-family: 'IBM Plex Mono', monospace;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -97,6 +98,12 @@ p {
 
 .active, .collapsible:hover {
   background-color: #D16807;
+}
+
+#expand-more-icon {
+  font-size: 15px;
+  line-height: normal;
+  vertical-align: middle;
 }
 
 .content {
