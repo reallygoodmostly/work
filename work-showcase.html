@@ -177,23 +177,24 @@
             const content = this.nextElementSibling;
             if (content.style.maxHeight) {
               content.style.maxHeight = null;
-      content.style.padding = '0';  // set padding to 0 when closed
+              content.style.padding = '0';
+      content.style.borderWidth = '0px';  // set border width to 0 when closed
   } else {
       content.style.maxHeight = content.scrollHeight + "px";
-      content.style.padding = '10px';  // set padding when open
+      content.style.padding = '10px';
+      content.style.borderWidth = '1px';  // set border width when open
   }
 });
       }
 
-
-  })
-    .catch(error => console.error('There was an error!', error));
+})
+.catch(error => console.error('There was an error!', error));
 
 // Modal close function
-    function closeModal(modalId) {
-      const modal = document.getElementById(modalId);
-      modal.style.display = "none";
-  }
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.style.display = "none";
+}
 
 </script>
 </body>
