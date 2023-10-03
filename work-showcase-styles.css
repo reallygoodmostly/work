@@ -115,6 +115,10 @@ p {
   border: 0px solid black; /* Adding this line */
 }
 
+ul li {
+  margin-bottom: 1em; /* Adds space below each list item */
+}
+
 .media-box {
   display: flex;
   position: relative;
