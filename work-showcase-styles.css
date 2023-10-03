@@ -107,12 +107,13 @@ p {
 }
 
 .content {
-  background-color: white;
-  border: 1px solid black; /* Stroke border */
   padding: 10px;
-  margin-left: 10px; /* For the 'set-in' effect */
-  overflow: hidden; /* Hide the overflow content */
-  transition: max-height 0.4s ease-out; /* Smooth animation */
+  max-height: 0; /* initially hidden */
+  overflow: hidden;
+  border: 1px solid black;
+  margin-left: 10px;
+  background-color: white;
+  transition: max-height 0.4s ease-out;
 }
 
 
