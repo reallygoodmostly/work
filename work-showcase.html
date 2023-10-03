@@ -38,7 +38,7 @@
             <button class="collapsible">
               <span>Description/Credit</span>
               <i class="material-icons expand-more-icon">expand_more</i>
-            </button>
+          </button>
           <div class="content description-content">
               <!-- yur content here -->
           </div>
@@ -169,22 +169,22 @@
         mediaGrid.appendChild(box);
     });
 
- // Collapsible functionality
+// Collapsible functionality
         const coll = document.getElementsByClassName("collapsible");
         for (let i = 0; i < coll.length; i++) {
           coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
-
-    // Update the way we reference content, now that the icon is nested inside the button
             const content = this.nextElementSibling;
-
             if (content.style.maxHeight) {
               content.style.maxHeight = null;
-          } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-          }
-      });
+      content.style.padding = '0';  // set padding to 0 when closed
+  } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.padding = '10px';  // set padding when open
+  }
+});
       }
+
 
   })
     .catch(error => console.error('There was an error!', error));
