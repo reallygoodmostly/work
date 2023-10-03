@@ -116,7 +116,7 @@ p {
 }
 
 ul li {
-  margin-bottom: 2em; /* Adds space below each list item */
+  padding-bottom: 2em; /* Adds space below each list item */
 }
 
 .media-box {
