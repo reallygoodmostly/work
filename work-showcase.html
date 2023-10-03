@@ -90,18 +90,6 @@
         document.querySelector('.description-content').innerHTML = `<p>${project.descriptionCredit}</p>`;
         document.querySelector('.process-content').innerHTML = `<p>${project.process}</p>`;
 
-        // Create a list element
-        const ulElement = document.createElement("ul");
-
-        // Iterate through each description item to add it to the list
-        project.description.forEach(item => {
-            const liElement = document.createElement("li");
-            liElement.textContent = item;
-            ulElement.appendChild(liElement);
-        });
-
-        // Append the list to the .description-content div
-        document.querySelector('.description-content').appendChild(ulElement);
 
         const mediaGrid = document.getElementById("mediaGrid");
 
