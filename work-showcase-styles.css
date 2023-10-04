@@ -119,19 +119,25 @@ ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
 
+.process-content {
+    width: 650px; /* Width of dropdown */
+    height: 875px; /* Height of dropdown */
+}
+
 .process-image-carousel {
     position: relative;
-    min-height: 220px; /* Or whatever minimum height you want */
-    overflow: hidden; /* To ensure images don't overflow the container */
+    width: 650px;
+    height: 875px;
 }
 
 .process-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    max-width: 100%;  /* Scales down the image if it's too wide */
-    max-height: 200px; /* Sets a max height for images */
-    object-fit: contain; /* Maintains aspect ratio */
+    top: 50%;
+    left: 50%;
+    width: 625px;
+    height: 850px;
+    border: 1px solid black; /* 1px stroke */
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
