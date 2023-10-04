@@ -112,12 +112,12 @@
             if (images.length > 0) {
                 images[imageIndex].classList.add('active');
                 imageIndex = (imageIndex + 1) % images.length;
-                
+
                 if (imageIndex === 0) {
                     images.forEach(image => image.classList.remove('active'));
                 }
             }
-        }, 3000);
+        }, 5000);
 
 
 
