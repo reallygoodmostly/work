@@ -42,12 +42,18 @@
           <div class="content description-content">
               <!-- yur content here -->
           </div>
+          <!-- Collapsible Button for Process -->
           <button class="collapsible">
             <span>Process</span>
             <i class="material-icons expand-more-icon">expand_more</i>
         </button>
+        <!-- Content Area for Process -->
         <div class="content process-content">
+            <div class="process-image-carousel">
+                <!-- Images will be appended here by the JavaScript -->
+            </div>
         </div>
+
     </div>
     <div class="col-12">
         <!-- New Container for Media Grid -->
@@ -76,8 +82,7 @@
     <div class="text-uppercase">Work</div>
 </footer>
 <script>
-
-    // Fetching the data
+// Fetching the data
     fetch('projects.json')
     .then(response => response.json())
     .then(data => {
@@ -87,10 +92,29 @@
         document.querySelector('.display-1').textContent = project.title;
         document.querySelector('.fs-5').textContent = project.description;
         document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
-        // Handling creditInfo
+        
+    // Handling creditInfo
         const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
         document.querySelector('.description-content').innerHTML = creditInfoContent;
-        document.querySelector('.process-content').innerHTML = `<p>${project.process}</p>`;
+
+    // Handling process images
+        const processImageCarousel = document.querySelector('.process-image-carousel');
+        project.process.forEach(imagePath => {
+          const imageElement = document.createElement('img');
+          imageElement.src = imagePath;
+          imageElement.classList.add('process-image');
+          processImageCarousel.appendChild(imageElement);
+      });
+
+        let imageIndex = 0;
+        setInterval(() => {
+          const images = document.querySelectorAll('.process-image');
+          if (images.length > 0) {
+            images[imageIndex].classList.remove('active');
+            imageIndex = (imageIndex + 1) % images.length;
+            images[imageIndex].classList.add('active');
+        }
+    }, 3000);
 
 
         const mediaGrid = document.getElementById("mediaGrid");
@@ -178,21 +202,21 @@
           coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
             const content = this.nextElementSibling;
-             if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      content.style.padding = '0';
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+              content.style.padding = '0';
       content.style.borderWidth = '0px';  // set border width to 0 when closed
       content.style.marginLeft = '0';  // reset margin-left when closed
-    } else {
+  } else {
       content.style.maxHeight = (content.scrollHeight + 20) + "px";
       content.style.padding = '10px';
       content.style.borderWidth = '1px';  // set border width when open
       content.style.marginLeft = '25vw';  // set margin-left when open
-    }
+  }
 });
       }
 
-})
+  })
 .catch(error => console.error('There was an error!', error));
 
 // Modal close function

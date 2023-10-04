@@ -119,6 +119,17 @@ ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
 
+.process-image {
+    position: absolute;
+    transition: all 0.5s ease;
+    border: 2px solid #000;  /* or whatever stroke style you prefer */
+    opacity: 0;
+}
+
+.process-image.active {
+    opacity: 1;
+}
+
 .media-box {
   display: flex;
   position: relative;
