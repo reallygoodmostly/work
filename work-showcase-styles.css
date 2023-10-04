@@ -122,6 +122,10 @@ ul li {
 .process-content {
     width: 337.5px; /* New width */
     height: 450px; /* New height */
+    padding: 10px;
+    border-width: 1px;
+    margin-left: auto;  /* This will push the element to the right within its container */
+    max-height: 470px;
 }
 
 .process-image-carousel {
