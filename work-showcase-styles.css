@@ -122,8 +122,6 @@ ul li {
 .process-content {
     width: 337.5px; /* New width */
     height: 450px; /* New height */
-    position: absolute; /* Added */
-    right: 0; /* Added */
 }
 
 .process-image-carousel {
