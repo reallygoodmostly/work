@@ -132,8 +132,8 @@ ul li {
 
 .process-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 47%;
+    left: 47%;
     width: 312.5px; /* Half of original width */
     height: 425px; /* Half of original height */
     border: 1px solid black;
