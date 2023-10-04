@@ -102,118 +102,114 @@
             const imageElement = document.createElement('img');
             imageElement.src = imagePath;
             imageElement.classList.add('process-image');
-    imageElement.style.zIndex = index; // Set initial zIndex
-    processImageCarousel.appendChild(imageElement);
-});
+            imageElement.style.zIndex = index;
+            processImageCarousel.appendChild(imageElement);
+        });
 
         let imageIndex = 0;
-        let numVisibleImages = 0;
-const maxVisibleImages = 5; // Set how many images you want to stack
-setInterval(() => {
-    const images = document.querySelectorAll('.process-image');
-    if (images.length > 0) {
-        images[imageIndex].classList.add('active');
-        imageIndex = (imageIndex + 1) % images.length;
-        numVisibleImages = Math.min(numVisibleImages + 1, maxVisibleImages);
-        
-        // Reset after one full cycle
-        if (imageIndex === 0) {
-            numVisibleImages = 0;
-            images.forEach(image => image.classList.remove('active'));
-        }
-    }
-}, 3000);
+        setInterval(() => {
+            const images = document.querySelectorAll('.process-image');
+            if (images.length > 0) {
+                images[imageIndex].classList.add('active');
+                imageIndex = (imageIndex + 1) % images.length;
+                
+                if (imageIndex === 0) {
+                    images.forEach(image => image.classList.remove('active'));
+                }
+            }
+        }, 3000);
 
 
 
-const mediaGrid = document.getElementById("mediaGrid");
 
-project.media.forEach((mediaItem, index) => {
+        const mediaGrid = document.getElementById("mediaGrid");
+
+        project.media.forEach((mediaItem, index) => {
       // Creating a box for each media item
-  const box = document.createElement("div");
-  box.classList.add("media-box");
+          const box = document.createElement("div");
+          box.classList.add("media-box");
 
       // Media content rendering logic
-  let mediaContent = "";
-  let modalMediaContent = "";
+          let mediaContent = "";
+          let modalMediaContent = "";
 
-  if (mediaItem.type === 'image') {
+          if (mediaItem.type === 'image') {
   // Create the Add icon element
-      const addIcon = document.createElement("i");
-      addIcon.classList.add("material-icons", "add-icon");
-      addIcon.textContent = "add";
+              const addIcon = document.createElement("i");
+              addIcon.classList.add("material-icons", "add-icon");
+              addIcon.textContent = "add";
 
   // Create the image element
-      const imageElement = document.createElement("img");
-      imageElement.src = mediaItem.path;
-      imageElement.alt = mediaItem.description || '';
+              const imageElement = document.createElement("img");
+              imageElement.src = mediaItem.path;
+              imageElement.alt = mediaItem.description || '';
 
   // Append both to the box
-      
-      box.appendChild(imageElement);
-      box.appendChild(addIcon);
+
+              box.appendChild(imageElement);
+              box.appendChild(addIcon);
 
   // Same for the modal
-      modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-  } else if (mediaItem.type === 'video') {
-    const videoContainer = document.createElement("div");
-    videoContainer.classList.add("video-container");
+              modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+          } else if (mediaItem.type === 'video') {
+            const videoContainer = document.createElement("div");
+            videoContainer.classList.add("video-container");
 
-    const videoThumbnail = document.createElement("img");
-    videoThumbnail.src = mediaItem.thumbnail;
-    videoThumbnail.alt = mediaItem.description || '';
+            const videoThumbnail = document.createElement("img");
+            videoThumbnail.src = mediaItem.thumbnail;
+            videoThumbnail.alt = mediaItem.description || '';
 
-    const videoFlag = document.createElement("div");
-    videoFlag.classList.add("video-flag");
-    videoFlag.textContent = "VIDEO";
+            const videoFlag = document.createElement("div");
+            videoFlag.classList.add("video-flag");
+            videoFlag.textContent = "VIDEO";
 
-    videoContainer.appendChild(videoThumbnail);
-    videoContainer.appendChild(videoFlag);
-    box.appendChild(videoContainer);
+            videoContainer.appendChild(videoThumbnail);
+            videoContainer.appendChild(videoFlag);
+            box.appendChild(videoContainer);
 
-    modalMediaContent = `
-    <div class="aspect-ratio-16-9">
-    <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-    </div>`;
-}
+            modalMediaContent = `
+            <div class="aspect-ratio-16-9">
+            <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+            </div>`;
+        }
 
 
 
 
       // Creating the modal
-const modal = document.createElement("div");
-modal.classList.add("media-modal");
-modal.id = `mediaModal${index + 1}`;
-modal.innerHTML = `
-<div class="modal-content">
-<span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-<div class="media-container">
-${modalMediaContent}
-</div>
-<div class="media-description">
-${mediaItem.description || ""}
-</div>
-</div>`;
+        const modal = document.createElement("div");
+        modal.classList.add("media-modal");
+        modal.id = `mediaModal${index + 1}`;
+        modal.innerHTML = `
+        <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+        <div class="media-container">
+        ${modalMediaContent}
+        </div>
+        <div class="media-description">
+        ${mediaItem.description || ""}
+        </div>
+        </div>`;
 
       // Appending the modal and setting its display logic
-document.body.appendChild(modal);
-box.addEventListener("click", () => {
-    modal.style.display = "block";
-});
+        document.body.appendChild(modal);
+        box.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
 
       // Appending the box to the media grid
-mediaGrid.appendChild(box);
-});
+        mediaGrid.appendChild(box);
+    });
 
 // Collapsible functionality
-const coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    const content = this.nextElementSibling;
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      content.style.padding = '0';
+        const coll = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+              content.style.maxHeight = null;
+              content.style.padding = '0';
       content.style.borderWidth = '0px';  // set border width to 0 when closed
       content.style.marginLeft = '0';  // reset margin-left when closed
   } else {
@@ -223,9 +219,10 @@ for (let i = 0; i < coll.length; i++) {
       content.style.marginLeft = '25vw';  // set margin-left when open
   }
 });
-}
+      }
 
-})
+  })
+
 .catch(error => console.error('There was an error!', error));
 
 // Modal close function
