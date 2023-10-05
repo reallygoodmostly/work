@@ -124,7 +124,8 @@ ul li {
     height: 450px; /* New height */
     padding: 10px;
     border-width: 1px;
-    margin-left: auto;  /* This will push the element to the right within its container */
+    position: absolute;  /* Added */
+    right: 0; 
     max-height: 470px;
 }
 
