@@ -119,15 +119,11 @@ ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
 
-/*.process-content {
+.process-content {
     width: 337.5px; /* New width */
     height: 450px; /* New height */
     padding: 10px;
-    border-width: 1px;
-    position: absolute;  /* Added */
-    right: 0; 
-    max-height: 470px;
-}*/
+}
 
 .process-image-carousel {
     position: relative;
