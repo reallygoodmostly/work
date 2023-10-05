@@ -96,33 +96,7 @@
         const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
         document.querySelector('.description-content').innerHTML = creditInfoContent;
 
-   // Handling process images
-        const processImageCarousel = document.querySelector('.process-image-carousel');
-        project.process.forEach((imagePath, index) => {
-            const imageElement = document.createElement('img');
-            imageElement.src = imagePath;
-            imageElement.classList.add('process-image');
-            imageElement.style.zIndex = index;
-            processImageCarousel.appendChild(imageElement);
-        });
-
-        let imageIndex = 0;
-        setInterval(() => {
-            const images = document.querySelectorAll('.process-image');
-            if (images.length > 0) {
-                images[imageIndex].classList.add('active');
-                imageIndex = (imageIndex + 1) % images.length;
-
-                if (imageIndex === 0) {
-                    images.forEach(image => image.classList.remove('active'));
-                }
-            }
-        }, 5000);
-
-
-
-
-        const mediaGrid = document.getElementById("mediaGrid");
+ const mediaGrid = document.getElementById("mediaGrid");
 
         project.media.forEach((mediaItem, index) => {
       // Creating a box for each media item

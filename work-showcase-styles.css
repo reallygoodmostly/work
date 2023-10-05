@@ -119,35 +119,6 @@ ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
 
-.process-content {
-    width: 337.5px; /* New width */
-    height: 450px; /* New height */
-    padding: 10px;
-    margin-left: 25vw;
-}
-
-.process-image-carousel {
-    position: relative;
-    width: 337.5px;
-    height: 450px;
-}
-
-.process-image {
-    position: absolute;
-    top: 47%;
-    left: 47%;
-    width: 312.5px; /* Half of original width */
-    height: 425px; /* Half of original height */
-    border: 1px solid black;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.process-image.active {
-    opacity: 1;
-}
-
 .media-box {
   display: flex;
   position: relative;
