@@ -123,6 +123,7 @@ ul li {
     width: 337.5px; /* New width */
     height: 450px; /* New height */
     padding: 10px;
+    margin-left: 25vw;
 }
 
 .process-image-carousel {
