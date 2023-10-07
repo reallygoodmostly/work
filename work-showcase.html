@@ -78,7 +78,7 @@
     </div>
     <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span> <!-- Moved to bottom -->
 </div>
-</div> <!-- This is new -->
+</div> 
 </div>
 <footer class="fixed-bottom footer">
     <div class="text-uppercase">Work</div>
@@ -97,6 +97,7 @@
         const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
         document.querySelector('.description-content').innerHTML = creditInfoContent;
 // handling processcontent
+        console.log("Debugging processContent:", processContent);  // This line is for debugging
         const processContent = document.querySelector('.process-image-carousel');
         const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
         processContent.innerHTML = processImages;
