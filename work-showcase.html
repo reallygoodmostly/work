@@ -88,6 +88,8 @@
     fetch('projects.json')
     .then(response => response.json())
     .then(data => {
+        let processContent;  // Declare at the top level of the block
+
         const project = data.projects[0];
 // Populating the project details
         document.querySelector('.display-1').textContent = project.title;
@@ -99,6 +101,7 @@
 // handling processcontent
         console.log("Debugging processContent:", processContent);  // This line is for debugging
         const processContent = document.querySelector('.process-image-carousel');
+        console.log('Debugging processContent:', processContent);
         const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
         processContent.innerHTML = processImages;
 //handling mediaGrid
