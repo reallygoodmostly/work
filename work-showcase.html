@@ -108,40 +108,40 @@
           const box = document.createElement("div");
           box.classList.add("media-box");
 // Media content rendering logic
-        let mediaContent = "";
-        let modalMediaContent = "";
-        if (mediaItem.type === 'image') {
+          let mediaContent = "";
+          let modalMediaContent = "";
+          if (mediaItem.type === 'image') {
 // Create the Add icon element
-        const addIcon = document.createElement("i");
-        addIcon.classList.add("material-icons", "add-icon");
-        addIcon.textContent = "add";
+            const addIcon = document.createElement("i");
+            addIcon.classList.add("material-icons", "add-icon");
+            addIcon.textContent = "add";
  // Create the image element
-         const imageElement = document.createElement("img");
-        imageElement.src = mediaItem.path;
-        imageElement.alt = mediaItem.description || '';
+            const imageElement = document.createElement("img");
+            imageElement.src = mediaItem.path;
+            imageElement.alt = mediaItem.description || '';
 // Append both to the box
-        box.appendChild(imageElement);
-        box.appendChild(addIcon);
+            box.appendChild(imageElement);
+            box.appendChild(addIcon);
 // Same for the modal
-        modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+            modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
 //Flag for video and format HTML
-          } else if (mediaItem.type === 'video') {
-                const videoContainer = document.createElement("div");
-                videoContainer.classList.add("video-container");
-                const videoThumbnail = document.createElement("img");
-                videoThumbnail.src = mediaItem.thumbnail;
-                videoThumbnail.alt = mediaItem.description || '';
+        } else if (mediaItem.type === 'video') {
+            const videoContainer = document.createElement("div");
+            videoContainer.classList.add("video-container");
+            const videoThumbnail = document.createElement("img");
+            videoThumbnail.src = mediaItem.thumbnail;
+            videoThumbnail.alt = mediaItem.description || '';
             //Add video flag on visual overlay if it's a video
-                const videoFlag = document.createElement("div");
-                videoFlag.classList.add("video-flag");
-                videoFlag.textContent = "VIDEO";
-                videoContainer.appendChild(videoThumbnail);
-                videoContainer.appendChild(videoFlag);
-                box.appendChild(videoContainer);
-                modalMediaContent = `
-                <div class="aspect-ratio-16-9">
-                <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-                </div>`;
+            const videoFlag = document.createElement("div");
+            videoFlag.classList.add("video-flag");
+            videoFlag.textContent = "VIDEO";
+            videoContainer.appendChild(videoThumbnail);
+            videoContainer.appendChild(videoFlag);
+            box.appendChild(videoContainer);
+            modalMediaContent = `
+            <div class="aspect-ratio-16-9">
+            <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+            </div>`;
         }
 // Creating the modal HTML
         const modal = document.createElement("div");
@@ -164,7 +164,7 @@
         });
 // Appending the box to the media grid
         mediaGrid.appendChild(box);
-        });
+    });
 // Collapsible functionality
         const coll = document.getElementsByClassName("collapsible");
         for (let i = 0; i < coll.length; i++) {
@@ -188,9 +188,9 @@
 
                     // *** NEW: Handling Process in case this is the About dropdown ***
                     if (this.classList.contains('about-collapsible')) {
-                        const processContent = document.querySelector('.process-image-carousel');
+                        const aboutProcessContent = document.querySelector('.process-image-carousel');
                         const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
-                        processContent.innerHTML = processImages;
+                        aboutProcessContent.innerHTML = processImages;
                     }
                     // *** END NEW ***
                 }
