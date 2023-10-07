@@ -99,12 +99,16 @@
         const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
         document.querySelector('.description-content').innerHTML = creditInfoContent;
 // handling processcontent
-        console.log(Array.from(document.querySelectorAll('*')).map(el => el.className)); // Add this line for debugging
-        console.log(document.body.innerHTML);
-        const processContent = document.querySelector('.process-image-carousel');
-        console.log('Debugging processContent:', processContent);
-        const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
-        processContent.innerHTML = processImages;
+       // Create the process-image-carousel div dynamically
+                    const processCarouselDiv = document.createElement('div');
+                    processCarouselDiv.className = 'process-image-carousel';
+                    const nestedContentDiv = document.querySelector('.nested-content');
+                    nestedContentDiv.appendChild(processCarouselDiv);
+
+                    // Now, processContent should not be null
+                    const processContent = document.querySelector('.process-image-carousel');
+                    const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
+                    processContent.innerHTML = processImages;
 //handling mediaGrid
         const mediaGrid = document.getElementById("mediaGrid");
         project.media.forEach((mediaItem, index) => {
