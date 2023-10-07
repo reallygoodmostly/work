@@ -85,6 +85,7 @@
 </footer>
 <script>
 // Fetching the data
+    document.addEventListener("DOMContentLoaded", function() {
     fetch('projects.json')
     .then(response => response.json())
     .then(data => {
@@ -201,12 +202,14 @@
             });
         }
     })
+
 .catch(error => console.error('There was an error!', error));
 // Modal close function
 function closeModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = "none";
 }
+});
 </script>
 </body>
 </html>
