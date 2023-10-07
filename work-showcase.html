@@ -1,218 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work</title>
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!---Custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="work-showcase-styles.css">
-    <!---Material Icons -->
+    <!-- Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-
 </head>
 <body>
-
     <!-- Navigation back Arrow -->
     <div class="arrow-container" id="arrow-container" onclick="goBack()">
         <svg id="arrow-icon" width="70" height="70" viewBox="0 0 100 100">
-          <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
-      </svg>
-  </div>
-  <!-- Project Description -->
-  <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h1 class="display-1"></h1>  
-            <h2 class="fs-5"></h2> 
-            <p class="caption-text"></p> 
-        </div>
-        <div class="col-12">
-            <button class="collapsible">
-                <span>About</span>
-                <i class="material-icons expand-more-icon">expand_more</i>
-            </button>
-            <div class="content description-content">
-                <!-- Your content here -->
-
-                <!-- Nested Collapsible Button for Process -->
-                <button class="collapsible nested-collapsible">
-                    <span>Process</span>
+            <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
+        </svg>
+    </div>
+    <!-- Project Description -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-1"></h1>
+                <h2 class="fs-5"></h2>
+                <p class="caption-text"></p>
+            </div>
+            <div class="col-12">
+                <button class="collapsible">
+                    <span>About</span>
                     <i class="material-icons expand-more-icon">expand_more</i>
                 </button>
-                <!-- Nested Content Area for Process -->
-                <div class="content nested-content">
-                    <div class="process-image-carousel">
-                        <!-- Images will be appended here by JavaScript -->
+                <div class="content description-content">
+                    <!-- Your content here -->
+                    <!-- Nested Collapsible Button for Process -->
+                    <button class="collapsible nested-collapsible">
+                        <span>Process</span>
+                        <i class="material-icons expand-more-icon">expand_more</i>
+                    </button>
+                    <!-- Nested Content Area for Process -->
+                    <div class="content nested-content">
+                        <div class="process-image-carousel">
+                            <!-- Images will be appended here by JavaScript -->
+                        </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="col-12">
+                <!-- New Container for Media Grid -->
+                <div class="media-grid" id="mediaGrid">
+                    <!-- Initially empty; we'll populate it with JavaScript -->
+                </div>
             </div>
         </div>
-
-        <div class="col-12">
-            <!-- New Container for Media Grid -->
-            <div class="media-grid" id="mediaGrid">
-              <!-- Initially empty; we'll populate it with JavaScript -->
-          </div>
-      </div>
-  </div>
-</div>
-<!-- This will be generated dynamically -->
-<div class="media-modal" id="mediaModal">
-  <div class="modal-content-container"> <!-- This is new -->
-    <div class="modal-content">
-      <!-- Media content will go here -->
-      <div class="media-container">
-        <!-- Media, like img, video, etc. -->
     </div>
-    <div class="media-description">
-        <!-- Optional description text -->
+    <!-- This will be generated dynamically -->
+    <div class="media-modal" id="mediaModal">
+        <div class="modal-content-container">
+            <div class="modal-content">
+                <!-- Media content will go here -->
+                <div class="media-container">
+                    <!-- Media, like img, video, etc. -->
+                </div>
+                <div class="media-description">
+                    <!-- Optional description text -->
+                </div>
+                <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
+            </div>
+        </div>
     </div>
-    <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span> <!-- Moved to bottom -->
-</div>
-</div> 
-</div>
-<footer class="fixed-bottom footer">
-    <div class="text-uppercase">Work</div>
-</footer>
-<script>
-// Fetching the data
-    document.addEventListener("DOMContentLoaded", function() {
-    fetch('projects.json')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        const project = data.projects[0];
-// Populating the project details
-        document.querySelector('.display-1').textContent = project.title;
-        document.querySelector('.fs-5').textContent = project.description;
-        document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
-// Handling creditInfo
-        const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-        document.querySelector('.description-content').innerHTML = creditInfoContent;
-// handling processcontent
-       // Create the process-image-carousel div dynamically
-                    const processCarouselDiv = document.createElement('div');
-                    processCarouselDiv.className = 'process-image-carousel';
-                    const nestedContentDiv = document.querySelector('.nested-content');
-                    nestedContentDiv.appendChild(processCarouselDiv);
-
-                    // Now, processContent should not be null
-                    const processContent = document.querySelector('.process-image-carousel');
-                    const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
-                    processContent.innerHTML = processImages;
-//handling mediaGrid
-        const mediaGrid = document.getElementById("mediaGrid");
-        project.media.forEach((mediaItem, index) => {
-// Creating a box for each media item
-          const box = document.createElement("div");
-          box.classList.add("media-box");
-// Media content rendering logic
-          let mediaContent = "";
-          let modalMediaContent = "";
-          if (mediaItem.type === 'image') {
-// Create the Add icon element
-            const addIcon = document.createElement("i");
-            addIcon.classList.add("material-icons", "add-icon");
-            addIcon.textContent = "add";
- // Create the image element
-            const imageElement = document.createElement("img");
-            imageElement.src = mediaItem.path;
-            imageElement.alt = mediaItem.description || '';
-// Append both to the box
-            box.appendChild(imageElement);
-            box.appendChild(addIcon);
-// Same for the modal
-            modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-//Flag for video and format HTML
-        } else if (mediaItem.type === 'video') {
-            const videoContainer = document.createElement("div");
-            videoContainer.classList.add("video-container");
-            const videoThumbnail = document.createElement("img");
-            videoThumbnail.src = mediaItem.thumbnail;
-            videoThumbnail.alt = mediaItem.description || '';
-            //Add video flag on visual overlay if it's a video
-            const videoFlag = document.createElement("div");
-            videoFlag.classList.add("video-flag");
-            videoFlag.textContent = "VIDEO";
-            videoContainer.appendChild(videoThumbnail);
-            videoContainer.appendChild(videoFlag);
-            box.appendChild(videoContainer);
-            modalMediaContent = `
-            <div class="aspect-ratio-16-9">
-            <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-            </div>`;
-        }
-// Creating the modal HTML
-        const modal = document.createElement("div");
-        modal.classList.add("media-modal");
-        modal.id = `mediaModal${index + 1}`;
-        modal.innerHTML = `
-        <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-        <div class="media-container">
-        ${modalMediaContent}
-        </div>
-        <div class="media-description">
-        ${mediaItem.description || ""}
-        </div>
-        </div>`;
-// Appending the modal and setting its display logic
-        document.body.appendChild(modal);
-        box.addEventListener("click", () => {
-            modal.style.display = "block";
+    <footer class="fixed-bottom footer">
+        <div class="text-uppercase">Work</div>
+    </footer>
+    <script>
+        // Fetching the data
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('projects.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const project = data.projects[0];
+                    // Populating the project details
+                    document.querySelector('.display-1').textContent = project.title;
+                    document.querySelector('.fs-5').textContent = project.description;
+                    document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+                    // Handling creditInfo
+                    const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
+                    document.querySelector('.description-content').innerHTML = creditInfoContent;
+                    // Handling mediaGrid
+                    const mediaGrid = document.getElementById("mediaGrid");
+                    project.media.forEach((mediaItem, index) => {
+                        // Creating a box for each media item
+                        const box = document.createElement("div");
+                        box.classList.add("media-box");
+                        // Media content rendering logic
+                        let mediaContent = "";
+                        let modalMediaContent = "";
+                        if (mediaItem.type === 'image') {
+                            // Create the Add icon element
+                            const addIcon = document.createElement("i");
+                            addIcon.classList.add("material-icons", "add-icon");
+                            addIcon.textContent = "add";
+                            // Create the image element
+                            const imageElement = document.createElement("img");
+                            imageElement.src = mediaItem.path;
+                            imageElement.alt = mediaItem.description || '';
+                            // Append both to the box
+                            box.appendChild(imageElement);
+                            box.appendChild(addIcon);
+                            // Same for the modal
+                            modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+                        } else if (mediaItem.type === 'video') {
+                            const videoContainer = document.createElement("div");
+                            videoContainer.classList.add("video-container");
+                            const videoThumbnail = document.createElement("img");
+                            videoThumbnail.src = mediaItem.thumbnail;
+                            videoThumbnail.alt = mediaItem.description || '';
+                            // Add video flag on visual overlay if it's a video
+                            const videoFlag = document.createElement("div");
+                            videoFlag.classList.add("video-flag");
+                            videoFlag.textContent = "VIDEO";
+                            videoContainer.appendChild(videoThumbnail);
+                            videoContainer.appendChild(videoFlag);
+                            box.appendChild(videoContainer);
+                            modalMediaContent = `
+                            <div class="aspect-ratio-16-9">
+                                <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                            </div>`;
+                        }
+                        // Creating the modal HTML
+                        const modal = document.createElement("div");
+                        modal.classList.add("media-modal");
+                        modal.id = `mediaModal${index + 1}`;
+                        modal.innerHTML = `
+                        <div class="modal-content">
+                            <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+                            <div class="media-container">
+                                ${modalMediaContent}
+                            </div>
+                            <div class="media-description">
+                                ${mediaItem.description || ""}
+                            </div>
+                        </div>`;
+                        // Appending the modal and setting its display logic
+                        document.body.appendChild(modal);
+                        box.addEventListener("click", () => {
+                            modal.style.display = "block";
+                        });
+                        // Appending the box to the media grid
+                        mediaGrid.appendChild(box);
+                    });
+                })
+                .catch(error => console.error('There was an error!', error));
         });
-// Appending the box to the media grid
-        mediaGrid.appendChild(box);
-    });
-// Collapsible functionality
-        const coll = document.getElementsByClassName("collapsible");
-        for (let i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function(event) {
-                // Prevent event from bubbling up, so nested collapsibles work properly
-                event.stopPropagation();
-                
-                this.classList.toggle("active");
-                const content = this.nextElementSibling;
-
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    content.style.padding = '0';
-                    content.style.borderWidth = '0px';  // set border width to 0 when closed
-                    content.style.marginLeft = '0';  // reset margin-left when closed
-                } else {
-                    content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                    content.style.padding = '10px';
-                    content.style.borderWidth = '1px';  // set border width when open
-                    content.style.marginLeft = '25vw';  // set margin-left when open
-
-                    // *** NEW: Handling Process in case this is the About dropdown ***
-                    if (this.classList.contains('about-collapsible')) {
-                        const aboutProcessContent = document.querySelector('.process-image-carousel');
-                        const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
-                        aboutProcessContent.innerHTML = processImages;
-                    }
-                    // *** END NEW ***
-                }
-            });
+        // Modal close function
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
         }
-    })
-
-.catch(error => console.error('There was an error!', error));
-// Modal close function
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  modal.style.display = "none";
-}
-});
-</script>
+    </script>
 </body>
 </html>
