@@ -89,8 +89,6 @@
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        let processContent;  // Declare at the top level of the block
-
         const project = data.projects[0];
 // Populating the project details
         document.querySelector('.display-1').textContent = project.title;
@@ -103,7 +101,7 @@
         console.log(Array.from(document.querySelectorAll('*')).map(el => el.className)); // Add this line for debugging
         console.log("Debugging processContent:", processContent);  // This line is for debugging
         console.log(document.querySelector('.process-image-carousel'));
-        processContent = document.querySelector('.process-image-carousel');
+        const processContent = document.querySelector('.process-image-carousel');
         console.log('Debugging processContent:', processContent);
         const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
         processContent.innerHTML = processImages;
