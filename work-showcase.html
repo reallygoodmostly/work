@@ -100,8 +100,7 @@
         document.querySelector('.description-content').innerHTML = creditInfoContent;
 // handling processcontent
         console.log(Array.from(document.querySelectorAll('*')).map(el => el.className)); // Add this line for debugging
-        console.log("Debugging processContent:", processContent);  // This line is for debugging
-        console.log(document.querySelector('.process-image-carousel'));
+        console.log(document.body.innerHTML);
         const processContent = document.querySelector('.process-image-carousel');
         console.log('Debugging processContent:', processContent);
         const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
