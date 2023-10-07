@@ -99,6 +99,7 @@
         const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
         document.querySelector('.description-content').innerHTML = creditInfoContent;
 // handling processcontent
+        console.log(Array.from(document.querySelectorAll('*')).map(el => el.className)); // Add this line for debugging
         console.log("Debugging processContent:", processContent);  // This line is for debugging
         processContent = document.querySelector('.process-image-carousel');
         console.log('Debugging processContent:', processContent);
