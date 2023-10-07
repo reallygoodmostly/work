@@ -119,6 +119,17 @@ ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
 
+.process-collapsible {
+    background-color: #FFA07A; /* A lighter shade of orange */
+    /* ... other styles specific to the process collapsible */
+}
+
+.process-content {
+    background-color: #f1f1f1;
+    /* ... other styles specific to the process content */
+}
+
+
 .media-box {
   display: flex;
   position: relative;
