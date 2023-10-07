@@ -149,6 +149,30 @@
             const modal = document.getElementById(modalId);
             modal.style.display = "none";
         }
+
+            // Collapsible functionality
+    const coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function(event) {
+            // Prevent event from bubbling up, so nested collapsibles work properly
+            event.stopPropagation();
+            
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.padding = '0';
+                content.style.borderWidth = '0px';  // set border width to 0 when closed
+                content.style.marginLeft = '0';  // reset margin-left when closed
+            } else {
+                content.style.maxHeight = (content.scrollHeight + 20) + "px";
+                content.style.padding = '10px';
+                content.style.borderWidth = '1px';  // set border width when open
+                content.style.marginLeft = '25vw';  // set margin-left when open
+            }
+        });
+    }
     </script>
 </body>
 </html>
