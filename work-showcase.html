@@ -36,7 +36,6 @@
                 </button>
                 <div class="content description-content">
                     <!-- About content will go here -->
-
                     <!-- Nested Process Button -->
                     <button class="collapsible process-collapsible" style="display:none;">
                         <span>Process</span>
@@ -115,10 +114,13 @@
 
         // Populate process info
         function populateProcessInfo(processInfo) {
-            const processContent = document.querySelector('.process-content');
-            const processImages = processInfo.map(src => `<img src="${src}" class="process-image">`).join('');
-            processContent.innerHTML = processImages;
-        }
+        const processContent = document.querySelector('.process-content');
+        if (processContent !== null) {  // Add this null check
+        const processImages = processInfo.map(src => `<img src="${src}" class="process-image">`).join('');
+        processContent.innerHTML = processImages;
+    }
+}
+
 
 // Populate media grid
         function populateMediaGrid(mediaItems) {
