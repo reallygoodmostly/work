@@ -83,6 +83,31 @@
                 document.querySelector('.display-1').textContent = project.title;
                 document.querySelector('.fs-5').textContent = project.description;
                 document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+                  // Collapsible functionality
+                const coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function(event) {
+            // Prevent event from bubbling up, so nested collapsibles work properly
+                        event.stopPropagation();
+
+                        this.classList.toggle("active");
+                        const content = this.nextElementSibling;
+
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                            content.style.padding = '0';
+                content.style.borderWidth = '0px';  // set border width to 0 when closed
+                content.style.marginLeft = '0';  // reset margin-left when closed
+            } else {
+                content.style.maxHeight = (content.scrollHeight + 20) + "px";
+                content.style.padding = '10px';
+                content.style.borderWidth = '1px';  // set border width when open
+                content.style.marginLeft = '25vw';  // set margin-left when open
+            }
+
+            
+        });
+                }
                     // Handling creditInfo
                 const creditInfoContent = '<ul>' + project.creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
                 document.querySelector('.description-content').innerHTML = creditInfoContent;
@@ -160,39 +185,6 @@
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     modal.style.display = "none";
-}
-
-            // Collapsible functionality
-const coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function(event) {
-            // Prevent event from bubbling up, so nested collapsibles work properly
-        event.stopPropagation();
-
-        this.classList.toggle("active");
-        const content = this.nextElementSibling;
-
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            content.style.padding = '0';
-                content.style.borderWidth = '0px';  // set border width to 0 when closed
-                content.style.marginLeft = '0';  // reset margin-left when closed
-            } else {
-                content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                content.style.padding = '10px';
-                content.style.borderWidth = '1px';  // set border width when open
-                content.style.marginLeft = '25vw';  // set margin-left when open
-            }
-
-            // Populate process content when the About button is clicked
-                if (this.textContent.includes("About")) {
-                    const processContent = document.querySelector('.process-content');
-                    if (processContent) {  // Check if processContent is not null
-                        const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
-                        processContent.innerHTML = processImages;
-                    }
-                }
-        });
 }
 </script>
 </body>
