@@ -183,6 +183,15 @@ for (let i = 0; i < coll.length; i++) {
                 content.style.borderWidth = '1px';  // set border width when open
                 content.style.marginLeft = '25vw';  // set margin-left when open
             }
+
+            // Populate process content when the About button is clicked
+                if (this.textContent.includes("About")) {
+                    const processContent = document.querySelector('.process-content');
+                    if (processContent) {  // Check if processContent is not null
+                        const processImages = project.process.map(src => `<img src="${src}" class="process-image">`).join('');
+                        processContent.innerHTML = processImages;
+                    }
+                }
         });
 }
 </script>
