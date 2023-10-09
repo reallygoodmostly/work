@@ -35,14 +35,14 @@
                     <i class="material-icons expand-more-icon">expand_more</i>
                 </button>
                 <div class="content description-content">
-                    <!-- Existing About content here -->
+                    <!-- About content will go here -->
 
                     <!-- Nested Process Button -->
-                    <button class="collapsible process-collapsible">
+                    <button class="collapsible process-collapsible" style="display:none;">
                         <span>Process</span>
                         <i class="material-icons expand-more-icon">expand_more</i>
                     </button>
-                    <div class="content process-content">
+                    <div class="content process-content" style="display:none;">
                         <!-- Process content will go here -->
                     </div>
                 </div>
@@ -135,18 +135,33 @@
             this.classList.toggle("active");
             const content = this.nextElementSibling;
 
+            const processButton = document.querySelector('.process-collapsible');
+            const processContent = document.querySelector('.process-content');
+
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
                 content.style.padding = '0';
                 content.style.borderWidth = '0px';
                 content.style.marginLeft = '0';
+
+        // Hide the Process button and content when About is closed
+                if (this.textContent.includes("About")) {
+                    processButton.style.display = "none";
+                    processContent.style.display = "none";
+                }
             } else {
                 content.style.maxHeight = (content.scrollHeight + 20) + "px";
                 content.style.padding = '10px';
                 content.style.borderWidth = '1px';
                 content.style.marginLeft = '25vw';
+
+        // Show the Process button when About is open
+                if (this.textContent.includes("About")) {
+                    processButton.style.display = "block";
+                }
             }
         }
+
 
 // Create a media box
         function createMediaBox(mediaItem, index) {
