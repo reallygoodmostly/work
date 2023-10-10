@@ -122,8 +122,11 @@ ul li {
 .process-content {
   position: relative;
   height: 300px; /* Set a fixed height or make it responsive */
-  overflow: hidden; /* Hide overflow content */
+  max-height: 400px; /* Set to whatever maximum height you want */
+  max-width: 400px;  /* Set to whatever maximum width you want */
+  overflow: auto;    /* Enable both vertical and horizontal scrolling */
 }
+
 
 .process-content img {
   width: 70%;
