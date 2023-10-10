@@ -104,9 +104,9 @@ function populateProjectDetails(project) {
     function populateProcessImages(processImages) {
     const processContent = document.querySelector('.process-content');
     const imagesHTML = processImages.map(src => `
-        <div>
+        
             <img src="${src}" class="process-image">
-        </div>
+        
     `).join('');
     processContent.innerHTML = imagesHTML;
 }
