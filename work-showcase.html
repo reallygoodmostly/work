@@ -40,10 +40,7 @@
                     <span>Process</span>
                     <i class="material-icons expand-more-icon">expand_more</i>
                 </button>
-                 <div class="col-12">
                 <div class="content process-content"></div>
-                <div class="content process-content"></div>
-                </div>
             </div>
             <div class="col-12">
                 <!-- New Container for Media Grid -->
@@ -103,12 +100,17 @@ function populateProjectDetails(project) {
     for (let i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", toggleCollapsible);
     }
-    // New function to populate process images
-function populateProcessImages(processImages) {
+    //Process Images
+    function populateProcessImages(processImages) {
     const processContent = document.querySelector('.process-content');
-    const imagesHTML = processImages.map(src => `<img src="${src}" class="process-image">`).join('');
+    const imagesHTML = processImages.map(src => `
+        <div class="individual-window">
+            <img src="${src}" class="process-image">
+        </div>
+    `).join('');
     processContent.innerHTML = imagesHTML;
 }
+
 
 }
 
