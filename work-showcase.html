@@ -41,9 +41,7 @@
                 <!-- New Container for Media Grid -->
                 <div class="media-grid" id="mediaGrid">
                     <!-- Initially empty; we'll populate it with JavaScript -->
-                     <div class="media-box" id="processButton">
-                    <span>Process</span>
-                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -111,36 +109,7 @@ function populateMediaGrid(mediaItems) {
         const box = createMediaBox(mediaItem, index);
         mediaGrid.appendChild(box);
     });
-    // Add the Process box at the end
-    const processBox = createProcessBox(projectData.process);
-    mediaGrid.appendChild(processBox);
 }
-
-// Create a Process box
-function createProcessBox(processImages) {
-    const box = document.createElement("div");
-    box.classList.add("media-box", "process-box");
-
-    // Initially, you could just show a 'Process' label or an icon
-    box.innerHTML = `<span class="process-label">Process</span>`;
-
-    // Attach a click event to toggle the carousel
-    box.addEventListener("click", function() {
-        if (this.classList.contains("carousel-active")) {
-            // If carousel is active, revert to the initial state
-            this.innerHTML = `<span class="process-label">Process</span>`;
-            this.classList.remove("carousel-active");
-        } else {
-            // Otherwise, show the carousel
-            const carouselImages = processImages.map(src => `<img src="${src}" class="process-image">`).join('');
-            this.innerHTML = `<div class="carousel">${carouselImages}</div>`;
-            this.classList.add("carousel-active");
-        }
-    });
-
-    return box;
-}
-
 
 // Toggle collapsible content
 function toggleCollapsible(event) {
