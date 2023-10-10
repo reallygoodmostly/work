@@ -110,8 +110,6 @@
                         `).join('');
                     processContent.innerHTML = imagesHTML;
                 }
-
-
             }
 
     // Jostle images
@@ -144,7 +142,12 @@
         function toggleCollapsible(event) {
             event.stopPropagation();
             this.classList.toggle("active");
-            const content = this.nextElementSibling;
+            let content;
+            if (this.textContent.includes("Process")) {
+                content = this.nextElementSibling.querySelector('.process-content');
+            } else {
+                content = this.nextElementSibling;
+            }
 
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
@@ -158,6 +161,7 @@
                 content.style.marginLeft = '25vw';
             }
         }
+
 
 // Create a media box
         function createMediaBox(mediaItem, index) {
