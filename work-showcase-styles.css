@@ -120,13 +120,9 @@ ul li {
 }
 
 .process-content {
-  position: relative;
-  height: 300px; /* Set a fixed height or make it responsive */
-  max-height: 400px; /* Set to whatever maximum height you want */
-  max-width: 400px;  /* Set to whatever maximum width you want */
-  overflow: auto;    /* Enable both vertical and horizontal scrolling */
+    background-color: #f1f1f1;
+    /* ... other styles specific to the process content */
 }
-
 
 .process-content img {
   width: 70%;
@@ -135,8 +131,7 @@ ul li {
   display: block;
   border: 1px solid #000;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  transform: translate(10px, 15px);
+  position: relative;
 }
 
 .process-content img:nth-child(odd) {
