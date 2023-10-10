@@ -76,7 +76,29 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             fetchData();
+                const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            // Check if new nodes are added
+            if (mutation.addedNodes.length) {
+                // Re-attach event listeners or perform other actions
+                attachEventListeners();
+            }
         });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+});
+
+function attachEventListeners() {
+    // Your code to attach event listeners, for example:
+    const coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", toggleCollapsible);
+    }
+}
 
 
 let projectData = null;  // Global variable
