@@ -124,6 +124,16 @@ ul li {
     /* ... other styles specific to the process content */
 }
 
+.process-content img {
+  width: 50%;  /* You can set this to whatever you prefer */
+  height: auto;  /* Maintain aspect ratio */
+  margin: 10px auto;  /* Vertical margin of 10px, and auto horizontal margin to center */
+  display: block;  /* To make margin auto work */
+  border: 1px solid #000;  /* 1px border */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Optional: add a little shadow */
+}
+
+
 
 .media-box {
   display: flex;
