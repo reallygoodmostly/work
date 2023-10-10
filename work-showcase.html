@@ -42,7 +42,6 @@
                 <div class="media-grid" id="mediaGrid">
                     <!-- Initially empty; we'll populate it with JavaScript -->
                 </div>
-                <button id="processButton">Process</button>
             </div>
         </div>
     </div>
@@ -198,47 +197,6 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     modal.style.display = "none";
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  // Fetch the data first, just like you're doing in your existing code
-  fetchData();
-});
-
-let processImages = [];  // This will hold your process images
-
-async function fetchData() {
-  try {
-    const response = await fetch('projects.json');
-    const data = await response.json();
-    processImages = data.projects[0].process;  // Assuming the process images are here
-    initProcessButton();
-  } catch (error) {
-    console.error('There was an error!', error);
-  }
-}
-
-function initProcessButton() {
-  const processButton = document.getElementById("processButton");
-  processButton.addEventListener("click", function() {
-    // Transform the button into a media box with a carousel
-    const mediaBox = document.createElement("div");
-    mediaBox.classList.add("media-box");
-
-    // Create a simple carousel for the process images
-    let carouselHTML = '<div class="carousel">';
-    processImages.forEach((src, index) => {
-      carouselHTML += `<div class="carousel-item ${index === 0 ? 'active' : ''}">
-                        <img src="${src}" alt="Process Image ${index + 1}">
-                       </div>`;
-    });
-    carouselHTML += '</div>';
-
-    mediaBox.innerHTML = carouselHTML;
-    // Replace the button with this new media box
-    processButton.replaceWith(mediaBox);
-  });
-}
-
 
     </script>
 </body>
