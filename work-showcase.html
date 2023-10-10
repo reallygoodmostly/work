@@ -70,9 +70,9 @@
         <div class="text-uppercase">Work</div>
     </footer>
     <script>
-
-        document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     fetchData();
+    randomizeImagePositions();
 });
 
 // Fetch the data
@@ -107,7 +107,19 @@ function populateProcessImages(processImages) {
     const imagesHTML = processImages.map(src => `<img src="${src}" class="process-image">`).join('');
     processContent.innerHTML = imagesHTML;
 }
+
 }
+
+    // Jostle images
+function randomizeImagePositions() {
+  const images = document.querySelectorAll('.process-content img');
+  images.forEach(img => {
+    const x = Math.random() * 20 - 10; // Random x between -10 and 10
+    const y = Math.random() * 20 - 10; // Random y between -10 and 10
+    img.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+
 
 // Populate credit info
 function populateCreditInfo(creditInfo) {
