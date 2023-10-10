@@ -135,12 +135,12 @@ ul li {
 }
 
 .process-content img:nth-child(odd) {
-  transform: translateY(-10px) translateX(-10px);
+  transform: translateX(-10px);
   z-index: 1;  /* Odd images will be on top */
 }
 
 .process-content img:nth-child(even) {
-  transform: translateY(10px) translateX(10px);
+  transform:  translateX(10px);
   z-index: 0;  /* Even images will be below */
 }
 
