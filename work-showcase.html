@@ -36,195 +36,196 @@
                 </button>
                 <div class="content description-content">
                 </div>
-                <button class="collapsible">
+                <<button class="collapsible">
                     <span>Process</span>
                     <i class="material-icons expand-more-icon">expand_more</i>
                 </button>
-                <div class="process-content"></div>
-            </div>
-            <div class="col-12">
-                <!-- New Container for Media Grid -->
-                <div class="media-grid" id="mediaGrid">
-                    <!-- Initially empty; we'll populate it with JavaScript -->
+                <div class="process-container">
+                    <div class="process-content"></div>
+                </div>
+                <div class="col-12">
+                    <!-- New Container for Media Grid -->
+                    <div class="media-grid" id="mediaGrid">
+                        <!-- Initially empty; we'll populate it with JavaScript -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- This will be generated dynamically -->
-    <div class="media-modal" id="mediaModal">
-        <div class="modal-content-container">
-            <div class="modal-content">
-                <!-- Media content will go here -->
-                <div class="media-container">
-                    <!-- Media, like img, video, etc. -->
+        <!-- This will be generated dynamically -->
+        <div class="media-modal" id="mediaModal">
+            <div class="modal-content-container">
+                <div class="modal-content">
+                    <!-- Media content will go here -->
+                    <div class="media-container">
+                        <!-- Media, like img, video, etc. -->
+                    </div>
+                    <div class="media-description">
+                        <!-- Optional description text -->
+                    </div>
+                    <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
                 </div>
-                <div class="media-description">
-                    <!-- Optional description text -->
-                </div>
-                <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
             </div>
         </div>
-    </div>
-    <footer class="fixed-bottom footer">
-        <div class="text-uppercase">Work</div>
-    </footer>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    fetchData();
-    randomizeImagePositions();
-});
+        <footer class="fixed-bottom footer">
+            <div class="text-uppercase">Work</div>
+        </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetchData();
+                randomizeImagePositions();
+            });
 
 // Fetch the data
-async function fetchData() {
-    try {
-        const response = await fetch('projects.json');
-        const data = await response.json();
-        populateProjectDetails(data.projects[0]);
-    } catch (error) {
-        console.error('There was an error!', error);
-    }
-}
+            async function fetchData() {
+                try {
+                    const response = await fetch('projects.json');
+                    const data = await response.json();
+                    populateProjectDetails(data.projects[0]);
+                } catch (error) {
+                    console.error('There was an error!', error);
+                }
+            }
 
 // Populate project details
-function populateProjectDetails(project) {
-    document.querySelector('.display-1').textContent = project.title;
-    document.querySelector('.fs-5').textContent = project.description;
-    document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
-    
-    populateCreditInfo(project.creditInfo);
-    populateMediaGrid(project.media);
-    populateProcessImages(project.process);
-    
+            function populateProjectDetails(project) {
+                document.querySelector('.display-1').textContent = project.title;
+                document.querySelector('.fs-5').textContent = project.description;
+                document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+
+                populateCreditInfo(project.creditInfo);
+                populateMediaGrid(project.media);
+                populateProcessImages(project.process);
+
     // Attach collapsible functionality
-    const coll = document.getElementsByClassName("collapsible");
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", toggleCollapsible);
-    }
-    function populateProcessImages(processImages) {
-    const processContent = document.querySelector('.process-content');
-    const imagesHTML = processImages.map(src => `
-        <div class="individual-window">
-            <img src="${src}" class="process-image">
-        </div>
-    `).join('');
-    processContent.innerHTML = imagesHTML;
-}
+                const coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", toggleCollapsible);
+                }
+                function populateProcessImages(processImages) {
+                    const processContent = document.querySelector('.process-content');
+                    const imagesHTML = processImages.map(src => `
+                        <div class="individual-window">
+                        <img src="${src}" class="process-image">
+                        </div>
+                        `).join('');
+                    processContent.innerHTML = imagesHTML;
+                }
 
 
-}
+            }
 
     // Jostle images
-function randomizeImagePositions() {
-  const images = document.querySelectorAll('.process-content img');
-  images.forEach(img => {
+            function randomizeImagePositions() {
+              const images = document.querySelectorAll('.process-content img');
+              images.forEach(img => {
     const x = Math.random() * 20 - 10; // Random x between -10 and 10
     const y = Math.random() * 20 - 10; // Random y between -10 and 10
     img.style.transform = `translate(${x}px, ${y}px)`;
-  });
-}
+});
+          }
 
 
 // Populate credit info
-function populateCreditInfo(creditInfo) {
-    const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-    document.querySelector('.description-content').innerHTML = creditInfoContent;
-}
+          function populateCreditInfo(creditInfo) {
+            const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
+            document.querySelector('.description-content').innerHTML = creditInfoContent;
+        }
 
 // Populate media grid
-function populateMediaGrid(mediaItems) {
-    const mediaGrid = document.getElementById("mediaGrid");
-    mediaItems.forEach((mediaItem, index) => {
-        const box = createMediaBox(mediaItem, index);
-        mediaGrid.appendChild(box);
-    });
-}
+        function populateMediaGrid(mediaItems) {
+            const mediaGrid = document.getElementById("mediaGrid");
+            mediaItems.forEach((mediaItem, index) => {
+                const box = createMediaBox(mediaItem, index);
+                mediaGrid.appendChild(box);
+            });
+        }
 
 // Toggle collapsible content
-function toggleCollapsible(event) {
-    event.stopPropagation();
-    this.classList.toggle("active");
-    const content = this.nextElementSibling;
+        function toggleCollapsible(event) {
+            event.stopPropagation();
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
 
-    if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-        content.style.padding = '0';
-        content.style.borderWidth = '0px';
-        content.style.marginLeft = '0';
-    } else {
-        content.style.maxHeight = (content.scrollHeight + 20) + "px";
-        content.style.padding = '10px';
-        content.style.borderWidth = '1px';
-        content.style.marginLeft = '25vw';
-    }
-}
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.padding = '0';
+                content.style.borderWidth = '0px';
+                content.style.marginLeft = '0';
+            } else {
+                content.style.maxHeight = (content.scrollHeight + 20) + "px";
+                content.style.padding = '10px';
+                content.style.borderWidth = '1px';
+                content.style.marginLeft = '25vw';
+            }
+        }
 
 // Create a media box
-function createMediaBox(mediaItem, index) {
-    const box = document.createElement("div");
-    box.classList.add("media-box");
-    
-    let mediaContent = "";
-    let modalMediaContent = "";
-    
-    if (mediaItem.type === 'image') {
-        const addIcon = document.createElement("i");
-        addIcon.classList.add("material-icons", "add-icon");
-        addIcon.textContent = "add";
-        
-        const imageElement = document.createElement("img");
-        imageElement.src = mediaItem.path;
-        imageElement.alt = mediaItem.description || '';
-        
-        box.appendChild(imageElement);
-        box.appendChild(addIcon);
-        
-        modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-    } else if (mediaItem.type === 'video') {
-        const videoContainer = document.createElement("div");
-        videoContainer.classList.add("video-container");
-        
-        const videoThumbnail = document.createElement("img");
-        videoThumbnail.src = mediaItem.thumbnail;
-        videoThumbnail.alt = mediaItem.description || '';
-        
-        const videoFlag = document.createElement("div");
-        videoFlag.classList.add("video-flag");
-        videoFlag.textContent = "VIDEO";
-        
-        videoContainer.appendChild(videoThumbnail);
-        videoContainer.appendChild(videoFlag);
-        box.appendChild(videoContainer);
-        
-        modalMediaContent = `
-        <div class="aspect-ratio-16-9">
-            <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-        </div>`;
-    }
-    const modal = document.createElement("div");
-    modal.classList.add("media-modal");
-    modal.id = `mediaModal${index + 1}`;
-    modal.innerHTML = `
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-        <div class="media-container">
+        function createMediaBox(mediaItem, index) {
+            const box = document.createElement("div");
+            box.classList.add("media-box");
+
+            let mediaContent = "";
+            let modalMediaContent = "";
+
+            if (mediaItem.type === 'image') {
+                const addIcon = document.createElement("i");
+                addIcon.classList.add("material-icons", "add-icon");
+                addIcon.textContent = "add";
+
+                const imageElement = document.createElement("img");
+                imageElement.src = mediaItem.path;
+                imageElement.alt = mediaItem.description || '';
+
+                box.appendChild(imageElement);
+                box.appendChild(addIcon);
+
+                modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+            } else if (mediaItem.type === 'video') {
+                const videoContainer = document.createElement("div");
+                videoContainer.classList.add("video-container");
+
+                const videoThumbnail = document.createElement("img");
+                videoThumbnail.src = mediaItem.thumbnail;
+                videoThumbnail.alt = mediaItem.description || '';
+
+                const videoFlag = document.createElement("div");
+                videoFlag.classList.add("video-flag");
+                videoFlag.textContent = "VIDEO";
+
+                videoContainer.appendChild(videoThumbnail);
+                videoContainer.appendChild(videoFlag);
+                box.appendChild(videoContainer);
+
+                modalMediaContent = `
+                <div class="aspect-ratio-16-9">
+                <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                </div>`;
+            }
+            const modal = document.createElement("div");
+            modal.classList.add("media-modal");
+            modal.id = `mediaModal${index + 1}`;
+            modal.innerHTML = `
+            <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+            <div class="media-container">
             ${modalMediaContent}
-        </div>
-        <div class="media-description">
+            </div>
+            <div class="media-description">
             ${mediaItem.description || ""}
-        </div>
-    </div>`;
-    document.body.appendChild(modal);
-    box.addEventListener("click", () => {
-        modal.style.display = "block";
-    });
-    return box;
-}
+            </div>
+            </div>`;
+            document.body.appendChild(modal);
+            box.addEventListener("click", () => {
+                modal.style.display = "block";
+            });
+            return box;
+        }
 
 // Modal close function
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = "none";
-}
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "none";
+        }
 
     </script>
 </body>
