@@ -40,7 +40,7 @@
                     <span>Process</span>
                     <i class="material-icons expand-more-icon">expand_more</i>
                 </button>
-                <div class="content process-content"></div>
+                <div class="processcontent"></div>
             </div>
             <div class="col-12">
                 <!-- New Container for Media Grid -->
@@ -102,11 +102,11 @@ function populateProjectDetails(project) {
     }
     //Process Images
     function populateProcessImages(processImages) {
-    const processContent = document.querySelector('.process-content');
+    const processContent = document.querySelector('.processcontent');
     const imagesHTML = processImages.map(src => `
-        
+            <div process-content>
             <img src="${src}" class="process-image">
-        
+            </div>
     `).join('');
     processContent.innerHTML = imagesHTML;
 }
