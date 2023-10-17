@@ -142,16 +142,6 @@ ul li {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.process-content img:nth-child(odd) {
-  transform: translateX(-10px);
-  z-index: 1;  /* Odd images will be on top */
-}
-
-.process-content img:nth-child(even) {
-  transform:  translateX(10px);
-  z-index: 0;  /* Even images will be below */
-}
-
 .media-box {
   display: flex;
   position: relative;
