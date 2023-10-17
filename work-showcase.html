@@ -144,17 +144,18 @@
                     content = this.nextElementSibling;
                 }
 
-                // Force a reflow to make sure scrollHeight is accurate
-                content.style.maxHeight = 'none';
-                const scrollHeight = content.scrollHeight;
-
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
                     content.style.padding = '0';
                     content.style.borderWidth = '0px';
                     content.style.marginLeft = '0';
                 } else {
-        // Recalculate maxHeight based on current scrollHeight
+
+                      // Force a reflow to make sure scrollHeight is accurate
+                    content.style.maxHeight = 'none';
+                    const scrollHeight = content.scrollHeight;
+
+                        // Recalculate maxHeight based on current scrollHeight
                     content.style.maxHeight = (content.scrollHeight + 20) + "px";
                     content.style.padding = '10px';
                     content.style.borderWidth = '1px';
