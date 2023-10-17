@@ -104,7 +104,7 @@
                 function populateProcessImages(processImages) {
                     const processContent = document.querySelector('.process-content');
                     const imagesHTML = processImages.map(src => `
-                        <div class="individual-window">
+                        <div>
                         <img src="${src}" class="process-image">
                         </div>
                         `).join('');
