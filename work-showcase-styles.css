@@ -44,7 +44,6 @@ h1 {
 }
 
 h2 {
-
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500; /* Medium weight */
   text-align: left; 
@@ -53,7 +52,6 @@ h2 {
 
 
 p {
-
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 200; /* Light weight */
   font-style: italic; 
@@ -142,6 +140,13 @@ ul li {
     margin: 5px;  
     border: 1px solid #000;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust size for smaller screens */
+@media (max-width: 768px) {
+  .process-content img {
+    width: 50%; /* Increase the width to make the image larger */
+  }
 }
 
 .media-box {
