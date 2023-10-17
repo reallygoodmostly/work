@@ -120,6 +120,7 @@ ul li {
 }
 
 .process-container {
+    width: 100;
     padding: 10px 0;  /* 10px padding at the top and bottom */
     display: block;  /* Ensures it takes up the full width available */
     background-color: transparent;
@@ -127,6 +128,8 @@ ul li {
 
 .process-content {
   position: relative; 
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   max-height: 0;
   overflow: hidden;
