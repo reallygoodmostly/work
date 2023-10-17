@@ -144,6 +144,10 @@
                     content = this.nextElementSibling;
                 }
 
+                // Force a reflow to make sure scrollHeight is accurate
+                content.style.maxHeight = 'none';
+                const scrollHeight = content.scrollHeight;
+
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
                     content.style.padding = '0';
