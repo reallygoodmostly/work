@@ -284,8 +284,8 @@ ul li {
 
 .video-flag {
   position: absolute;
-  top: 10px;
-  left: 0;
+  top: -15px;
+  left: -25px;
   background-color: orange;
   color: black;
   padding: 6px 10px;
