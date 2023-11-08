@@ -113,6 +113,10 @@ p {
   border: 0px solid black;
 }
 
+.description-content {
+  overflow-y: auto; /* Enables vertical scrolling if content overflows */
+}
+
 ul li {
   padding-bottom: 2em; /* Adds space below each list item */
 }
