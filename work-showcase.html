@@ -74,6 +74,19 @@
                 fetchData();
             });
 
+// Back arrow functionality
+            function goBack() {
+                // Check if the user is at the top of the page or close to it
+                if (window.pageYOffset > 100) { // 100px is the threshold you can define
+                // If not at the top, scroll to the top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                // If at the top, navigate to the main page
+                    window.location.href = 'https://reallygoodmostly.github.io/work/';
+                }
+            }
+
+
 // Fetch the data
             async function fetchData() {
                 try {
