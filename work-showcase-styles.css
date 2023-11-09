@@ -210,11 +210,6 @@ ul li {
   background: rgba(0,0,0,0.7);
 }
 
-.media-modal:hover {
-    cursor: pointer;
-    background: rgba(0,0,0,0.8); /* Slightly darker to indicate active area */
-}
-
 .modal-content-container {
   position: absolute;
   top: 50%;
@@ -315,16 +310,6 @@ ul li {
 
 .hidden {
   display: none;
-}
-
-.landscape-mode {
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
-    object-fit: cover; /* Cover the full viewport */
-    position: fixed; /* Fix it over the content */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Make sure it's above other content */
 }
 
 /* For mobile and smaller tablets */
