@@ -244,15 +244,18 @@
                 const modal = document.getElementById(modalId);
                 modal.style.display = "none";
             }
-
-            // Listen for a click event on the entire window
+// Listen for a click event on the entire window
 window.addEventListener('click', function(event) {
-    // Check if the clicked element has the class 'media-modal'
-    if (event.target.classList.contains('media-modal') && event.target.classList.contains('media-container')) {
-        // If so, change the display style to 'none' to hide it
-        event.target.style.display = 'none';
+    // Check if the clicked element has the class 'media-modal' or 'media-container'
+    if (event.target.classList.contains('media-modal') || event.target.classList.contains('media-container')) {
+        // If so, close the modal. This assumes your modal has an ID or a specific way to be closed.
+        // Fetch all elements with class 'media-modal' and hide them
+        document.querySelectorAll('.media-modal').forEach(function(modal) {
+            modal.style.display = 'none';
+        });
     }
 });
+
     </script>
     </body>
     </html>
