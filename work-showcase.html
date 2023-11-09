@@ -239,29 +239,18 @@
                 return box;
             }
 
-// Modal close function
-            function closeModal(modalId) {
-                const modal = document.getElementById(modalId);
-                modal.style.display = "none";
-            }
+window.addEventListener('click', function(event) {
+    // Get all open modals
+    var openModals = document.querySelectorAll('.media-modal');
 
-document.addEventListener(
-  "click",
-  function(event) {
-    // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
-    if (
-      event.target.matches(".button-close-modal") ||
-      !event.target.closest(".media-container img")
-    ) {
-      closeModal()
-    }
-  },
-  false
-)
-
-function closeModal() {
-  document.querySelector(".modal").style.display = "none"
-}
+    // Loop through all open modals and close them
+    openModals.forEach(function(modal) {
+        // Check if the modal is displayed
+        if (modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+});
 
         </script>
     </body>
