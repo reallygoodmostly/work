@@ -239,18 +239,11 @@
                 return box;
             }
 
-window.addEventListener('click', function(event) {
-    // Get all open modals
-    var openModals = document.querySelectorAll('.media-modal');
-
-    // Loop through all open modals and close them
-    openModals.forEach(function(modal) {
-        // Check if the modal is displayed
-        if (modal.style.display === 'block') {
-            modal.style.display = 'none';
-        }
-    });
-});
+// Modal close function
+            function closeModal(modalId) {
+                const modal = document.getElementById(modalId);
+                modal.style.display = "none";
+            }
 
         </script>
     </body>
