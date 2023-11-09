@@ -245,6 +245,14 @@
                 modal.style.display = "none";
             }
 
-        </script>
+            // Listen for a click event on the entire window
+window.addEventListener('click', function(event) {
+    // Check if the clicked element has the class 'media-modal'
+    if (event.target.classList.contains('media-modal') && event.target.classList.contains('media-container')) {
+        // If so, change the display style to 'none' to hide it
+        event.target.style.display = 'none';
+    }
+});
+    </script>
     </body>
     </html>
