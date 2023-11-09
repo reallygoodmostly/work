@@ -198,6 +198,25 @@
                     box.appendChild(addIcon);
 
                     modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+
+        // Add event listener for taps on images
+                    imageElement.addEventListener('click', function() {
+                        const modal = document.getElementById(`mediaModal${index + 1}`);
+            if (window.innerWidth <= 767) { // Check if we are on a mobile device
+                if (!this.classList.contains('landscape-mode')) {
+                    // First tap - enter landscape mode
+                    this.classList.add('landscape-mode');
+                    modal.style.display = "block";
+                } else {
+                    // Second tap - close modal and reset landscape mode
+                    closeModal(`mediaModal${index + 1}`);
+                    this.classList.remove('landscape-mode');
+                }
+            } else {
+                // For non-mobile devices, just open the modal
+                modal.style.display = "block";
+            }
+        });
                 } else if (mediaItem.type === 'video') {
                     const videoContainer = document.createElement("div");
                     videoContainer.classList.add("video-container");
@@ -219,6 +238,7 @@
                     <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
                     </div>`;
                 }
+
                 const modal = document.createElement("div");
                 modal.classList.add("media-modal");
                 modal.id = `mediaModal${index + 1}`;
@@ -233,9 +253,11 @@
                 </div>
                 </div>`;
                 document.body.appendChild(modal);
+
                 box.addEventListener("click", () => {
                     modal.style.display = "block";
                 });
+
                 return box;
             }
 
@@ -243,7 +265,13 @@
             function closeModal(modalId) {
                 const modal = document.getElementById(modalId);
                 modal.style.display = "none";
+    // Remove landscape mode from any image within the modal
+                const img = modal.querySelector('.landscape-mode');
+                if (img) {
+                    img.classList.remove('landscape-mode');
+                }
             }
+
 
         </script>
     </body>
