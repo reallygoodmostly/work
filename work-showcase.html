@@ -245,13 +245,23 @@
                 modal.style.display = "none";
             }
 
-// Listen for a click event on the entire modal window close
-            window.addEventListener('click', function(event) {
-// Check if the clicked element has the class 'media-modal'
-            if (event.target.classList.contains('media-container')) {
-            event.target.style.display = 'none';
+document.addEventListener(
+  "click",
+  function(event) {
+    // If user either clicks X button OR clicks outside the modal window, then close modal by calling closeModal()
+    if (
+      event.target.matches(".button-close-modal") ||
+      !event.target.closest(".media-container img")
+    ) {
+      closeModal()
     }
-});
+  },
+  false
+)
+
+function closeModal() {
+  document.querySelector(".modal").style.display = "none"
+}
 
         </script>
     </body>
