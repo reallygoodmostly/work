@@ -1,250 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="work-showcase-styles.css">
-    <!-- Material Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Casey Knapp</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=Alumni+Sans:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url("https://github.com/reallygoodmostly/work/blob/main/reallygoodmostly_An_image_of_a_trees_leaves_in_two-tones_green__1ab338e3-2fd2-4587-847f-5c70ed60ab5f.png?raw=true");
+      background-size: cover;
+      background-repeat: repeat;
+    }
+
+    .custom-button {
+      padding: 15px 15px; 
+      font-size: 1.5rem;  
+      border: 1px solid black;
+      background-color: #E17918;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      font-family: 'IBM Plex Mono', monospace; 
+    }
+
+    .custom-button:hover {
+      transform: scale(1.1) translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .email-ticker {
+      width: 100%;
+      height: 25px; /* Set the height as you prefer */
+      background-color: #E17918; /* The same orange you're using */
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      padding: 15px; 
+      font-size: 1.75rem;  
+      font-family: 'Alumni Sans', sans-serif; 
+      position: fixed;
+      top: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .email-text {
+      display: inline-block;
+      white-space: nowrap;
+      padding-left: 100%; /* initial position */
+      animation: ticker 15s linear infinite; /* Set your preferred speed here */
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .custom-footer {
+     padding: 15px; 
+     font-size: 4rem;  
+     text-align: left;
+     border-top: 2px solid black;
+     background-color: #E17918;
+     font-family: 'Alumni Sans', sans-serif; 
+   }
+
+   .hidden {
+    display: none !important;
+  }
+
+  .social-icon {
+    min-width: 150px;
+    width: 3rem;
+    height: 3rem;
+    font-family: 'IBM Plex Mono', monospace; 
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: #E17918;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin: 1vw;
+    transition: all 0.5s ease, width 0.3s ease 0.5s;
+    box-shadow: 0px 0px 5px #000;
+    overflow: hidden;
+  }
+
+  .icon-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: width 0.3s ease 0.5s; 
+    flex-wrap: nowrap;  /* ensure items do not wrap */
+  }
+
+  .social-icon.show {
+    /*animation: fadeIn 1s ease;*/
+    box-shadow: 0px 0px 15px #000;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    width: 150px;  /* expanded width */
+  }
+
+  #arrow-icon {
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: none;
+    outline: none;
+    z-index: 2;
+
+  }
+
+  #arrow-icon:hover {
+    outline: none;
+    transform: scale(1.2);
+  }
+
+
+  .aboutme-box {
+    position: fixed;
+    width: 40vw;
+    height: 0; /* starts as a line */
+    left: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow-y: auto;
+    border: 4px solid black;
+    background-color: #E17918;
+    box-shadow: 6px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+  }
+
+  .aboutme-box.hidden {
+    height: 0;
+    overflow: hidden;
+  }
+
+  .aboutme-box.animate {
+    height: 40vh; /* end size */
+    width: 40vw;
+  }
+
+  .scrolling-text {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  #selfie-image {
+    position: fixed;
+    top: 50%;
+    right: 3vw; /* or whatever distance you want from the right */
+    transform: translateY(-50%);
+    mix-blend-mode: darken;
+    transition: all 0.3s ease-in-out;
+  }
+
+
+/* In your base CSS */
+.custom-button,
+.social-icon,
+#arrow-icon {
+  --scale-factor: 1;
+  transform: scale(var(--scale-factor));
+}
+
+/* In your hover state */
+.custom-button:hover,
+.social-icon:hover,
+#arrow-icon:hover {
+  transform: scale(calc(var(--scale-factor) * 1.1)) translateY(-5px);
+}
+
+/* In your media query */
+@media only screen and (max-width: 768px) {
+  .custom-button,
+  .social-icon,
+  #arrow-icon {
+    --scale-factor: 1.1;
+  }
+
+  .aboutme-box {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    min-width: 300px;
+    width: 90vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #selfie-image {
+    display: block;
+    margin: 0 auto;
+    top: 2%;
+    right: auto;
+    left: 0;
+    transform: translateY(-30%) scale(1.2);  /* reset transformations */
+  }
+  .custom-footer {
+    height: 7vh; 
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+</style>
 </head>
+
 <body>
-    <!-- Navigation back Arrow -->
-    <div class="arrow-container" id="arrow-container" onclick="goBack()">
-        <svg id="arrow-icon" width="70" height="70" viewBox="0 0 100 100">
-            <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
-        </svg>
+
+  <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+    <div id="original-buttons" class="d-flex flex-column flex-md-row justify-content-between mb-3">
+      <button id="talk-button" class="btn custom-button mb-4 mb-md-0 me-md-4">Talk</button>
+      <button class="btn custom-button mb-4 mb-md-0 me-md-4" onclick="window.location.href='work-showcase.html';">Work</button>
+      <button id="about-button"class="btn custom-button mb-4 mb-md-0 me-md-4">About</button>
     </div>
-    <!-- Project Description -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-1"></h1>
-                <h2 class="fs-5"></h2>
-                <p class="caption-text"></p>
-            </div>
-            <div class="col-12">
-                <button class="collapsible">
-                    <span>About</span>
-                    <i class="material-icons expand-more-icon">expand_more</i>
-                </button>
-                <div class="content description-content">
-                </div>
-                <button class="collapsible">
-                    <span>Process</span>
-                    <i class="material-icons expand-more-icon">expand_more</i>
-                </button>
-                <div class="process-container">
-                    <div class="process-content"></div>
-                </div>
-                <div class="col-12">
-                    <!-- New Container for Media Grid -->
-                    <div class="media-grid" id="mediaGrid">
-                        <!-- Initially empty; we'll populate it with JavaScript -->
-                    </div>
-                </div>
-            </div>
+    <div id="social-media-popup" class="hidden d-flex flex-column flex-md-row justify-content-between mb-3">
+      <div class="social-icon show">
+        <div class="icon-content">
+          <span class="full-name">Twitter</span>
         </div>
-        <!-- This will be generated dynamically -->
-        <div class="media-modal" id="mediaModal">
-            <div class="modal-content-container">
-                <div class="modal-content">
-                    <!-- Media content will go here -->
-                    <div class="media-container">
-                        <!-- Media, like img, video, etc. -->
-                    </div>
-                    <div class="media-description">
-                        <!-- Optional description text -->
-                    </div>
-                    <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
-                </div>
-            </div>
+      </div>
+      <div class="social-icon show">
+        <div class="icon-content">
+          <span class="full-name">Medium</span>
         </div>
-        <footer class="fixed-bottom footer">
-            <div class="text-uppercase">Work</div>
-        </footer>
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                fetchData();
-            });
+      </div>
+      <div class="social-icon show">
+        <div class="icon-content">
+          <span class="full-name">Instagram</span>
+        </div>
+      </div>
+      <div class="social-icon show">
+        <div class="icon-content">
+          <span class="full-name">Are.na</span>
+        </div>
+      </div>
+    </div>
+    <svg id="arrow-icon" class="hidden" width="100" height="100" viewBox="0 0 100 100">
+      <polygon points="40,20 80,50 40,80 40,60 20,60 20,40 40,40" fill="#E17918" stroke="black" stroke-width="2"/>
+    </svg>
+    <div id="email-ticker" class="hidden email-ticker">
+      <div id="email-text" class="hidden email-text">
+        <span>Email me: knapp@hi.com</span>
+      </div>
+    </div>
+    <div class="aboutme-box hidden" id="aboutme-box">
+      <div class="scrolling-text">
+        <span>HELLO, I’M CASEY! NICE TO MEET YOU. I’M BETWEEN MONTANA AND LA. My background is in visual design, and I enjoy the exchange between culture, technology and form.<br><br> I like to work with people that are curious, compassionate, funny and who entertain bold ideas about what they’d want to put out into the world.<br><br>  </span>
+      </div>
+    </div>
+    <img src="https://github.com/reallygoodmostly/work/blob/main/Screenshot%202023-08-13%20at%203.34.44%20PM%20Background%20Removed.png?raw=true" alt="me" id="selfie-image" class="hidden">
+  </div>
 
-// Back arrow functionality
-            function goBack() {
-                // Check if the user is at the top of the page or close to it
-                if (window.pageYOffset > 100) { // 100px is the threshold you can define
-                // If not at the top, scroll to the top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                // If at the top, navigate to the main page
-                    window.location.href = 'https://reallygoodmostly.github.io/work/';
-                }
-            }
+  
 
+  <footer class="fixed-bottom custom-footer">
+    <p class="mb-0 text-uppercase">Knapp</p>
+  </footer>
 
-// Fetch the data
-            async function fetchData() {
-                try {
-                    const response = await fetch('projects.json');
-                    const data = await response.json();
-                    populateProjectDetails(data.projects[0]);
-        // Recalculate maxHeight for all collapsible elements
-                    const collapsibles = document.getElementsByClassName("collapsible");
-                    for (let i = 0; i < collapsibles.length; i++) {
-                        const content = collapsibles[i].nextElementSibling;
-                        if (content.style.maxHeight) {
-                            content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                        }
-                    }
+  <script>
 
-                } catch (error) {
-                    console.error('There was an error!', error);
-                }
-            }
-// Populate project details
-            function populateProjectDetails(project) {
-                document.querySelector('.display-1').textContent = project.title;
-                document.querySelector('.fs-5').textContent = project.description;
-                document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+    function toggleClasses(ids, className) {
+      ids.forEach(id => {
+        document.getElementById(id).classList.toggle(className);
+      });
+    }
 
-                populateCreditInfo(project.creditInfo);
-                populateMediaGrid(project.media);
-                populateProcessImages(project.process);
+    document.getElementById('talk-button').addEventListener('click', function() {
+      toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon', 'email-ticker', 'email-text'], 'hidden');
 
-    // Attach collapsible functionality
-                const coll = document.getElementsByClassName("collapsible");
-                for (let i = 0; i < coll.length; i++) {
-                    coll[i].addEventListener("click", toggleCollapsible);
-                }
-                function populateProcessImages(processImages) {
-                    const processContent = document.querySelector('.process-content');
-                    const imagesHTML = processImages.map(src => `
-                        <img src="${src}" class="process-image">
-                        `).join('');
-                    processContent.innerHTML = imagesHTML;
-                }
-            }
+      const icons = document.querySelectorAll('.social-icon');
+      icons.forEach(icon => {
+        icon.classList.toggle('show');
+      });
+    });
 
-// Populate credit info
-            function populateCreditInfo(creditInfo) {
-                const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-                document.querySelector('.description-content').innerHTML = creditInfoContent;
-            }
+    document.getElementById('arrow-icon').addEventListener('click', function() {
+      var socialMediaPopup = document.getElementById('social-media-popup');
+      var aboutMeBox = document.getElementById('aboutme-box');
 
-// Populate media grid
-            function populateMediaGrid(mediaItems) {
-                const mediaGrid = document.getElementById("mediaGrid");
-                mediaItems.forEach((mediaItem, index) => {
-                    const box = createMediaBox(mediaItem, index);
-                    mediaGrid.appendChild(box);
-                });
-            }
+      if (!socialMediaPopup.classList.contains('hidden')) {
+    // Social media popup is visible; hide it
+        toggleClasses(['social-media-popup', 'original-buttons', 'arrow-icon', 'email-ticker', 'email-text'], 'hidden');
+      } else if (!aboutMeBox.classList.contains('hidden')) {
+    // About Me box is visible; hide it
+    aboutMeBox.classList.remove('animate');  // Remove animate first
+    setTimeout(function() {
+      aboutMeBox.classList.add('hidden');  // Then add hidden
+    }, 300); // This should match the duration of your transition
 
-// Toggle collapsible content
-            function toggleCollapsible(event) {
-                event.stopPropagation();
-                this.classList.toggle("active");
-                let content;
-                if (this.textContent.includes("Process")) {
-                    content = this.nextElementSibling.querySelector('.process-content');
-                } else {
-                    content = this.nextElementSibling;
-                }
+    // Toggle back to show the original buttons and hide the back arrow
+    toggleClasses(['original-buttons', 'arrow-icon', 'selfie-image'], 'hidden');
+  }
+});
 
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    content.style.padding = '0';
-                    content.style.borderWidth = '0px';
-                    content.style.marginLeft = '0';
-                } else {
+    document.getElementById('about-button').addEventListener('click', function() {
+      var aboutMeBox = document.getElementById('aboutme-box');
+      var selfieImage = document.getElementById('selfie-image');
 
-                      // Force a reflow to make sure scrollHeight is accurate
-                    content.style.maxHeight = 'none';
-                    const scrollHeight = content.scrollHeight;
+      if (aboutMeBox.classList.contains('hidden')) {
+    aboutMeBox.classList.remove('hidden'); // Remove hidden first
+    selfieImage.classList.remove('hidden');
+    setTimeout(function() {
+      aboutMeBox.classList.add('animate');  // Then add animate
+    }, 10); // Set a small timeout before adding .animate
+  } else {
+    aboutMeBox.classList.remove('animate');  // Remove animate first
+    selfieImage.classList.add('hidden');
+    setTimeout(function() {
+      aboutMeBox.classList.add('hidden');  // Then add hidden
+    }, 300); // This should match the duration of your transition
+    setTimeout(function() {
+      toggleClasses(['original-buttons'], 'hidden');
+}, 300);  // This should match the duration of your transition to close 'About Me' box
 
-                        // Recalculate maxHeight based on current scrollHeight
-                    content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                    content.style.padding = '10px';
-                    content.style.borderWidth = '1px';
-                    content.style.marginLeft = '25vw';
-                }
-            }
+  }
+
+  toggleClasses([ 'original-buttons', 'arrow-icon'], 'hidden');
+});
 
 
 
-// Create a media box
-            function createMediaBox(mediaItem, index) {
-                const box = document.createElement("div");
-                box.classList.add("media-box");
+</script>
 
-                let mediaContent = "";
-                let modalMediaContent = "";
+<!-- Bootstrap Scripts (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
 
-                if (mediaItem.type === 'image') {
-                    const addIcon = document.createElement("i");
-                    addIcon.classList.add("material-icons", "add-icon");
-                    addIcon.textContent = "add";
-
-                    const imageElement = document.createElement("img");
-                    imageElement.src = mediaItem.path;
-                    imageElement.alt = mediaItem.description || '';
-
-                    box.appendChild(imageElement);
-                    box.appendChild(addIcon);
-
-                    modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-                } else if (mediaItem.type === 'video') {
-                    const videoContainer = document.createElement("div");
-                    videoContainer.classList.add("video-container");
-
-                    const videoThumbnail = document.createElement("img");
-                    videoThumbnail.src = mediaItem.thumbnail;
-                    videoThumbnail.alt = mediaItem.description || '';
-
-                    const videoFlag = document.createElement("div");
-                    videoFlag.classList.add("video-flag");
-                    videoFlag.textContent = "VIDEO!";
-
-                    videoContainer.appendChild(videoThumbnail);
-                    videoContainer.appendChild(videoFlag);
-                    box.appendChild(videoContainer);
-
-                    modalMediaContent = `
-                    <div class="aspect-ratio-16-9">
-                    <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-                    </div>`;
-                }
-                const modal = document.createElement("div");
-                modal.classList.add("media-modal");
-                modal.id = `mediaModal${index + 1}`;
-                modal.innerHTML = `
-                <div class="modal-content">
-                <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-                <div class="media-container">
-                ${modalMediaContent}
-                </div>
-                <div class="media-description">
-                ${mediaItem.description || ""}
-                </div>
-                </div>`;
-                document.body.appendChild(modal);
-                box.addEventListener("click", () => {
-                    modal.style.display = "block";
-                });
-                return box;
-            }
-
-// Modal close function
-            function closeModal(modalId) {
-                const modal = document.getElementById(modalId);
-                modal.style.display = "none";
-            }
-
-        </script>
-    </body>
-    </html>
+</body>
+</html>
