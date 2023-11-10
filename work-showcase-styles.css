@@ -328,30 +328,41 @@ ul li {
 /* For mobile and smaller tablets */
 @media only screen and (max-width: 767px) {
   .media-modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Keep the modal hidden by default */
+    display: none;
+    /* Ensure it covers the entire viewport when displayed */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 
   .modal-content-container {
-    width: 90%; /* Increase width */
+    /* Full width with some padding */
+    width: 90%;
+    /* Adjust height as needed */
     height: auto;
-    position: fixed;
-    bottom: 10px; /* Positioning it a bit above the bottom */
-    left: 5%; /* Centering it horizontally */
+    /* Centering the content container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .media-container img,
   .media-container iframe {
-    max-width: 100%; /* Full width of the container */
-    max-height: 70vh; /* Adjust the height to be a bit less than the viewport height */
+    /* Allow images and videos to scale up */
+    max-width: 100%;
+    max-height: 80vh;
     object-fit: contain;
   }
 
   .aspect-ratio-16-9 {
-    padding-bottom: 56.25%; /* Maintaining the aspect ratio for videos */
+    /* Maintain aspect ratio for videos */
+    padding-bottom: 56.25%;
   }
 
   .aspect-ratio-16-9 iframe {
