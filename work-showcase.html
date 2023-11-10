@@ -69,6 +69,7 @@
         <footer class="fixed-bottom footer">
             <div class="text-uppercase">Work</div>
         </footer>
+        <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 fetchData();
@@ -243,19 +244,30 @@
             function closeModal(modalId) {
                 const modal = document.getElementById(modalId);
                 modal.style.display = "none";
-            }
+// Find any Vimeo iframes within the modal and stop their content
+            const iframes = modal.getElementsByTagName('iframe');
+                for (let iframe of iframes) {
+                if (iframe.src.includes("vimeo")) {
+            const player = new Vimeo.Player(iframe);
+                player.pause().then(function() {
+ // The video was paused
+                }).catch(function(error) {
+                console.error('Error pausing the video:', error);
+            });
+        }
+    }
+}
 // Listen for a click event on the entire window
-window.addEventListener('click', function(event) {
-    // Check if the clicked element has the class 'media-modal' or 'media-container'
-    if (event.target.classList.contains('media-modal') || event.target.classList.contains('media-container')) {
-        // If so, close the modal. This assumes your modal has an ID or a specific way to be closed.
-        // Fetch all elements with class 'media-modal' and hide them
-        document.querySelectorAll('.media-modal').forEach(function(modal) {
-            modal.style.display = 'none';
+            window.addEventListener('click', function(event) {
+// Check if the clicked element has the class 'media-modal' or 'media-container'
+                if (event.target.classList.contains('media-modal') || event.target.classList.contains('media-container')) {
+// If so, close the modal. This assumes your modal has an ID or a specific way to be closed.
+// Fetch all elements with class 'media-modal' and hide them
+                document.querySelectorAll('.media-modal').forEach(function(modal) {
+                modal.style.display = 'none';
         });
     }
 });
-
     </script>
     </body>
     </html>
