@@ -236,19 +236,23 @@
             function closeModal(modalId) {
                 const modal = document.getElementById(modalId);
                 modal.style.display = "none";
-            // Find any Vimeo iframes within the modal and stop their content
+    // Find any Vimeo iframes within the modal and stop their content
                 const iframes = modal.getElementsByTagName('iframe');
                 for (let iframe of iframes) {
                     if (iframe.src.includes("vimeo")) {
                         const player = new Vimeo.Player(iframe);
                         player.pause().then(function() {
-             // The video was paused
+                // The video was paused
                         }).catch(function(error) {
                             console.error('Error pausing the video:', error);
                         });
+
+            // Clear the src attribute to prevent old videos from being displayed
+                        iframe.src = '';
                     }
                 }
             }
+
 // Listen for a click event on the entire window
             window.addEventListener('click', function(event) {
             // Check if the clicked element has the class 'media-modal' or 'media-container'
