@@ -323,19 +323,6 @@ ul li {
     align-items: center;
     justify-content: center;
   }
-   .aspect-ratio-16-9 {
-    position: relative;
-    width: 100%; /* Full width */
-    height: auto; /* Height will be determined by the content */
-    padding-bottom: 0; /* Remove padding-bottom for mobile */
-  }
-
-  .aspect-ratio-16-9 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+ 
 }
 

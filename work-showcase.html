@@ -161,7 +161,7 @@
                 } else {
                  // Force a reflow to make sure scrollHeight is accurate
                     content.style.maxHeight = 'none';
-                const scrollHeight = content.scrollHeight;
+                    const scrollHeight = content.scrollHeight;
                 // Recalculate maxHeight based on current scrollHeight
                     content.style.maxHeight = (content.scrollHeight + 20) + "px";
                     content.style.padding = '10px';
@@ -208,24 +208,25 @@
 
                     modalMediaContent = `
                     <div class="aspect-ratio-16-9">
-                    <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                    <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}?playsinline=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
                     </div>`;
+
                 }
-                    const modal = document.createElement("div");
-                    modal.classList.add("media-modal");
-                    modal.id = `mediaModal${index + 1}`;
-                    modal.innerHTML = `
-                    <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-                    <div class="media-container">
-                    ${modalMediaContent}
-                    </div>
-                    <div class="media-description">
-                    ${mediaItem.description || ""}
-                    </div>
-                    </div>`;
-                    document.body.appendChild(modal);
-                    box.addEventListener("click", () => {
+                const modal = document.createElement("div");
+                modal.classList.add("media-modal");
+                modal.id = `mediaModal${index + 1}`;
+                modal.innerHTML = `
+                <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+                <div class="media-container">
+                ${modalMediaContent}
+                </div>
+                <div class="media-description">
+                ${mediaItem.description || ""}
+                </div>
+                </div>`;
+                document.body.appendChild(modal);
+                box.addEventListener("click", () => {
                     modal.style.display = "block";
                 });
                 return box;
@@ -236,29 +237,29 @@
                 const modal = document.getElementById(modalId);
                 modal.style.display = "none";
             // Find any Vimeo iframes within the modal and stop their content
-            const iframes = modal.getElementsByTagName('iframe');
+                const iframes = modal.getElementsByTagName('iframe');
                 for (let iframe of iframes) {
-                if (iframe.src.includes("vimeo")) {
-            const player = new Vimeo.Player(iframe);
-                player.pause().then(function() {
+                    if (iframe.src.includes("vimeo")) {
+                        const player = new Vimeo.Player(iframe);
+                        player.pause().then(function() {
              // The video was paused
-                }).catch(function(error) {
-                console.error('Error pausing the video:', error);
-            });
-        }
-    }
-}
+                        }).catch(function(error) {
+                            console.error('Error pausing the video:', error);
+                        });
+                    }
+                }
+            }
 // Listen for a click event on the entire window
             window.addEventListener('click', function(event) {
             // Check if the clicked element has the class 'media-modal' or 'media-container'
                 if (event.target.classList.contains('media-modal') || event.target.classList.contains('media-container')) {
             // If so, close the modal. This assumes your modal has an ID or a specific way to be closed.
             // Fetch all elements with class 'media-modal' and hide them
-                document.querySelectorAll('.media-modal').forEach(function(modal) {
-                modal.style.display = 'none';
-        });
-    }
-});
-    </script>
+                    document.querySelectorAll('.media-modal').forEach(function(modal) {
+                        modal.style.display = 'none';
+                    });
+                }
+            });
+        </script>
     </body>
     </html>
