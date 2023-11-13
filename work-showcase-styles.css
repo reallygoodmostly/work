@@ -305,6 +305,7 @@ ul li {
   font-size: 32px;
   cursor: pointer;
   color: orange;  
+  stroke: 1px black;
 }
 
 .hidden {
