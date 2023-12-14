@@ -91,11 +91,11 @@
                 }
             }
 // Fetch the data
-            async function fetchData() {
+            async function fetchData(selectedProjectIndex = 0) {
                 try {
-                    const response = await fetch('projects.json');
-                    const data = await response.json();
-                    populateProjectDetails(data.projects[0]);
+                const response = await fetch('projects.json');
+                const data = await response.json();
+                populateProjectDetails(data.projects[selectedProjectIndex]);
             // Recalculate maxHeight for all collapsible elements
                     const collapsibles = document.getElementsByClassName("collapsible");
                     for (let i = 0; i < collapsibles.length; i++) {
@@ -128,9 +128,9 @@
 }
 // Update project data based on dropdown selection
             function updateProjectData() {
-                var selectedProjectIndex = document.getElementById('projectDropdown').value;
-                if (selectedProjectIndex !== '') {
-                fetchData(selectedProjectIndex);
+    var selectedProjectIndex = document.getElementById('projectDropdown').value;
+    if (selectedProjectIndex !== '') {
+        fetchData(selectedProjectIndex);
     }
 }
 // Attach collapsible functionality
