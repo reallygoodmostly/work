@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-12">
                  <!-- Project Selection Dropdown as Title -->
-                <select id="projectDropdown" onchange="updateProjectData()" class="display-1">
+                <select id="projectDropdown" onchange="updateProjectData()" class="h1-dropdown">
                 <!-- <option value="">Select a Project</option> -->
                 <!-- Options will be populated dynamically -->
                 </select>
@@ -76,6 +76,7 @@
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
+                populateDropdown();
                 fetchData();
             });
 // Back arrow functionality
@@ -118,6 +119,30 @@
                 populateMediaGrid(project.media);
                 populateProcessImages(project.process);
 
+// Dynamically populate the dropdown with projects
+            async function populateDropdown() {
+                try {
+                const response = await fetch('projects.json');
+                const data = await response.json();
+                const dropdown = document.getElementById('projectDropdown');
+                dropdown.innerHTML = '<option value="">Select a Project</option>'; // Resetting dropdown
+                data.projects.forEach((project, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = project.title;
+                dropdown.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error populating dropdown:', error);
+    }
+}
+// Update project data based on dropdown selection
+            function updateProjectData() {
+                var selectedProjectIndex = document.getElementById('projectDropdown').value;
+                if (selectedProjectIndex !== '') {
+                fetchData(selectedProjectIndex);
+    }
+}
 // Attach collapsible functionality
                 const coll = document.getElementsByClassName("collapsible");
                 for (let i = 0; i < coll.length; i++) {

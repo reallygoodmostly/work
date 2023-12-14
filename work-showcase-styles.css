@@ -43,6 +43,17 @@ h1 {
   font-weight: 900; 
 }
 
+.h1-dropdown {
+    font-family: 'Alumni Sans', sans-serif;
+    text-align: left;
+    font-weight: 900;
+    /* Additional dropdown-specific styles */
+    font-size: 2rem; /* or any appropriate size */
+    border: none; 
+    background: transparent;
+    /* More adjustments as needed */
+}
+
 h2 {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 500; /* Medium weight */
