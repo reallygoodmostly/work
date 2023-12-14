@@ -25,11 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                 <!-- Project Selection Dropdown as Title -->
-                <select id="projectDropdown" onchange="updateProjectData()" class="h1-dropdown">
-                <!-- <option value="">Select a Project</option> -->
-                <!-- Options will be populated dynamically -->
-                </select>
+                <h1 class="display-1"></h1>
                 <h2 class="fs-5"></h2>
                 <p class="caption-text"></p>
             </div>
@@ -76,7 +72,6 @@
         <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                populateDropdown();
                 fetchData();
             });
 // Back arrow functionality
@@ -91,11 +86,11 @@
                 }
             }
 // Fetch the data
-            async function fetchData(selectedProjectIndex = 0) {
+            async function fetchData() {
                 try {
-                const response = await fetch('projects.json');
-                const data = await response.json();
-                populateProjectDetails(data.projects[selectedProjectIndex]);
+                    const response = await fetch('projects.json');
+                    const data = await response.json();
+                    populateProjectDetails(data.projects[0]);
             // Recalculate maxHeight for all collapsible elements
                     const collapsibles = document.getElementsByClassName("collapsible");
                     for (let i = 0; i < collapsibles.length; i++) {
@@ -109,7 +104,7 @@
                 }
             }
 
-            // Populate project details
+// Populate project details
             function populateProjectDetails(project) {
                 document.querySelector('.display-1').textContent = project.title;
                 document.querySelector('.fs-5').textContent = project.description;
@@ -118,32 +113,7 @@
                 populateCreditInfo(project.creditInfo);
                 populateMediaGrid(project.media);
                 populateProcessImages(project.process);
-            }
 
-// Dynamically populate the dropdown with projects
-            async function populateDropdown() {
-                try {
-                const response = await fetch('projects.json');
-                const data = await response.json();
-                const dropdown = document.getElementById('projectDropdown');
-                dropdown.innerHTML = '<option value="">Select a Project</option>'; // Resetting dropdown
-                data.projects.forEach((project, index) => {
-                const option = document.createElement('option');
-                option.value = index;
-                option.textContent = project.title;
-                dropdown.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error populating dropdown:', error);
-    }
-}
-// Update project data based on dropdown selection
-            function updateProjectData() {
-    var selectedProjectIndex = document.getElementById('projectDropdown').value;
-    if (selectedProjectIndex !== '') {
-        fetchData(selectedProjectIndex);
-    }
-}
 // Attach collapsible functionality
                 const coll = document.getElementsByClassName("collapsible");
                 for (let i = 0; i < coll.length; i++) {
@@ -156,7 +126,8 @@
                         `).join('');
                     processContent.innerHTML = imagesHTML;
                 }
-            
+            }
+
 // Populate credit info
             function populateCreditInfo(creditInfo) {
                 const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
