@@ -109,16 +109,6 @@
                 }
             }
 
-// Populate project details
-            function populateProjectDetails(project) {
-                document.querySelector('.display-1').textContent = project.title;
-                document.querySelector('.fs-5').textContent = project.description;
-                document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
-
-                populateCreditInfo(project.creditInfo);
-                populateMediaGrid(project.media);
-                populateProcessImages(project.process);
-
 // Dynamically populate the dropdown with projects
             async function populateDropdown() {
                 try {
