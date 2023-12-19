@@ -79,23 +79,6 @@ p {
 
 --#{$prefix}dropdown-color: #{$#E17918};
 
-.dropdown {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #E17918;
-  border: 1px solid black;
-  color: black;
-  font-family: 'IBM Plex Mono', monospace;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
-
 .collapsible {
   display: flex;
   justify-content: space-between;
