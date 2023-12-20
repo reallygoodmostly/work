@@ -77,8 +77,6 @@ p {
  font-weight: 900;
 }
 
---#{$prefix}dropdown-color: #{$#E17918};
-
 .collapsible {
   display: flex;
   justify-content: space-between;
