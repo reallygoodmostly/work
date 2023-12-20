@@ -22,71 +22,71 @@
         </svg>
     </div>
     <!-- Project Description -->
-    <div class="dropdown">
-      <input type="checkbox" id="my-dropdown" value="" name="my-checkbox">
-      <label for="my-dropdown"
-      data-toggle="dropdown">
-      <h1 class="display-1"></h1>
-  </label>
-  <ul>
-    <li><a href="#">Coffee</a></li>
-    <li><a href="#">Coverage</a></li>
-    <li><a href="https://twitter.com/hashtag/covfefe">Covfefe</a></li>
-</ul>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="fs-5"></h2>
-            <p class="caption-text"></p>
-        </div>
-        <div class="col-12">
-            <button class="collapsible">
-                <span>About</span>
-                <i class="material-icons expand-more-icon">expand_more</i>
-            </button>
-            <div class="content description-content">
-            </div>
-            <button class="collapsible">
-                <span>Process</span>
-                <i class="material-icons expand-more-icon">expand_more</i>
-            </button>
-            <div class="process-container">
-                <div class="process-content"></div>
-            </div>
+    <div class="container">
+        <div class="row">
             <div class="col-12">
-                <!-- New Container for Media Grid -->
-                <div class="media-grid" id="mediaGrid">
-                    <!-- Initially empty; we'll populate it with JavaScript -->
-                </div>
+               <div class="dropdown">
+                  <input type="checkbox" id="my-dropdown" value="" name="my-checkbox">
+                  <label for="my-dropdown"
+                  data-toggle="dropdown">
+                  <h1 class="display-1"></h1>
+              </label>
+              <ul>
+                <li><a href="#">Coffee</a></li>
+                <li><a href="#">Coverage</a></li>
+                <li><a href="https://twitter.com/hashtag/covfefe">Covfefe</a></li>
+            </ul>
+        </div>
+        <h2 class="fs-5"></h2>
+        <p class="caption-text"></p>
+    </div>
+    <div class="col-12">
+        <button class="collapsible">
+            <span>About</span>
+            <i class="material-icons expand-more-icon">expand_more</i>
+        </button>
+        <div class="content description-content">
+        </div>
+        <button class="collapsible">
+            <span>Process</span>
+            <i class="material-icons expand-more-icon">expand_more</i>
+        </button>
+        <div class="process-container">
+            <div class="process-content"></div>
+        </div>
+        <div class="col-12">
+            <!-- New Container for Media Grid -->
+            <div class="media-grid" id="mediaGrid">
+                <!-- Initially empty; we'll populate it with JavaScript -->
             </div>
         </div>
     </div>
-    <!-- This will be generated dynamically -->
-    <div class="media-modal" id="mediaModal">
-        <div class="modal-content-container">
-            <div class="modal-content">
-                <!-- Media content will go here -->
-                <div class="media-container">
-                    <!-- Media, like img, video, etc. -->
-                </div>
-                <div class="media-description">
-                    <!-- Optional description text -->
-                </div>
-                <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
+</div>
+<!-- This will be generated dynamically -->
+<div class="media-modal" id="mediaModal">
+    <div class="modal-content-container">
+        <div class="modal-content">
+            <!-- Media content will go here -->
+            <div class="media-container">
+                <!-- Media, like img, video, etc. -->
             </div>
+            <div class="media-description">
+                <!-- Optional description text -->
+            </div>
+            <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
         </div>
     </div>
-    <footer class="fixed-bottom footer">
-        <div class="text-uppercase">Work</div>
-    </footer>
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetchData();
-        });
+</div>
+<footer class="fixed-bottom footer">
+    <div class="text-uppercase">Work</div>
+</footer>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetchData();
+    });
 // Back arrow functionality
-        function goBack() {
+    function goBack() {
                 // Check if the user is at the top of the page or close to it
                 if (window.pageYOffset > 100) { // 100px is the threshold you can define
                 // If not at the top, scroll to the top
