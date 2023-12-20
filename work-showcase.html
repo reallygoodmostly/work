@@ -98,54 +98,54 @@
                     window.location.href = 'https://reallygoodmostly.github.io/work/';
                 }
             }
-// Fetch the data
-            async function fetchData() {
-                try {
-                    const response = await fetch('projects.json');
-                    const data = await response.json();
-                    populateProjectDetails(data.projects[0]);
-            // Recalculate maxHeight for all collapsible elements
-                    const collapsibles = document.getElementsByClassName("collapsible");
-                    for (let i = 0; i < collapsibles.length; i++) {
-                        const content = collapsibles[i].nextElementSibling;
-                        if (content.style.maxHeight) {
-                            content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                        }
-                    }
-                } catch (error) {
-                    console.error('There was an error!', error);
-                }
-            }
+// // Fetch the data
+//             async function fetchData() {
+//                 try {
+//                     const response = await fetch('projects.json');
+//                     const data = await response.json();
+//                     populateProjectDetails(data.projects[0]);
+//             // Recalculate maxHeight for all collapsible elements
+//                     const collapsibles = document.getElementsByClassName("collapsible");
+//                     for (let i = 0; i < collapsibles.length; i++) {
+//                         const content = collapsibles[i].nextElementSibling;
+//                         if (content.style.maxHeight) {
+//                             content.style.maxHeight = (content.scrollHeight + 20) + "px";
+//                         }
+//                     }
+//                 } catch (error) {
+//                     console.error('There was an error!', error);
+//                 }
+//             }
 
 // Populate project details
             function populateProjectDetails(project) {
-                document.querySelector('.display-1').textContent = project.title;
-                document.querySelector('.fs-5').textContent = project.description;
-                document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+                // document.querySelector('.display-1').textContent = project.title;
+                // document.querySelector('.fs-5').textContent = project.description;
+                // document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
 
-                populateCreditInfo(project.creditInfo);
-                populateMediaGrid(project.media);
-                populateProcessImages(project.process);
+                // populateCreditInfo(project.creditInfo);
+                // populateMediaGrid(project.media);
+                // populateProcessImages(project.process);
 
 // Attach collapsible functionality
                 const coll = document.getElementsByClassName("collapsible");
                 for (let i = 0; i < coll.length; i++) {
                     coll[i].addEventListener("click", toggleCollapsible);
                 }
-                function populateProcessImages(processImages) {
-                    const processContent = document.querySelector('.process-content');
-                    const imagesHTML = processImages.map(src => `
-                        <img src="${src}" class="process-image">
-                        `).join('');
-                    processContent.innerHTML = imagesHTML;
-                }
+                // function populateProcessImages(processImages) {
+                //     const processContent = document.querySelector('.process-content');
+                //     const imagesHTML = processImages.map(src => `
+                //         <img src="${src}" class="process-image">
+                //         `).join('');
+                //     processContent.innerHTML = imagesHTML;
+                // }
             }
 
 // Populate credit info
-            function populateCreditInfo(creditInfo) {
-                const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-                document.querySelector('.description-content').innerHTML = creditInfoContent;
-            }
+            // function populateCreditInfo(creditInfo) {
+            //     const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
+            //     document.querySelector('.description-content').innerHTML = creditInfoContent;
+            // }
 
 // Populate media grid
             function populateMediaGrid(mediaItems) {
