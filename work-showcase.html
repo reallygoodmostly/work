@@ -84,9 +84,15 @@
         </footer>
           <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
-            // document.addEventListener("DOMContentLoaded", function() {
-            //     fetchData();
-            // });
+            document.addEventListener("DOMContentLoaded", function() {
+    // Initialize collapsible elements
+    const collapsibles = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < collapsibles.length; i++) {
+        collapsibles[i].addEventListener("click", toggleCollapsible);
+    }
+
+    // Any other initialization code goes here
+});
 // Back arrow functionality
             function goBack() {
                 // Check if the user is at the top of the page or close to it
