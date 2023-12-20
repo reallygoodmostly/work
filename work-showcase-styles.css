@@ -101,7 +101,7 @@ p {
 }
 
 .dropdown {
-  margin-top: 10px;
+  margin-top: 15px;
   position: relative;
   display: inline-block;
 }
@@ -114,8 +114,8 @@ p {
 .dropdown > label,
 .dropdown > a[role="button"] {
   display: inline-block;
-  padding: 6px 15px;
-  color: #333;
+  padding: 6px 8px;
+  color: #E17918;
   line-height: 1.5em;
   text-decoration: none;
   border: 1px solid #8c8c8c;
