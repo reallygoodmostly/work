@@ -88,6 +88,15 @@
             //     fetchData();
             // });
 // Back arrow functionality
+
+                  document.addEventListener('DOMContentLoaded', function() {
+    var collapsible = document.querySelector('.collapsible');
+    var content = document.querySelector('.description-content');
+
+    collapsible.addEventListener('click', function() {
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
             function goBack() {
                 // Check if the user is at the top of the page or close to it
                 if (window.pageYOffset > 100) { // 100px is the threshold you can define
@@ -99,14 +108,7 @@
                 }
             }
 
-            document.addEventListener('DOMContentLoaded', function() {
-    var collapsible = document.querySelector('.collapsible');
-    var content = document.querySelector('.description-content');
 
-    collapsible.addEventListener('click', function() {
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
-});
 // // Fetch the data
 //             async function fetchData() {
 //                 try {
