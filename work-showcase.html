@@ -82,21 +82,12 @@
         <footer class="fixed-bottom footer">
             <div class="text-uppercase">Work</div>
         </footer>
-        <script src="https://player.vimeo.com/api/player.js"></script>
+          <script src="https://player.vimeo.com/api/player.js"></script>
         <script>
-            // document.addEventListener("DOMContentLoaded", function() {
-            //     fetchData();
-            // });
+            document.addEventListener("DOMContentLoaded", function() {
+                fetchData();
+            });
 // Back arrow functionality
-
-                  document.addEventListener('DOMContentLoaded', function() {
-    var collapsible = document.querySelector('.collapsible');
-    var content = document.querySelector('.description-content');
-
-    collapsible.addEventListener('click', function() {
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-    });
-});
             function goBack() {
                 // Check if the user is at the top of the page or close to it
                 if (window.pageYOffset > 100) { // 100px is the threshold you can define
@@ -107,148 +98,152 @@
                     window.location.href = 'https://reallygoodmostly.github.io/work/';
                 }
             }
+// Fetch the data
+            async function fetchData() {
+                try {
+                    const response = await fetch('projects.json');
+                    const data = await response.json();
+                    populateProjectDetails(data.projects[0]);
+            // Recalculate maxHeight for all collapsible elements
+                    const collapsibles = document.getElementsByClassName("collapsible");
+                    for (let i = 0; i < collapsibles.length; i++) {
+                        const content = collapsibles[i].nextElementSibling;
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = (content.scrollHeight + 20) + "px";
+                        }
+                    }
+                } catch (error) {
+                    console.error('There was an error!', error);
+                }
+            }
 
+// Populate project details
+            function populateProjectDetails(project) {
+                document.querySelector('.display-1').textContent = project.title;
+                document.querySelector('.fs-5').textContent = project.description;
+                document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
 
-// // Fetch the data
-//             async function fetchData() {
-//                 try {
-//                     const response = await fetch('projects.json');
-//                     const data = await response.json();
-//                     populateProjectDetails(data.projects[0]);
-//             // Recalculate maxHeight for all collapsible elements
-//                     const collapsibles = document.getElementsByClassName("collapsible");
-//                     for (let i = 0; i < collapsibles.length; i++) {
-//                         const content = collapsibles[i].nextElementSibling;
-//                         if (content.style.maxHeight) {
-//                             content.style.maxHeight = (content.scrollHeight + 20) + "px";
-//                         }
-//                     }
-//                 } catch (error) {
-//                     console.error('There was an error!', error);
-//                 }
-//             }
+                populateCreditInfo(project.creditInfo);
+                populateMediaGrid(project.media);
+                populateProcessImages(project.process);
 
-// // Populate project details
-//             function populateProjectDetails(project) {
-//                 document.querySelector('.display-1').textContent = project.title;
-//                 document.querySelector('.fs-5').textContent = project.description;
-//                 document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
+// Attach collapsible functionality
+                const coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", toggleCollapsible);
+                }
+                function populateProcessImages(processImages) {
+                    const processContent = document.querySelector('.process-content');
+                    const imagesHTML = processImages.map(src => `
+                        <img src="${src}" class="process-image">
+                        `).join('');
+                    processContent.innerHTML = imagesHTML;
+                }
+            }
 
-//                 populateCreditInfo(project.creditInfo);
-//                 populateMediaGrid(project.media);
-//                 populateProcessImages(project.process);
+// Populate credit info
+            function populateCreditInfo(creditInfo) {
+                const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
+                document.querySelector('.description-content').innerHTML = creditInfoContent;
+            }
 
+// Populate media grid
+            function populateMediaGrid(mediaItems) {
+                const mediaGrid = document.getElementById("mediaGrid");
+                mediaItems.forEach((mediaItem, index) => {
+                    const box = createMediaBox(mediaItem, index);
+                    mediaGrid.appendChild(box);
+                });
+            }
 
-// function initializeCollapsibles() {
-//     const coll = document.getElementsByClassName("collapsible");
-//     for (let i = 0; i < coll.length; i++) {
-//         coll[i].addEventListener("click", function(event) {
-//             event.stopPropagation();
-//             this.classList.toggle("active");
-//             let content;
-//             if (this.textContent.includes("Process")) {
-//                 content = this.nextElementSibling.querySelector('.process-content');
-//             } else {
-//                 content = this.nextElementSibling;
-//             }
+// Toggle collapsible content
+            function toggleCollapsible(event) {
+                event.stopPropagation();
+                this.classList.toggle("active");
+                let content;
+                if (this.textContent.includes("Process")) {
+                    content = this.nextElementSibling.querySelector('.process-content');
+                } else {
+                    content = this.nextElementSibling;
+                }
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    content.style.padding = '0';
+                    content.style.borderWidth = '0px';
+                    content.style.marginLeft = '0';
+                } else {
+                 // Force a reflow to make sure scrollHeight is accurate
+                    content.style.maxHeight = 'none';
+                    const scrollHeight = content.scrollHeight;
+                // Recalculate maxHeight based on current scrollHeight
+                    content.style.maxHeight = (content.scrollHeight + 20) + "px";
+                    content.style.padding = '10px';
+                    content.style.borderWidth = '1px';
+                    content.style.marginLeft = '25vw';
+                }
+            }
+// Create a media box
+            function createMediaBox(mediaItem, index) {
+                const box = document.createElement("div");
+                box.classList.add("media-box");
 
-//             if (content.style.maxHeight) {
-//                 content.style.maxHeight = null;
-//                 content.style.padding = '0';
-//                 content.style.borderWidth = '0px';
-//                 content.style.marginLeft = '0';
-//             } else {
-//                 // Force a reflow to make sure scrollHeight is accurate
-//                 content.style.maxHeight = 'none';
-//                 const scrollHeight = content.scrollHeight;
-//                 // Recalculate maxHeight based on current scrollHeight
-//                 content.style.maxHeight = (scrollHeight + 20) + "px";
-//                 content.style.padding = '10px';
-//                 content.style.borderWidth = '1px';
-//                 content.style.marginLeft = '25vw';
-//             }
-//         });
-//     }
-// }
+                let mediaContent = "";
+                let modalMediaContent = "";
 
-// // Populate credit info
-//             function populateCreditInfo(creditInfo) {
-//                 const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-//                 document.querySelector('.description-content').innerHTML = creditInfoContent;
-//             }
+                if (mediaItem.type === 'image') {
+                    const addIcon = document.createElement("i");
+                    addIcon.classList.add("material-icons", "add-icon");
+                    addIcon.textContent = "add";
 
-// // Populate media grid
-//             function populateMediaGrid(mediaItems) {
-//                 const mediaGrid = document.getElementById("mediaGrid");
-//                 mediaItems.forEach((mediaItem, index) => {
-//                     const box = createMediaBox(mediaItem, index);
-//                     mediaGrid.appendChild(box);
-//                 });
-//             }
+                    const imageElement = document.createElement("img");
+                    imageElement.src = mediaItem.path;
+                    imageElement.alt = mediaItem.description || '';
 
+                    box.appendChild(imageElement);
+                    box.appendChild(addIcon);
 
-// // Create a media box
-//             function createMediaBox(mediaItem, index) {
-//                 const box = document.createElement("div");
-//                 box.classList.add("media-box");
+                    modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
+                } else if (mediaItem.type === 'video') {
+                    const videoContainer = document.createElement("div");
+                    videoContainer.classList.add("video-container");
 
-//                 let mediaContent = "";
-//                 let modalMediaContent = "";
+                    const videoThumbnail = document.createElement("img");
+                    videoThumbnail.src = mediaItem.thumbnail;
+                    videoThumbnail.alt = mediaItem.description || '';
 
-//                 if (mediaItem.type === 'image') {
-//                     const addIcon = document.createElement("i");
-//                     addIcon.classList.add("material-icons", "add-icon");
-//                     addIcon.textContent = "add";
+                    const videoFlag = document.createElement("div");
+                    videoFlag.classList.add("video-flag");
+                    videoFlag.textContent = "VIDEO!";
 
-//                     const imageElement = document.createElement("img");
-//                     imageElement.src = mediaItem.path;
-//                     imageElement.alt = mediaItem.description || '';
+                    videoContainer.appendChild(videoThumbnail);
+                    videoContainer.appendChild(videoFlag);
+                    box.appendChild(videoContainer);
 
-//                     box.appendChild(imageElement);
-//                     box.appendChild(addIcon);
+                    modalMediaContent = `
+                    <div class="aspect-ratio-16-9">
+                    <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}?playsinline=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
+                    </div>`;
 
-//                     modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-//                 } else if (mediaItem.type === 'video') {
-//                     const videoContainer = document.createElement("div");
-//                     videoContainer.classList.add("video-container");
-
-//                     const videoThumbnail = document.createElement("img");
-//                     videoThumbnail.src = mediaItem.thumbnail;
-//                     videoThumbnail.alt = mediaItem.description || '';
-
-//                     const videoFlag = document.createElement("div");
-//                     videoFlag.classList.add("video-flag");
-//                     videoFlag.textContent = "VIDEO!";
-
-//                     videoContainer.appendChild(videoThumbnail);
-//                     videoContainer.appendChild(videoFlag);
-//                     box.appendChild(videoContainer);
-
-//                     modalMediaContent = `
-//                     <div class="aspect-ratio-16-9">
-//                     <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}?playsinline=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-//                     </div>`;
-
-//                 }
-//                 const modal = document.createElement("div");
-//                 modal.classList.add("media-modal");
-//                 modal.id = `mediaModal${index + 1}`;
-//                 modal.innerHTML = `
-//                 <div class="modal-content">
-//                 <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-//                 <div class="media-container">
-//                 ${modalMediaContent}
-//                 </div>
-//                 <div class="media-description">
-//                 ${mediaItem.description || ""}
-//                 </div>
-//                 </div>`;
-//                 document.body.appendChild(modal);
-//                 box.addEventListener("click", () => {
-//                     modal.style.display = "block";
-//                 });
-//                 return box;
-//             }
+                }
+                const modal = document.createElement("div");
+                modal.classList.add("media-modal");
+                modal.id = `mediaModal${index + 1}`;
+                modal.innerHTML = `
+                <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
+                <div class="media-container">
+                ${modalMediaContent}
+                </div>
+                <div class="media-description">
+                ${mediaItem.description || ""}
+                </div>
+                </div>`;
+                document.body.appendChild(modal);
+                box.addEventListener("click", () => {
+                    modal.style.display = "block";
+                });
+                return box;
+            }
 
 // Modal close function
             function closeModal(modalId) {
