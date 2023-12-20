@@ -101,6 +101,7 @@ p {
 }
 
 .dropdown {
+  margin-top: 10px;
   position: relative;
   display: inline-block;
 }
