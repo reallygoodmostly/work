@@ -37,6 +37,13 @@ body {
   padding-left: 20px;
 }
 
+@font-face {
+    font-family: 'Kellar-HeadlineCondensed-Italic';
+    src: url('https://github.com/reallygoodmostly/work/blob/main/Kellar-HeadlineCondensed-Italic-web.woff2') format('woff2');/* Super Modern Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1 {
   font-family: 'Alumni Sans', sans-serif; 
   text-align: left; 
@@ -73,7 +80,7 @@ p {
  text-align: left;
  border-top: 2px solid black;
  background-color: #E17918;
- font-family: 'Alumni Sans', sans-serif; 
+ font-family: 'Kellar-HeadlineCondensed-Italic', sans-serif; 
  font-weight: 900;
 }
 
