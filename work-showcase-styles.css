@@ -132,7 +132,7 @@ p {
 
 .dropdown > label:after,
 .dropdown > a[role="button"]:after {
-  content: "expand_more";
+  content: <i class="material-icons expand-more-icon">expand_more</i>;
   font-family: FontAwesome;
   display: inline-block;
   margin-left: 6px;
