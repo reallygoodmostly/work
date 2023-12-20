@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="work-showcase-styles.css">
     <!-- Material Icons -->
@@ -25,68 +25,57 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-               <div class="dropdown">
-                  <input type="checkbox" id="my-dropdown" value="" name="my-checkbox">
-                  <label for="my-dropdown"
-                  data-toggle="dropdown">
-                  <h1 class="display-1"></h1>
-              </label>
-              <ul>
-                <li><a href="#">Coffee</a></li>
-                <li><a href="#">Coverage</a></li>
-                <li><a href="https://twitter.com/hashtag/covfefe">Covfefe</a></li>
-            </ul>
-        </div>
-        <h2 class="fs-5"></h2>
-        <p class="caption-text"></p>
-    </div>
-    <div class="col-12">
-        <button class="collapsible">
-            <span>About</span>
-            <i class="material-icons expand-more-icon">expand_more</i>
-        </button>
-        <div class="content description-content">
-        </div>
-        <button class="collapsible">
-            <span>Process</span>
-            <i class="material-icons expand-more-icon">expand_more</i>
-        </button>
-        <div class="process-container">
-            <div class="process-content"></div>
-        </div>
-        <div class="col-12">
-            <!-- New Container for Media Grid -->
-            <div class="media-grid" id="mediaGrid">
-                <!-- Initially empty; we'll populate it with JavaScript -->
+                <h1 class="display-1"></h1>
+                <h2 class="fs-5"></h2>
+                <p class="caption-text"></p>
+            </div>
+            <div class="col-12">
+                <button class="collapsible">
+                    <span>About</span>
+                    <i class="material-icons expand-more-icon">expand_more</i>
+                </button>
+                <div class="content description-content">
+                </div>
+                <button class="collapsible">
+                    <span>Process</span>
+                    <i class="material-icons expand-more-icon">expand_more</i>
+                </button>
+                <div class="process-container">
+                    <div class="process-content"></div>
+                </div>
+                <div class="col-12">
+                    <!-- New Container for Media Grid -->
+                    <div class="media-grid" id="mediaGrid">
+                        <!-- Initially empty; we'll populate it with JavaScript -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- This will be generated dynamically -->
-<div class="media-modal" id="mediaModal">
-    <div class="modal-content-container">
-        <div class="modal-content">
-            <!-- Media content will go here -->
-            <div class="media-container">
-                <!-- Media, like img, video, etc. -->
+        <!-- This will be generated dynamically -->
+        <div class="media-modal" id="mediaModal">
+            <div class="modal-content-container">
+                <div class="modal-content">
+                    <!-- Media content will go here -->
+                    <div class="media-container">
+                        <!-- Media, like img, video, etc. -->
+                    </div>
+                    <div class="media-description">
+                        <!-- Optional description text -->
+                    </div>
+                    <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
+                </div>
             </div>
-            <div class="media-description">
-                <!-- Optional description text -->
-            </div>
-            <span class="close-btn" onclick="closeModal('mediaModal')">&times;</span>
         </div>
-    </div>
-</div>
-<footer class="fixed-bottom footer">
-    <div class="text-uppercase">Work</div>
-</footer>
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetchData();
-    });
+        <footer class="fixed-bottom footer">
+            <div class="text-uppercase">Work</div>
+        </footer>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetchData();
+            });
 // Back arrow functionality
-    function goBack() {
+            function goBack() {
                 // Check if the user is at the top of the page or close to it
                 if (window.pageYOffset > 100) { // 100px is the threshold you can define
                 // If not at the top, scroll to the top
@@ -124,8 +113,6 @@
                 populateCreditInfo(project.creditInfo);
                 populateMediaGrid(project.media);
                 populateProcessImages(project.process);
-
-//navigation javascript
 
 // Attach collapsible functionality
                 const coll = document.getElementsByClassName("collapsible");
@@ -262,6 +249,7 @@
                     }
                 }
             }
+
 // Listen for a click event on the entire window
             window.addEventListener('click', function(event) {
             // Check if the clicked element has the class 'media-modal' or 'media-container'
