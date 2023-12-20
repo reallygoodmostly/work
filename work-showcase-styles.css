@@ -132,7 +132,7 @@ p {
 
 .dropdown > label:after,
 .dropdown > a[role="button"]:after {
-  content: "\f0d7";
+  content: "expand_more";
   font-family: FontAwesome;
   display: inline-block;
   margin-left: 6px;
