@@ -127,19 +127,37 @@
 //                 populateMediaGrid(project.media);
 //                 populateProcessImages(project.process);
 
-// Attach collapsible functionality
-                const coll = document.getElementsByClassName("collapsible");
-                for (let i = 0; i < coll.length; i++) {
-                    coll[i].addEventListener("click", toggleCollapsible);
-                }
-                function populateProcessImages(processImages) {
-                    const processContent = document.querySelector('.process-content');
-                    const imagesHTML = processImages.map(src => `
-                        <img src="${src}" class="process-image">
-                        `).join('');
-                    processContent.innerHTML = imagesHTML;
-                }
+function initializeCollapsibles() {
+    const coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function(event) {
+            event.stopPropagation();
+            this.classList.toggle("active");
+            let content;
+            if (this.textContent.includes("Process")) {
+                content = this.nextElementSibling.querySelector('.process-content');
+            } else {
+                content = this.nextElementSibling;
             }
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.padding = '0';
+                content.style.borderWidth = '0px';
+                content.style.marginLeft = '0';
+            } else {
+                // Force a reflow to make sure scrollHeight is accurate
+                content.style.maxHeight = 'none';
+                const scrollHeight = content.scrollHeight;
+                // Recalculate maxHeight based on current scrollHeight
+                content.style.maxHeight = (scrollHeight + 20) + "px";
+                content.style.padding = '10px';
+                content.style.borderWidth = '1px';
+                content.style.marginLeft = '25vw';
+            }
+        });
+    }
+}
 
 // // Populate credit info
 //             function populateCreditInfo(creditInfo) {
@@ -156,32 +174,7 @@
 //                 });
 //             }
 
-// Toggle collapsible content
-            function toggleCollapsible(event) {
-                event.stopPropagation();
-                this.classList.toggle("active");
-                let content;
-                if (this.textContent.includes("Process")) {
-                    content = this.nextElementSibling.querySelector('.process-content');
-                } else {
-                    content = this.nextElementSibling;
-                }
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                    content.style.padding = '0';
-                    content.style.borderWidth = '0px';
-                    content.style.marginLeft = '0';
-                } else {
-                 // Force a reflow to make sure scrollHeight is accurate
-                    content.style.maxHeight = 'none';
-                    const scrollHeight = content.scrollHeight;
-                // Recalculate maxHeight based on current scrollHeight
-                    content.style.maxHeight = (content.scrollHeight + 20) + "px";
-                    content.style.padding = '10px';
-                    content.style.borderWidth = '1px';
-                    content.style.marginLeft = '25vw';
-                }
-            }
+
 // // Create a media box
 //             function createMediaBox(mediaItem, index) {
 //                 const box = document.createElement("div");
