@@ -98,6 +98,15 @@
                     window.location.href = 'https://reallygoodmostly.github.io/work/';
                 }
             }
+
+            document.addEventListener('DOMContentLoaded', function() {
+    var collapsible = document.querySelector('.collapsible');
+    var content = document.querySelector('.description-content');
+
+    collapsible.addEventListener('click', function() {
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
 // // Fetch the data
 //             async function fetchData() {
 //                 try {
@@ -127,37 +136,38 @@
 //                 populateMediaGrid(project.media);
 //                 populateProcessImages(project.process);
 
-function initializeCollapsibles() {
-    const coll = document.getElementsByClassName("collapsible");
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function(event) {
-            event.stopPropagation();
-            this.classList.toggle("active");
-            let content;
-            if (this.textContent.includes("Process")) {
-                content = this.nextElementSibling.querySelector('.process-content');
-            } else {
-                content = this.nextElementSibling;
-            }
 
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                content.style.padding = '0';
-                content.style.borderWidth = '0px';
-                content.style.marginLeft = '0';
-            } else {
-                // Force a reflow to make sure scrollHeight is accurate
-                content.style.maxHeight = 'none';
-                const scrollHeight = content.scrollHeight;
-                // Recalculate maxHeight based on current scrollHeight
-                content.style.maxHeight = (scrollHeight + 20) + "px";
-                content.style.padding = '10px';
-                content.style.borderWidth = '1px';
-                content.style.marginLeft = '25vw';
-            }
-        });
-    }
-}
+// function initializeCollapsibles() {
+//     const coll = document.getElementsByClassName("collapsible");
+//     for (let i = 0; i < coll.length; i++) {
+//         coll[i].addEventListener("click", function(event) {
+//             event.stopPropagation();
+//             this.classList.toggle("active");
+//             let content;
+//             if (this.textContent.includes("Process")) {
+//                 content = this.nextElementSibling.querySelector('.process-content');
+//             } else {
+//                 content = this.nextElementSibling;
+//             }
+
+//             if (content.style.maxHeight) {
+//                 content.style.maxHeight = null;
+//                 content.style.padding = '0';
+//                 content.style.borderWidth = '0px';
+//                 content.style.marginLeft = '0';
+//             } else {
+//                 // Force a reflow to make sure scrollHeight is accurate
+//                 content.style.maxHeight = 'none';
+//                 const scrollHeight = content.scrollHeight;
+//                 // Recalculate maxHeight based on current scrollHeight
+//                 content.style.maxHeight = (scrollHeight + 20) + "px";
+//                 content.style.padding = '10px';
+//                 content.style.borderWidth = '1px';
+//                 content.style.marginLeft = '25vw';
+//             }
+//         });
+//     }
+// }
 
 // // Populate credit info
 //             function populateCreditInfo(creditInfo) {
