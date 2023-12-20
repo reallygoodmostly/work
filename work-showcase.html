@@ -127,19 +127,19 @@
 //                 populateMediaGrid(project.media);
 //                 populateProcessImages(project.process);
 
-// // Attach collapsible functionality
-//                 const coll = document.getElementsByClassName("collapsible");
-//                 for (let i = 0; i < coll.length; i++) {
-//                     coll[i].addEventListener("click", toggleCollapsible);
-//                 }
-//                 function populateProcessImages(processImages) {
-//                     const processContent = document.querySelector('.process-content');
-//                     const imagesHTML = processImages.map(src => `
-//                         <img src="${src}" class="process-image">
-//                         `).join('');
-//                     processContent.innerHTML = imagesHTML;
-//                 }
-//             }
+// Attach collapsible functionality
+                const coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", toggleCollapsible);
+                }
+                function populateProcessImages(processImages) {
+                    const processContent = document.querySelector('.process-content');
+                    const imagesHTML = processImages.map(src => `
+                        <img src="${src}" class="process-image">
+                        `).join('');
+                    processContent.innerHTML = imagesHTML;
+                }
+            }
 
 // // Populate credit info
 //             function populateCreditInfo(creditInfo) {
