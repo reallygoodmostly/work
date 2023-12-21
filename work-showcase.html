@@ -145,8 +145,15 @@
                 for (let i = 0; i < collapsibles.length; i++) {
                     collapsibles[i].addEventListener("click", toggleCollapsible);
                 }
-
-    // Any other initialization code goes here
+const mediaBoxes = document.querySelectorAll('.media-box');
+    mediaBoxes.forEach((box, index) => {
+        box.addEventListener('click', function() {
+            console.log("Media box clicked", index); // Debugging line
+            // Logic to display the modal
+            // You need to define how to get or create the corresponding modal for this box
+        });
+    });
+    
             });
 // Back arrow functionality
             function goBack() {
