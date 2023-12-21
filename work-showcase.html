@@ -303,6 +303,11 @@
                 box.addEventListener("click", () => {
                     modal.style.display = "block";
                 });
+                // Adding the event listener with a console log for testing
+    box.addEventListener("click", () => {
+        console.log("Media box clicked", modal); // This line is for debugging
+        modal.style.display = "block";
+    });
                 return box;
             }
 
