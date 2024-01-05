@@ -145,8 +145,7 @@ const mediaBoxes = document.querySelectorAll('.media-box');
             // You need to define how to get or create the corresponding modal for this box
         });
     });
-    
-            });
+});
 // Back arrow functionality
             function goBack() {
                 // Check if the user is at the top of the page or close to it
@@ -158,55 +157,14 @@ const mediaBoxes = document.querySelectorAll('.media-box');
                     window.location.href = 'https://reallygoodmostly.github.io/work/';
                 }
             }
-// // Fetch the data
-//             async function fetchData() {
-//                 try {
-//                     const response = await fetch('projects.json');
-//                     const data = await response.json();
-//                     populateProjectDetails(data.projects[0]);
-//             // Recalculate maxHeight for all collapsible elements
-//                     const collapsibles = document.getElementsByClassName("collapsible");
-//                     for (let i = 0; i < collapsibles.length; i++) {
-//                         const content = collapsibles[i].nextElementSibling;
-//                         if (content.style.maxHeight) {
-//                             content.style.maxHeight = (content.scrollHeight + 20) + "px";
-//                         }
-//                     }
-//                 } catch (error) {
-//                     console.error('There was an error!', error);
-//                 }
-//             }
-
 // Populate project details
             function populateProjectDetails(project) {
-                // document.querySelector('.display-1').textContent = project.title;
-                // document.querySelector('.fs-5').textContent = project.description;
-                // document.querySelector('.caption-text').innerHTML = project.caption.split(';').join('<br>');
-
-                // populateCreditInfo(project.creditInfo);
-                // populateMediaGrid(project.media);
-                // populateProcessImages(project.process);
-
 // Attach collapsible functionality
                 const coll = document.getElementsByClassName("collapsible");
                 for (let i = 0; i < coll.length; i++) {
                     coll[i].addEventListener("click", toggleCollapsible);
                 }
-                // function populateProcessImages(processImages) {
-                //     const processContent = document.querySelector('.process-content');
-                //     const imagesHTML = processImages.map(src => `
-                //         <img src="${src}" class="process-image">
-                //         `).join('');
-                //     processContent.innerHTML = imagesHTML;
-                // }
-            }
-
-// Populate credit info
-            // function populateCreditInfo(creditInfo) {
-            //     const creditInfoContent = '<ul>' + creditInfo.map(item => `<li>${item}</li>`).join('') + '</ul>';
-            //     document.querySelector('.description-content').innerHTML = creditInfoContent;
-            // }
-
+             }
 // Populate media grid
             function populateMediaGrid(mediaItems) {
                 const mediaGrid = document.getElementById("mediaGrid");
@@ -215,7 +173,6 @@ const mediaBoxes = document.querySelectorAll('.media-box');
                     mediaGrid.appendChild(box);
                 });
             }
-
 // Toggle collapsible content
             function toggleCollapsible(event) {
                 event.stopPropagation();
@@ -242,75 +199,6 @@ const mediaBoxes = document.querySelectorAll('.media-box');
                     content.style.marginLeft = '25vw';
                 }
             }
-// // Create a media box
-//             function createMediaBox(mediaItem, index) {
-//                 console.log("Creating media box for index:", index);
-//                 const box = document.createElement("div");
-//                 box.classList.add("media-box");
-
-//                 let mediaContent = "";
-//                 let modalMediaContent = "";
-
-//                 if (mediaItem.type === 'image') {
-//                     const addIcon = document.createElement("i");
-//                     addIcon.classList.add("material-icons", "add-icon");
-//                     addIcon.textContent = "add";
-
-//                     const imageElement = document.createElement("img");
-//                     imageElement.src = mediaItem.path;
-//                     imageElement.alt = mediaItem.description || '';
-
-//                     box.appendChild(imageElement);
-//                     box.appendChild(addIcon);
-
-//                     modalMediaContent = `<img src="${mediaItem.path}" alt="${mediaItem.description || ''}">`;
-//                 } else if (mediaItem.type === 'video') {
-//                     const videoContainer = document.createElement("div");
-//                     videoContainer.classList.add("video-container");
-
-//                     const videoThumbnail = document.createElement("img");
-//                     videoThumbnail.src = mediaItem.thumbnail;
-//                     videoThumbnail.alt = mediaItem.description || '';
-
-//                     const videoFlag = document.createElement("div");
-//                     videoFlag.classList.add("video-flag");
-//                     videoFlag.textContent = "VIDEO!";
-
-//                     videoContainer.appendChild(videoThumbnail);
-//                     videoContainer.appendChild(videoFlag);
-//                     box.appendChild(videoContainer);
-
-//                     modalMediaContent = `
-//                     <div class="aspect-ratio-16-9">
-//                     <iframe src="https://player.vimeo.com/video/${mediaItem.videoID}?playsinline=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-//                     </div>`;
-
-//                 }
-//                 const modal = document.createElement("div");
-//                 modal.classList.add("media-modal");
-//                 modal.id = `mediaModal${index + 1}`;
-//                 modal.innerHTML = `
-//                 <div class="modal-content">
-//                 <span class="close-btn" onclick="closeModal('mediaModal${index + 1}')">&times;</span>
-//                 <div class="media-container">
-//                 ${modalMediaContent}
-//                 </div>
-//                 <div class="media-description">
-//                 ${mediaItem.description || ""}
-//                 </div>
-//                 </div>`;
-//                 document.body.appendChild(modal);
-//                 box.addEventListener("click", () => {
-//                     modal.style.display = "block";
-//                 });
-//                 // Adding the event listener with a console log for testing
-//     box.addEventListener("click", () => {
-//         console.log("Media box clicked", modal); // This line is for debugging
-//         modal.style.display = "block";
-//     });
-//                 return box;
-//             }
-
 // Modal close function
             function closeModal(modalId) {
                 const modal = document.getElementById(modalId);
@@ -328,7 +216,6 @@ const mediaBoxes = document.querySelectorAll('.media-box');
                     }
                 }
             }
-
 // Listen for a click event on the entire window
             window.addEventListener('click', function(event) {
             // Check if the clicked element has the class 'media-modal' or 'media-container'
